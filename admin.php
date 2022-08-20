@@ -17,12 +17,118 @@
     <script src="./select2/js/select2.full.min.js"></script>
     <script src="./Font-Awesome-master/js/all.min.js"></script>
     <script src="./js/script.js"></script>
+    <style>
+        :root{
+            --bs-success-rgb:71, 222, 152 !important;
+        }
+        html,body{
+            height:100%;
+            width:100%;
+        }
+        @media screen{
+            body{
+                background-size:cover;
+                background-repeat:no-repeat;
+                background-position:center center;
+                backdrop-filter: brightness(0.7);
+            }
+        }
+        main{
+            height:100%;
+            display:flex;
+            flex-flow:column;
+        }
+        #page-container{
+            flex: 1 1 auto; 
+            overflow:auto;
+        }
+        #topNavBar{
+            flex: 0 1 auto; 
+        }
+        .thumbnail-img{
+            width:50px;
+            height:50px;
+            margin:2px
+        }
+        .truncate-1 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+        .truncate-3 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+        .modal-dialog.large {
+            width: 80% !important;
+            max-width: unset;
+        }
+        .modal-dialog.mid-large {
+            width: 50% !important;
+            max-width: unset;
+        }
+        @media (max-width:720px){
+            
+            .modal-dialog.large {
+                width: 100% !important;
+                max-width: unset;
+            }
+            .modal-dialog.mid-large {
+                width: 100% !important;
+                max-width: unset;
+            }  
+        
+        }
+        .display-select-image{
+            width:60px;
+            height:60px;
+            margin:2px
+        }
+        img.display-image {
+            width: 100%;
+            height: 45vh;
+            object-fit: cover;
+            background: black;
+        }
+        /* width */
+        ::-webkit-scrollbar {
+        width: 5px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+        background: #888; 
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+        }
+        .img-del-btn{
+            right: 2px;
+            top: -3px;
+        }
+        .img-del-btn>.btn{
+            font-size: 10px;
+            padding: 0px 2px !important;
+        }
+    </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-        <a href="index.php"> <img class="btn"  src="seewans.png" alt="" width="72" height="57"> </a>
-          <a class="navbar-brand" href="index.php"><h2>Seewans Bakery</h2></a>
+        <a href="#"> <img class="btn"  src="seewans.png" alt="" width="72" height="57"> </a>
+          <a class="navbar-brand" href="#"><h2>Seewans Bakery</h2></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -32,13 +138,21 @@
                 <a class="nav-link active " aria-current="page" href="#">Admin Dashboard</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="edproduct.php"> Edit Products</a>
+                <a class="nav-link" href="edproduct.php"> Update Products</a>
               </li>  
+              <li class="nav-item">
+                <a class="nav-link" href="stock.php"> Update Stock</a>
+              </li> 
               <li class="nav-item">
                 <a class="nav-link" href="staff.php">Staff</a>
               </li>
             </ul>
-          </div>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-warning" type="submit">Search</button>
+            </form>
+            <a href="index.php"><button class="btn btn-outline-warning" type="submit">Logout</button></a>
+        </div>
         </div>
 </nav>
         <div class="content py-3">
@@ -182,6 +296,16 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(function(){
+        $('.restock').click(function(){
+            uni_modal('Add New Stock for <span class="text-primary">'+$(this).attr('data-name')+"</span>","manage_stock.php?pid="+$(this).attr('data-pid'))
+        })
+        $('table#inventory').dataTable()
+
+    })
+</script>
     <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>

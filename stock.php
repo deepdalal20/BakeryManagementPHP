@@ -124,7 +124,7 @@
     </style>
   </head>
   <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
         <a href="admin.php"> <img class="btn"  src="seewans.png" alt="" width="72" height="57"> </a>
           <a class="navbar-brand" href="admin.php"><h2>Seewans Bakery</h2></a>
@@ -137,11 +137,11 @@
                 <a class="nav-link" href="admin.php">Admin Dashboard</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active " aria-current="page" href="#"> Update Products</a>
+                <a class="nav-link" href="edproduct.php"> Update Products</a>
               </li>  
               <li class="nav-item">
-                <a class="nav-link" href="stock.php"> Update Stock</a>
-              </li>
+                <a class="nav-link active" aria-current="page" href="#"> Update Stock</a>
+              </li> 
               <li class="nav-item">
                 <a class="nav-link" href="staff.php">Staff</a>
               </li>
@@ -154,10 +154,9 @@
           </div>
         </div>
 </nav>
-
 <div class="card rounded-0 shadow">
     <div class="card-header d-flex justify-content-between">
-        <h3 class="card-title">Product List</h3>
+        <h3 class="card-title">Stock List</h3>
         <div class="card-tools align-middle">
             <a href="#"><button class="btn btn-dark btn-sm py-1 rounded-0" type="button" id="create_new">Add New</button></a>
         </div>
@@ -166,85 +165,77 @@
         <table class="table table-hover table-striped table-bordered">
             <colgroup>
                 <col width="5%">
-                <col width="10%">
-                <col width="15%">
+                <col width="20%">
                 <col width="30%">
-                <col width="10%">
+                <col width="15%">
                 <col width="15%">
             </colgroup>
             <thead>
                 <tr>
                     <th class="text-center p-0">#</th>
-                    <th class="text-center p-0">Code</th>
-                    <th class="text-center p-0">Category</th>
+                    <th class="text-center p-0">Date Added</th>
                     <th class="text-center p-0">Product</th>
-                    <th class="text-center p-0">Price</th>
+                    <th class="text-center p-0">Quantity</th>
                     <th class="text-center p-0">Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td class="text-center p-0">1</td>
-                    <td class="py-0 px-1">101</td>
-                    <td class="py-0 px-1">Sandwich Bread</td>
+                    <td class="py-0 px-1">12/02/2022</td>
                     <td class="py-0 px-1">
-                        <div class="fs-6 fw-bold truncate-1"> Bread</div>
-                        <div class="fs-6 fw-light truncate-3"> Sandwich Bread</div>
+                        <div class="fs-6 fw-bold truncate-1"> sandwich breads </div>
+                        <div class="fs-6 fw-light truncate-1"> 101 </div>
                     </td>
-                    <td class="py-0 px-1 text-end">45</td>
+                    <td class="py-0 px-1 text-end">5</td>
                     <td class="text-center py-0 px-1">
                         <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle btn-sm rounded-0 py-0" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle btn-sm rounded-0 py-0" data-bs-toggle="dropdown" aria-expanded="true">
                             Action
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <li><a class="dropdown-item view_data" href="#">View Details</a></li>
                             <li><a class="dropdown-item edit_data" href="#">Edit</a></li>
-                            <li><a class="dropdown-item delete_data"href="#">Delete</a></li>
+                            <li><a class="dropdown-item delete_data" href="#">Delete</a></li>
                             </ul>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td class="text-center p-0">2</td>
-                    <td class="py-0 px-1">102</td>
-                    <td class="py-0 px-1">Dabeli Bun</td>
+                    <td class="py-0 px-1">12/04/2022</td>
                     <td class="py-0 px-1">
-                        <div class="fs-6 fw-bold truncate-1"> Bun</div>
-                        <div class="fs-6 fw-light truncate-3"> Dabeli Bun</div>
+                        <div class="fs-6 fw-bold truncate-1"> dabeli bun </div>
+                        <div class="fs-6 fw-light truncate-1"> 102 </div>
                     </td>
-                    <td class="py-0 px-1 text-end">36</td>
+                    <td class="py-0 px-1 text-end">3</td>
                     <td class="text-center py-0 px-1">
                         <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle btn-sm rounded-0 py-0" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle btn-sm rounded-0 py-0" data-bs-toggle="dropdown" aria-expanded="true">
                             Action
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <li><a class="dropdown-item view_data" href="#">View Details</a></li>
                             <li><a class="dropdown-item edit_data" href="#">Edit</a></li>
-                            <li><a class="dropdown-item delete_data"href="#">Delete</a></li>
+                            <li><a class="dropdown-item delete_data" href="#">Delete</a></li>
                             </ul>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td class="text-center p-0">3</td>
-                    <td class="py-0 px-1">103</td>
-                    <td class="py-0 px-1">Royal Chocolate Cake</td>
+                    <td class="py-0 px-1">23/07/2022</td>
                     <td class="py-0 px-1">
-                        <div class="fs-6 fw-bold truncate-1"> Cake</div>
-                        <div class="fs-6 fw-light truncate-3"> Royal Chocolate Cake</div>
+                        <div class="fs-6 fw-bold truncate-1"> Brown breads </div>
+                        <div class="fs-6 fw-light truncate-1"> 103 </div>
                     </td>
-                    <td class="py-0 px-1 text-end">450</td>
+                    <td class="py-0 px-1 text-end">7</td>
                     <td class="text-center py-0 px-1">
                         <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle btn-sm rounded-0 py-0" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle btn-sm rounded-0 py-0" data-bs-toggle="dropdown" aria-expanded="true">
                             Action
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <li><a class="dropdown-item view_data" href="#">View Details</a></li>
                             <li><a class="dropdown-item edit_data" href="#">Edit</a></li>
-                            <li><a class="dropdown-item delete_data"href="#">Delete</a></li>
+                            <li><a class="dropdown-item delete_data" href="#">Delete</a></li>
                             </ul>
                         </div>
                     </td>
@@ -253,7 +244,7 @@
         </table>
     </div>
 </div>
-    <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
 </body>

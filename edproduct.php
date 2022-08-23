@@ -137,6 +137,9 @@
                 <a class="nav-link" href="admin.php">Admin Dashboard</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="category.php"> Category</a>
+              </li>  
+              <li class="nav-item">
                 <a class="nav-link active " aria-current="page" href="#"> Update Products</a>
               </li>  
               <li class="nav-item">

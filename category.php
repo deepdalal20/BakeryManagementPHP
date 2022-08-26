@@ -123,8 +123,8 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-        <a href="#"> <img class="btn"  src="seewans.png" alt="" width="72" height="57"> </a>
-          <a class="navbar-brand" href="#"><h2>Seewans Bakery</h2></a>
+        <a href="admin.php"> <img class="btn"  src="seewans.png" alt="" width="72" height="57"> </a>
+          <a class="navbar-brand" href="admin.php"><h2>Seewans Bakery</h2></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

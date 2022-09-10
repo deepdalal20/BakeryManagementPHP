@@ -10,19 +10,20 @@
 <body>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#">
+		<form action="register.php" method="post">
 			<h1>Create Account</h1>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input type="text" placeholder="Name" name="name" required>
+			<input type="email" placeholder="Email" name="email" required>
+			<input type="password" placeholder="Password" name="regpass" required>
+			<input type="int" placeholder="Contact Number" name="contact" required>
 			<button>Sign Up</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="#">
+		<form action="login.php" method="post">
 			<h1>Sign in</h1>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input type="email" placeholder="Email" name="email" required>
+			<input type="password" placeholder="Password" name="logpass" required>
 			<a href="#">Forgot your password?</a>
 			<button>Sign In</button>
 		</form>

@@ -8,12 +8,14 @@
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
 </head>
 <body>
+<a href="index.php"> <img class="btn"  src="seewans.png" width="72" height="57"> </a>
+<h1>Seewans Bakery</h1>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
 		<form action="register.php" method="post">
 			<h1>Create Account</h1>
 			<input type="text" placeholder="Name" name="name" required>
-			<input type="email" placeholder="Email" name="email" required>
+			<input type="email" placeholder="Email" name="regemail" required>
 			<input type="password" placeholder="Password" name="regpass" required>
 			<input type="int" placeholder="Contact Number" name="contact" required>
 			<button>Sign Up</button>
@@ -22,9 +24,9 @@
 	<div class="form-container sign-in-container">
 		<form action="login.php" method="post">
 			<h1>Sign in</h1>
-			<input type="email" placeholder="Email" name="email" required>
+			<input type="email" placeholder="Email" name="logemail" required>
 			<input type="password" placeholder="Password" name="logpass" required>
-			<a href="#">Forgot your password?</a>
+			<a href="#">Forgot your password?</a> 
 			<button>Sign In</button>
 		</form>
 	</div>

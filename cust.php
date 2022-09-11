@@ -52,6 +52,7 @@
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-warning" type="submit">Search</button>
             </form>
+            <?php echo $_SESSION['loguname']?>
             <a href="index.php"><button class="btn btn-outline-warning" type="submit">Logout</button></a>
           </div>
         </div>

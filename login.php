@@ -8,7 +8,7 @@
             $lemail = $_POST['logemail'];
             $lpass = $_POST['logpass'];
   
-            query = "SELECT * FROM 'tbluser' WHERE email='$lemail'";
+            $query = "SELECT * FROM 'tbluser' WHERE email='$lemail'";
   
             if($result = mysqli_query($conn, $query))
             {

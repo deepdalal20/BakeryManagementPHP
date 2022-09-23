@@ -59,11 +59,6 @@
         <div class="Blank">
 
         </div>
-        <?php 
-            $sql = "SELECT * FROM tbluser";
-            $data = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_assoc($data)
-        ?>
         <div class="Profile">
             <div class="profile">
                 <div class="left">
@@ -76,9 +71,9 @@
                     </div>
 
                     <div class="inputleft">
-                        <label for=""><?php echo $row['name']?></label>
+                        <label for="">Name</label>
                         <input type="text">
-                        <label for=""><?php echo $row['email']?></label>
+                        <label for="">Email</label>
                         <input type="email">
                     </div>
 
@@ -92,7 +87,7 @@
                     <div class="inputright">
                         <label for="">Last Name</label>
                         <input type="text">
-                        <label for=""><?php echo $row['name']?></label>
+                        <label for="">Contact</label>
                         <input type="email">
                     </div>
 

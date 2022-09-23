@@ -26,7 +26,7 @@
                 <a class="nav-link" href="product1.php">Product</a>
               </li>
               <li class="nav-item">
-              <a href="loreg.php"><button class="btn btn-outline-warning" type="submit">Login/Register</button></a>
+              <a href="login.php"><button class="btn btn-outline-warning" type="submit">Login/Register</button></a>
               </li>              
             </ul>
           </div>

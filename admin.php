@@ -1,11 +1,3 @@
-<?php
-   session_start();
-
-   if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false)
-   {
-      header("location: loreg.php");
-   }
-?>
 <!doctype html>
 <html lang="en">
   <head>

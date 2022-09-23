@@ -78,5 +78,30 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/81448a00ad.js" crossorigin="anonymous"></script>
+    <?php
+      if($showalert == true)
+      {
+        session_start();
+        $_SESSION['loggedin'] = true;
+        $_SESSION['loguname'] = $name;
+        header('location: cust.php');
+      }
+
+      if($passworderr == true)
+      {
+        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Attention please!</strong> Your password should be contains 8 characters or more
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+      }
+
+      if($existalert == true)
+      {
+        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Attention please!</strong> Email already taken! Select another email!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+      }
+    ?>
     </body>
 </html> 

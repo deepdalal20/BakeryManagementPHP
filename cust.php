@@ -3,7 +3,7 @@
 
    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false)
    {
-      header("location: loreg.php");
+      header("location: login.php");
    }
 ?>
 <!doctype html>

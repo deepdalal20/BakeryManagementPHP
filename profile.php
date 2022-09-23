@@ -1,12 +1,10 @@
 <?php
    session_start();
 
-   if(!isset($_SESSION['loguname']))
+   if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false)
    {
-      header("location: loreg.php");
+      header("location: login.php");
    }
-   else
-   {
 ?>
 <!doctype html>
 <html lang="en">
@@ -61,7 +59,11 @@
         <div class="Blank">
 
         </div>
-
+        <?php 
+            $sql = "SELECT * FROM tbluser";
+            $data = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_assoc($data)
+        ?>
         <div class="Profile">
             <div class="profile">
                 <div class="left">
@@ -74,9 +76,9 @@
                     </div>
 
                     <div class="inputleft">
-                        <label for="">First Name</label>
+                        <label for=""><?php echo $row['name']?></label>
                         <input type="text">
-                        <label for="">Email Address</label>
+                        <label for=""><?php echo $row['email']?></label>
                         <input type="email">
                     </div>
 
@@ -90,7 +92,7 @@
                     <div class="inputright">
                         <label for="">Last Name</label>
                         <input type="text">
-                        <label for="">Contact No</label>
+                        <label for=""><?php echo $row['name']?></label>
                         <input type="email">
                     </div>
 
@@ -107,8 +109,5 @@
       <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
-<?php
-   }
-?>
 </body>
 </html>

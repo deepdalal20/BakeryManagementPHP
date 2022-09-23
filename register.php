@@ -50,6 +50,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="form_style.css">
+        <title> Register </title>
     </head>
     <body>
 <div class="banner">

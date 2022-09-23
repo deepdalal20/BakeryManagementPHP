@@ -9,13 +9,14 @@ include 'dbcon.php';
     </head>
     <body>
     <?php
+    $login = false;
+    $loggedin = false;
+    $notexist = false;
+    $notselected = false;
     if (isset($_POST['logsub'])) {
         $lemail = $_POST['logemail'];
         $lpass = $_POST['logpass'];
-        $login = false;
-        $loggedin = false;
-        $notexist = false;
-        $notselected = false;
+        
         if ($_POST['designation'] == "customer") {
             $sql = "SELECT * FROM 'tbluser' WHERE email='$lemail'";
             $result = mysqli_query($conn, $sql);
@@ -30,11 +31,11 @@ include 'dbcon.php';
             } else {
                 $notexist = "User Not Exist! Register First!";
             }
-            if ($login) {
+            if ($login == true) {
                 session_start();
                 $_SESSION['loggedin'] = true;
                 $_SESSION['loguname'] = $name;
-                header('location: cust.php');
+                header("location: cust.php");
             }
             if ($notexist) {
                 echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -57,20 +58,24 @@ include 'dbcon.php';
                 $adminnotexist = "Admin Not Exist! Contact Admin!";
             }
 
-            if ($admin) {
-                session_start();
-                $_SESSION['loggedin'] = true;
-                $_SESSION['loganame'] = $loganame;
-                header("location: admin.php");
-              }
-            if ($adminnotexist) {
-                echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Error!</strong> ' . $adminnotexist . '
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>';
-            }
+        }
+        if ($admin) {
+            session_start();
+            $_SESSION['loggedin'] = true;
+            $_SESSION['loganame'] = $loganame;
+            header("location: admin.php");
+          }
+        if ($adminnotexist) {
+            echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Error!</strong> ' . $adminnotexist . '
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
         }
     }
+
+
+
+    
     ?>
 <div class="banner">
     <center>
@@ -84,8 +89,8 @@ include 'dbcon.php';
                         <h2>LOGIN</h2>
                         <form action="" method="post">
                             <center>
-                                <select type="dropdown" name="designation" style=" text-align: left; background-color: #ffa500; color: white; font-size: 14px; border-radius: 5px 5px 5px 5px;">
-                                    <option  hidden> Admin or Customer </option>
+                            <select style="width: 90px; height: 30px; text-align: center; background-color: #7d2ae8; color: white; font-size: 14px; border-radius: 5px 5px 5px 5px;" name="designation">                               
+                                    <option  hidden> designation</option>
                                     <option  value="admin"> Admin </option>
                                     <option  value="customer"> Customer </option>
                                 </select>

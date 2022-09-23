@@ -82,10 +82,7 @@
     <?php
       if($showalert == true)
       {
-        session_start();
-        $_SESSION['loggedin'] = true;
-        $_SESSION['loguname'] = $name;
-        header('location: cust.php');
+        header("location: login.php");
       }
 
       if($passworderr == true)

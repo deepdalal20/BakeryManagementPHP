@@ -1,10 +1,10 @@
 <?php
-   session_start();
+  //  session_start();
 
-   if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false)
-   {
-      header("location: login.php");
-   }
+  //  if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false)
+  //  {
+  //     header("location: login.php");
+  //  }
 ?>
 <!doctype html>
 <html lang="en">
@@ -51,7 +51,7 @@
               <button class="btn btn-outline-warning" type="submit">Search</button>
             </form>
             <?php echo $_SESSION['loguname']?>
-            <a href="index.php"><button class="btn btn-outline-warning" type="submit">Logout</button></a>
+            <a href="logout.php"><button class="btn btn-outline-warning" type="submit">Logout</button></a>
           </div>
         </div>
       </nav>

@@ -1,9 +1,7 @@
 <?php 
-    session_start();
+session_start();
+session_destroy();
+unset($_SESSION['loggedin']);
 
-    session_unset();
-    session_destroy();
-
-    header("location : index.php");
-    exit;
+header("location:index.php");
 ?>

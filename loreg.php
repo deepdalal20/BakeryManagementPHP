@@ -1,101 +1,5 @@
-<?php
-  include 'dbcon.php';
-  $invaliduser = false;
-  $invalidadmin = false;
-  $passworderr = false;
-  $showalert = false;
-  $login = false;
-  $exists = false;
-  $existalert = false;
-  if(isset($_POST['regsub']))
-  { 
-    if(strlen($_POST['regpass']) >= 8)
-    {
-        $name = $_POST['name'];
-        $regemail = $_POST['regemail'];
-        $pass = $_POST['pass'];
-        $hash_pass = password_hash($regpass, PASSWORD_DEFAULT);
-        $contact = $_POST['contact'];
-      
-      $existssql = "select * from tbluser where email = '$regemail'";
-      $existresult = mysqli_query($conn, $existssql);
-      $numrows = mysqli_num_rows($existresult);
-      if($numrows > 0)
-      {
-        $exists = true;
-      }
-      else
-      {
-        $exists = false;
-      }
 
-      if($exists == false)
-      {
-        $sql = "INSERT INTO `tbluser`(`name`, `email`, `password`, `contact`, `date`) VALUES ('$name','$regemail','$hash_pass','$contact',current_timestamp())";
-        $result = mysqli_query($conn,$sql);
-        if($result)
-        {
-          $showalert = true;
-        }
-      }
-      else
-      {
-        $existalert = true;
-      }
-    }
-    else
-    {
-      $passworderr = true;
-    }
-  }
-?>
-<?php
-  $loggedin = false;
-  if(isset($_POST['Lsub']))
-  {
-    if($_POST['designation'] == "customer")
-    {
-      $loguname = $_POST['loguname'];
-      $logpass = $_POST['logpass'];
-      $query = "SELECT * FROM `tbluser` WHERE roll='customer' AND (username='$loguname' AND password='$logpass')";
-      $res = mysqli_query($conn, $query);
-      $num = mysqli_num_rows($res);
-      if ($num >= 1)
-      {
-        $login = true;
-        session_start();
-        $_SESSION['loggedin'] = true;
-        $_SESSION['loguname'] = $name;
-        header('location: cust.php');
-      }
-      else
-      {
-        $invaliduser = true;
-      }
-    }
-    else if($_POST['designation'] == "admin")
-    {
-      $loguname = $_POST['loguname'];
-      $logpass = $_POST['logpass'];
-      $query = "SELECT * FROM `tbluser` WHERE roll='admin' AND (username='$loguname' AND password='$logpass')";
-      $res = mysqli_query($conn, $query);
-      $num = mysqli_num_rows($res);
-      if ($num >= 1)
-      {
-        $login = true;
-        session_start();
-        $_SESSION['loggedin'] = true;
-        $_SESSION['loguname'] = $loguname;
-        header("location: admin.php");
-      }
-      else
-      {
-        $invalidadmin = true;
-      }
-    }
-  }
 
-?>
 <html>
     <head>
         <link rel="stylesheet" href="form_style.css">
@@ -105,7 +9,7 @@
     <center>
         <a href="index.php"> <img class="btn"  src="seewans.png" width="72" height="57"> </a>
         <h1 style="color: white;">Seewans Bakery</h1>
-        </center>
+    </center>
         <div class="container">
             <div class="card">
                 <div class="inner-box" id="card">
@@ -113,8 +17,8 @@
                         <h2>LOGIN</h2>
                         <form action="" method="post">
                             <center>
-                                <input type="radio" id="Admin" name="designation"> <label style="color: white; padding-right: 20px">Admin</label>
-                                <input type="radio" id="Customer" name="designation" value="Customer"><label style="color: white;">Customer</label>
+                                <input type="radio" name="designation" value="admin"> <label style="color: white; padding-right: 20px">Admin</label>
+                                <input type="radio" name="designation" value="Customer"><label style="color: white;">Customer</label>
                             </center>
                             <br>
                             <input type="email" class="input-box" placeholder="Your Email Id " name="logemail" required>
@@ -165,42 +69,18 @@
 
       if($passworderr == true)
       {
-        echo '
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          <strong>Your password should be contains 6 characters or more</strong>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        ';
-      }
-
-      if($invaliduser == true)
-      {
-        echo '
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <strong>User Not Found!</strong>Please Register First!
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        ';
-      }
-
-      if($invalidadmin == true)
-      {
-        echo '
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <strong>Admin Not Found!</strong>Please Contact Admin!
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        ';
+        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Attention please!</strong> Your password should be contains 8 characters or more
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
       }
 
       if($existalert == true)
       {
-        echo '
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <strong>Username already taken!</strong>Select another username!
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        ';
+        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Attention please!</strong> Email already taken! Select another email!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
       }
     ?>
     </body>

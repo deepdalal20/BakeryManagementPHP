@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['loguname'])){
+        header('location:login.php');
+    }    
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -154,7 +160,7 @@
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-warning" type="submit">Search</button>
             </form>
-            <a href="index.php"><button class="btn btn-outline-warning" type="submit">Logout</button></a>
+            <a href="logout.php"><button class="btn btn-outline-warning" type="submit">Logout</button></a>
         </div>
         </div>
 </nav>

@@ -11,8 +11,8 @@
     {
         $name = $_POST['name'];
         $regemail = $_POST['regemail'];
-        $pass = $_POST['pass'];
-        $hash_pass = password_hash($regpass, PASSWORD_DEFAULT);
+        $pass = $_POST['regpass'];
+        $hash_pass = password_hash($pass, PASSWORD_DEFAULT);
         $contact = $_POST['contact'];
       
       $existssql = "select * from tbluser where email = '$regemail'";

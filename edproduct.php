@@ -1,5 +1,9 @@
 <?php
-     include 'dbcon.php';
+    session_start();
+    include 'dbcon.php';
+    if(!isset($_SESSION['loguname'])){
+        header('location:login.php');
+    }    
 ?>
 <!doctype html>
 <html lang="en">

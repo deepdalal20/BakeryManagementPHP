@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 23, 2022 at 01:25 PM
+-- Generation Time: Sep 24, 2022 at 07:35 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -108,7 +108,12 @@ INSERT INTO `tbluser` (`id`, `name`, `email`, `password`, `contact`, `date`) VAL
 (16, 'hsfdujk', 'jdbfj@kndg.cq', '$2y$10$OOAgD/dy4HbpBJOP1/ku0.3Fc.eTjo88GCiYd3J.T1frow9.IIyma', 187627816, '2022-09-23 13:45:19'),
 (17, 'oneplus', 'oneplus@gmail.com', '$2y$10$0lIW7LGAPeBYZj/Z1xZPE.vTmi35Vr6NevkHeCY.8qSPVTDQ7nv7S', 2222222222, '2022-09-23 14:44:17'),
 (18, 'pratham', '20bmiit031@gmail.com', '$2y$10$JDexCYv5Nf/VmUGFha5qGuSMtVFPoRUCAiMypaKLXBAlRWYdpoho6', 7878435553, '2022-09-23 16:29:13'),
-(19, 'pratham', 'pratham5553@gmail.com', '$2y$10$SOMykxD5aWQ3XraV.elxNuB4Qsh.qZYaQBJjAX7pl9nrZPgwz9R.S', 7878435553, '2022-09-23 16:43:19');
+(19, 'pratham', 'pratham5553@gmail.com', '$2y$10$SOMykxD5aWQ3XraV.elxNuB4Qsh.qZYaQBJjAX7pl9nrZPgwz9R.S', 7878435553, '2022-09-23 16:43:19'),
+(20, 'abcdef', 'abcdef@gmail.com', '$2y$10$oOZ2cz.6HkMMpMW99OD8Gu.oZDVsAm8JeWV7ikMVvgU8DbX/vtvAi', 982878657, '2022-09-23 21:25:08'),
+(22, 'shivam Patel', 'shivamp2819@gmail.com', '$2y$10$T.qJYbS0D3fIuYKTTSK04udr/Wg0ktWymtkSmCkuIKh5p/G9rSwL2', 7990597887, '2022-09-24 10:06:09'),
+(23, 'deep', 'deepdalal@gmail.com', '$2y$10$9iKKuDk1sVvv1B6OvH.pEuHETV0DdBWl55zvVpz8sZN.cgWLP/l2.', 9883738299, '2022-09-24 10:21:22'),
+(24, 'Preet', 'preet@yahoo.com', '$2y$10$0NCbP0qDLg/vnhlJD0B.c.Wup4Pji5WizW.8N8sWeOQPkJP8219uW', 9876536670, '2022-09-24 10:49:08'),
+(25, 'preet p', 'preet@hotmail.com', '$2y$10$DdWzl5U9Td/bnPwgfnIkpuhPNO949rhZwtCjIC1sZFA/7KfV2/Tgy', 2873898787, '2022-09-24 11:04:07');
 
 --
 -- Indexes for dumped tables
@@ -140,7 +145,7 @@ ALTER TABLE `tblstaff`
 -- AUTO_INCREMENT for table `tbluser`
 --
 ALTER TABLE `tbluser`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

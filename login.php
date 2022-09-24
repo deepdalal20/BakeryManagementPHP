@@ -111,21 +111,20 @@ include 'dbcon.php';
                         $row = mysqli_fetch_assoc($resultuser);
                         $aemail = $row["email"];
                         $apass = $row["password"];
-                        
+                        $aname = $row["name"];
                         echo $lemail;
                         echo $aemail;
                         echo password_hash($lpass, PASSWORD_DEFAULT).'<br>';
                         echo $apass;
                         if($lemail == $aemail && password_verify($lpass, $apass))
                         {
-                            $_SESSION['loguname'] = $aname;
-                            header('location: cust.php');
+                            $_SESSION['loganame'] = $aname;
+                            header('location:cust.php');
                         }
                         else if($resultstaff = mysqli_query($conn, $query2))
                         {
                             echo $lemail;
                             echo $aemail;
-                            echo password_hash($lpass, PASSWORD_DEFAULT).'<br>';
                             echo $apass;
                             $row = mysqli_fetch_assoc($resultstaff);
                             $aname = $row["sname"];
@@ -138,6 +137,9 @@ include 'dbcon.php';
                                 header('location: admin.php');
                             }
                         }
+                        else{
+                            echo '<script>alert("Something went wrong")</script>';
+                        }
                     }    
                 }
             else{
@@ -149,3 +151,30 @@ include 'dbcon.php';
         echo 'Connection error';
     }
     ?>
+    <script>
+        const container = document.querySelector(".container"),
+            pwShowHide = document.querySelectorAll(".showHidePw"),
+            pwFields = document.querySelectorAll(".password");
+
+        pwShowHide.forEach(eyeIcon =>{
+        eyeIcon.addEventListener("click", ()=>{
+            pwFields.forEach(pwField =>{
+                if(pwField.type ==="password"){
+                    pwField.type = "text";
+
+                    pwShowHide.forEach(icon =>{
+                        icon.classList.replace("uil-eye-slash", "uil-eye");
+                    })
+                }else{
+                    pwField.type = "password";
+
+                    pwShowHide.forEach(icon =>{
+                        icon.classList.replace("uil-eye", "uil-eye-slash");
+                    })
+                }
+            }) 
+        })
+    })
+    </script>
+    </body>
+</html>

@@ -160,7 +160,7 @@
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-warning" type="submit">Search</button>
             </form>
-            <a href="index.php"><button class="btn btn-outline-warning" type="submit">Logout</button></a>
+            <a href="logout.php"><button class="btn btn-outline-warning" type="submit">Logout</button></a>
           </div>
         </div>
 </nav>
@@ -169,7 +169,7 @@
     <div class="card-header d-flex justify-content-between">
         <h3 class="card-title">Product List</h3>
         <div class="card-tools align-middle">
-            <a href="#"><button class="btn btn-dark btn-sm py-1 rounded-0" type="button" id="create_new">Add New</button></a>
+            <a href="newproduct.php"><button class="btn btn-dark btn-sm py-1 rounded-0" type="button" id="create_new">Add New</button></a>
         </div>
     </div>
     <div class="card-body">
@@ -224,6 +224,13 @@
 </div>
     <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <script>
+    $(function(){
+        $('#create_new').click(function(){
+            uni_modal('Add New Product',"newproduct.php",'mid-large')
+        })
+     })
     </script>
 </body>
 </html>

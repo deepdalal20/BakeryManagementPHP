@@ -31,19 +31,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <title>Add Parts</title>
+   <title>Add New Product</title>
 </head>
 <body>
    <form method="post">
       <h3>Add New Product</h3>
-      <input type="text" name="p_name" placeholder="enter product name" required><br>
-      <input type="text" name="p_cat" placeholder="enter product category" required><br>
-      <input type="file" name="p_image" placeholder="confirm image" required><br>
-      <input type="text" name="p_price" placeholder="enter product price" maxlength="10" required><br>
-      <select name="p_status" class="box">
+      Product Name: <input type="text" name="p_name" placeholder="enter product name" required><br>
+      Product Category: <input type="text" name="p_cat" placeholder="enter product category" required><br>
+      Image: <input type="file" name="p_image" placeholder="confirm image" required><br>
+      Product Price: <input type="text" name="p_price" placeholder="enter product price" maxlength="10" required><br>
+      Status: <select name="p_status" class="box">
          <option value="instock">In Stock</option>
          <option value="outofstock">Out of Stock</option>
-      </select>
+      </select><br><br>
       <input type="submit" name="regproduct" value="Register new product"> 
    </form>
 </body>

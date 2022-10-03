@@ -22,11 +22,6 @@ include 'dbcon.php';
             <div class="form login">
                 <span class="title">Login</span>
                 <form action="" method="post" enctype="multipart/form-data">
-                    <!-- <select style="text-align: center; background-color: #ffa500; color: white; font-size: 14px; border-radius: 5px 5px 5px 5px;" name="des[]">                               
-                            <option  hidden> Select Designation</option>
-                            <option  value="admin"> Admin </option>
-                            <option  value="customer"> Customer </option> -->
-                     <!-- </select> -->
                     <div class="input-field">
                         <input type="email" placeholder="Enter your email" name="logemail" required>
                         <i class="uil uil-envelope icon"></i>
@@ -58,7 +53,6 @@ include 'dbcon.php';
     <?php
     if($conn){
         if(isset($_POST['logsub'])){
-            echo "hrll";
             if(!empty($_POST['logemail']) && !empty($_POST['logpass']))
             {
                     $lemail = $_POST['logemail'];
@@ -67,65 +61,24 @@ include 'dbcon.php';
                     $query = "SELECT * FROM tbluser where email='$lemail'";
                     $query2 = "SELECT * FROM tblstaff where semail='$lemail'";
 
-                    // if($result = mysqli_query($conn,$query2))
-                    // {
-                    //     echo 'staff';
-                    //     $row = $result -> fetch_assoc();
-                    //     $aemail = $row["semail"];
-                    //     $apass = $row["spassword"];
-                    //     if($lemail == $aemail && password_verify($hashp,$apass))
-                    //     {
-                    //         header('location: admin.php');
-                    //     }
-                    // }    
-                    // else if($result2 = mysqli_query($conn,$query))
-                    // {
-                    //     echo 'customer';
-                    //         $row1 = $result2 -> fetch_assoc();
-                    //         $uid = $row1["id"];
-                    //         $uname = $row1["name"];
-                    //         $uemail = $row1["email"];
-                    //         $upass = $row1["password"];
-                    //         $ucontact = $row1["contact"];
-                    //        // $hashpwd = password_hash($pwd,PASSWORD_DEFAULT);
-                    //         if($lemail == $uemail){
-                    //             echo 'emailverify';
-                    //             if(password_verify($hashp,$upass))
-                    //             {
-                    //             echo 'Done ok';
-                    //             $_SESSION["loguname"] = $_POST['logemail'];
-                    //             $_SESSION["loggedin"] = true;
-                    //             echo $_SESSION['loguname'];
-                    //             header('location: cust.php');
-                    //         }else{
-                    //             echo $upass."database <br>";
-                    //             //echo $hashpwd;
-                    //             echo 'fail';
-                    //         }
-                    //     }
-                    // }
-                        echo "out";
                     if($resultuser = mysqli_query($conn, $query))
                     {
-                        echo "user";
                         $row = mysqli_fetch_assoc($resultuser);
                         $aemail = $row["email"];
                         $apass = $row["password"];
                         $aname = $row["name"];
-                        echo $lemail;
-                        echo $aemail;
-                        echo password_hash($lpass, PASSWORD_DEFAULT).'<br>';
-                        echo $apass;
                         if($lemail == $aemail && password_verify($lpass, $apass))
                         {
                             $_SESSION['loganame'] = $aname;
                             header('location:cust.php');
+                            if(isset($_POST['reme']))
+                            {
+                                setcookie("Email", $lemail, time()+60*60*24);
+                                setcookie("Pass", $lpass, time()+60*60*24);
+                            }
                         }
                         else if($resultstaff = mysqli_query($conn, $query2))
                         {
-                            echo $lemail;
-                            echo $aemail;
-                            echo $apass;
                             $row = mysqli_fetch_assoc($resultstaff);
                             $aname = $row["sname"];
                             $aemail = $row["semail"];
@@ -143,7 +96,7 @@ include 'dbcon.php';
                     }    
                 }
             else{
-                echo 'Enter data properly';
+                echo 'Enter data precisely.';
             }
         }
     }

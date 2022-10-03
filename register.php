@@ -68,7 +68,6 @@
                             <input type="email" placeholder="Email" class="input-box" name="regemail" required>
                             <input type="password" class="input-box" placeholder="Password" name="regpass" required>
                             <input type="int" class="input-box" placeholder="Contact Number" name="contact" required>
-                            <input type="checkbox" name="reme"><span>Remember Me</span>
                             <button type="submit" class="submit-btn" name="regsub">Submit</button>
                         </form>
                         <a href="login.php"><button type="button" class="btn">I've an account</button></a>

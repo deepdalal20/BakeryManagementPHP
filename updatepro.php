@@ -5,7 +5,6 @@
      $data = mysqli_query($conn, $select);
      $row = mysqli_fetch_array($data);
 ?>
-<!--Pending-->
 <!DOCTYPE html>
 <html lang="en">
 <head>

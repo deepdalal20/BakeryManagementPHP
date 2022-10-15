@@ -153,7 +153,7 @@
                 <a class="nav-link" href="stock.php"> Update Stock</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="staff.php">Staff</a>
+                <a class="nav-link" href="customer.php">Customer</a>
               </li>
             </ul>
             <form class="d-flex">

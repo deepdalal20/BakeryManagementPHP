@@ -152,7 +152,7 @@
                 <a class="nav-link active" aria-current="page" href="#"> Update Stock</a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link" href="staff.php">Staff</a>
+                <a class="nav-link" href="customer.php">Customer</a>
               </li>
             </ul>
             <form class="d-flex">
@@ -167,7 +167,7 @@
     <div class="card-header d-flex justify-content-between">
         <h3 class="card-title">Stock List</h3>
         <div class="card-tools align-middle">
-            <a href="#"><button class="btn btn-dark btn-sm py-1 rounded-0" type="button" id="create_new">Add New</button></a>
+            <a href="newproduct.php"><button class="btn btn-dark btn-sm py-1 rounded-0" type="button" id="create_new">Add New</button></a>
         </div>
     </div>
     <div class="card-body">

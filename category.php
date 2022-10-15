@@ -1,4 +1,5 @@
 <?php
+    include 'dbcon.php';
     session_start();
     if(!isset($_SESSION['loguname'])){
         header('location:login.php');
@@ -14,11 +15,6 @@
     <link rel="stylesheet" href="./Font-Awesome-master/css/all.min.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./select2/css/select2.min.css">
-    <script src="./js/jquery-3.6.0.min.js"></script>
-    <script src="./js/popper.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./select2/js/select2.full.min.js"></script>
-    <script src="./Font-Awesome-master/js/all.min.js"></script>
     <style>
         :root{
             --bs-success-rgb:71, 222, 152 !important;
@@ -149,7 +145,7 @@
                 <a class="nav-link" href="stock.php"> Update Stock</a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link" href="staff.php">Staff</a>
+                <a class="nav-link" href="customer.php">Customer</a>
               </li>
             </ul>
             <form class="d-flex">
@@ -168,52 +164,34 @@
                     <div class="w-100 d-flex border-bottom border-dark py-1 mb-1">
                         <div class="fs-5 col-auto flex-grow-1"><b>Category List</b></div>
                         <div class="col-auto flex-grow-0 d-flex justify-content-end">
-                            <a href="#" id="new_category" class="btn btn-dark btn-sm bg-gradient rounded-2" title="Add Category"><span class="fa fa-plus"></span></a>
+                            <a href="newcat.php" id="new_category" class="btn btn-dark btn-sm bg-gradient rounded-2" title="Add Category"><span class="fa fa-plus"></span></a>
                         </div>
                     </div>
+                    <?php 
+                        $sql = "SELECT * FROM tblcategory";
+                        $data = mysqli_query($conn, $sql);
+                        while($row = mysqli_fetch_assoc($data)):
+                    ?>
                     <div class="h-100 overflow-auto border rounded-1 border-dark">
                         <ul class="list-group">
                             <li class="list-group-item d-flex">
                                 <div class="col-auto flex-grow-1">
-                                    Breads and Buns
+                                    <?php echo $row['c_id']; ?>
                                 </div>
-                                <div class="col-auto pe-2">
-                                    <small><span class='badge rounded-pill bg-success'>Active</span></small>
-                                </div>
-                                <div class="col-auto d-flex justify-content-end">
-                                    <a href="javascript:void(0)" class="view_category btn btn-sm btn-info text-light bg-gradient py-0 px-1 me-1" title="View Category Details" data-id="<?php echo $row['category_id'] ?>" ><span class="fa fa-th-list"></span></a>
-                                    <a href="javascript:void(0)" class="edit_category btn btn-sm btn-primary bg-gradient py-0 px-1 me-1" title="Edit Category Details" data-id="<?php echo $row['category_id'] ?>"  data-name="<?php echo $row['name'] ?>"><span class="fa fa-edit"></span></a>
-                                    <a href="javascript:void(0)" class="delete_category btn btn-sm btn-danger bg-gradient py-0 px-1" title="Delete Category" data-id="<?php echo $row['category_id'] ?>"  data-name="<?php echo $row['name'] ?>"><span class="fa fa-trash"></span></a>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex">
                                 <div class="col-auto flex-grow-1">
-                                    Cakes and Pasteries
+                                    <?php echo $row['c_name']; ?>
                                 </div>
                                 <div class="col-auto pe-2">
                                     <small><span class='badge rounded-pill bg-success'>Active</span></small>
                                 </div>
                                 <div class="col-auto d-flex justify-content-end">
-                                    <a href="javascript:void(0)" class="view_category btn btn-sm btn-info text-light bg-gradient py-0 px-1 me-1" title="View Category Details" data-id="<?php echo $row['category_id'] ?>" ><span class="fa fa-th-list"></span></a>
-                                    <a href="javascript:void(0)" class="edit_category btn btn-sm btn-primary bg-gradient py-0 px-1 me-1" title="Edit Category Details" data-id="<?php echo $row['category_id'] ?>"  data-name="<?php echo $row['name'] ?>"><span class="fa fa-edit"></span></a>
-                                    <a href="javascript:void(0)" class="delete_category btn btn-sm btn-danger bg-gradient py-0 px-1" title="Delete Category" data-id="<?php echo $row['category_id'] ?>"  data-name="<?php echo $row['name'] ?>"><span class="fa fa-trash"></span></a>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex">
-                                <div class="col-auto flex-grow-1">
-                                    Chocolates
-                                </div>
-                                <div class="col-auto pe-2">
-                                    <small><span class='badge rounded-pill bg-success'>Active</span></small>
-                                </div>
-                                <div class="col-auto d-flex justify-content-end">
-                                    <a href="javascript:void(0)" class="view_category btn btn-sm btn-info text-light bg-gradient py-0 px-1 me-1" title="View Category Details" data-id="<?php echo $row['category_id'] ?>" ><span class="fa fa-th-list"></span></a>
-                                    <a href="javascript:void(0)" class="edit_category btn btn-sm btn-primary bg-gradient py-0 px-1 me-1" title="Edit Category Details" data-id="<?php echo $row['category_id'] ?>"  data-name="<?php echo $row['name'] ?>"><span class="fa fa-edit"></span></a>
-                                    <a href="javascript:void(0)" class="delete_category btn btn-sm btn-danger bg-gradient py-0 px-1" title="Delete Category" data-id="<?php echo $row['category_id'] ?>"  data-name="<?php echo $row['name'] ?>"><span class="fa fa-trash"></span></a>
+                                    <a href="updatecat.php?id=<?php echo $row['c_id'];?>" class="edit_category btn btn-sm btn-primary bg-gradient py-0 px-1 me-1" title="Edit Category Details"><span class="fa fa-edit"></span></a>
+                                    <a href="deletecat.php?id=<?php echo $row['c_id'];?>" class="delete_category btn btn-sm btn-danger bg-gradient py-0 px-1" title="Delete Category"><span class="fa fa-trash"></span></a>
                                 </div>
                             </li>
                         </ul>
                     </div>
+                    <?php endwhile; ?>
                 </div>
             </div>
         </div>

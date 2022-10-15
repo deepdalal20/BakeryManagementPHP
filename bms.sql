@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 24, 2022 at 07:35 AM
+-- Generation Time: Oct 15, 2022 at 02:33 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -24,6 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tblcategory`
+--
+
+CREATE TABLE `tblcategory` (
+  `c_id` int(11) NOT NULL,
+  `c_name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tblcategory`
+--
+
+INSERT INTO `tblcategory` (`c_id`, `c_name`) VALUES
+(1, 'Breads and Buns'),
+(2, 'Cakes'),
+(3, 'Chocolates'),
+(4, 'Biscuits');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tblproduct`
 --
 
@@ -31,7 +52,7 @@ CREATE TABLE `tblproduct` (
   `p_id` int(10) NOT NULL,
   `p_name` varchar(100) NOT NULL,
   `category` varchar(100) NOT NULL,
-  `p_image` varchar(255) NOT NULL,
+  `p_image` varchar(256) NOT NULL,
   `p_price` int(100) NOT NULL,
   `p_status` varchar(100) NOT NULL,
   `delete_flag` int(100) NOT NULL,
@@ -46,12 +67,12 @@ INSERT INTO `tblproduct` (`p_id`, `p_name`, `category`, `p_image`, `p_price`, `p
 (1, 'Pav Bhaji Bread', 'Breads and Buns', 'pavbhajibread.jpeg', 36, 'instock', 0, '2022-09-16 00:00:00'),
 (2, 'Dabeli Bread', 'Breads and Buns', 'dabeli-pav.jpg', 36, 'instock', 0, '2022-09-16 00:00:00'),
 (3, 'Burger Buns', 'Breads and Buns', 'burgerbun.jpg', 40, 'instock', 0, '2022-09-16 00:00:00'),
-(4, 'Cadbury Silk', 'Chocolates', 'dmsilk.jpeg', 80, 'instock', 0, '2022-09-16 00:00:00'),
+(4, 'Cadbury Silk', 'Chocolates', 'dmsilk.jpeg', 80, 'instock', 0, '2022-10-15 14:27:44'),
 (5, 'Amul Chocolate', 'Chocolates', 'amuldc.jpeg', 50, 'instock', 0, '2022-09-16 00:00:00'),
 (6, 'MrBeastBar', 'Chocolates', 'mrbeast.jpeg', 100, 'instock', 0, '2022-09-16 00:00:00'),
 (7, 'Royal Chocolate', 'Cakes', 'royalch.jpeg', 450, 'instock', 0, '2022-09-16 00:00:00'),
 (8, '24K Gold Cake', 'Cakes', 'gold.jpeg', 3000, 'instock', 0, '2022-09-23 09:47:05'),
-(9, 'Blue Coated Cake', 'Cakes', 'bluename.jpg', 360, 'instock', 0, '2022-09-23 09:48:20');
+(9, 'Blue Coated Cake', 'Cakes', 'bluename.jpg', 360, 'instock', 0, '2022-10-03 05:46:15');
 
 -- --------------------------------------------------------
 
@@ -120,6 +141,18 @@ INSERT INTO `tbluser` (`id`, `name`, `email`, `password`, `contact`, `date`) VAL
 --
 
 --
+-- Indexes for table `tblcategory`
+--
+ALTER TABLE `tblcategory`
+  ADD PRIMARY KEY (`c_id`);
+
+--
+-- Indexes for table `tblproduct`
+--
+ALTER TABLE `tblproduct`
+  ADD PRIMARY KEY (`p_id`);
+
+--
 -- Indexes for table `tblstaff`
 --
 ALTER TABLE `tblstaff`
@@ -134,6 +167,18 @@ ALTER TABLE `tbluser`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `tblcategory`
+--
+ALTER TABLE `tblcategory`
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tblproduct`
+--
+ALTER TABLE `tblproduct`
+  MODIFY `p_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tblstaff`

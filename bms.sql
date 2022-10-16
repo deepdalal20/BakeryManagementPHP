@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 15, 2022 at 02:33 PM
+-- Generation Time: Oct 16, 2022 at 08:49 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `bms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblcart`
+--
+
+CREATE TABLE `tblcart` (
+  `crt_id` int(11) NOT NULL,
+  `crt_name` varchar(50) NOT NULL,
+  `crt_price` int(11) NOT NULL,
+  `crt_qty` int(11) NOT NULL,
+  `crt_image` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tblcart`
+--
+
+INSERT INTO `tblcart` (`crt_id`, `crt_name`, `crt_price`, `crt_qty`, `crt_image`) VALUES
+(1, 'Royal Chocolate', 450, 1, 'royalch.jpeg'),
+(2, '24K Gold Cake', 3000, 1, 'gold.jpeg');
 
 -- --------------------------------------------------------
 
@@ -141,6 +163,12 @@ INSERT INTO `tbluser` (`id`, `name`, `email`, `password`, `contact`, `date`) VAL
 --
 
 --
+-- Indexes for table `tblcart`
+--
+ALTER TABLE `tblcart`
+  ADD PRIMARY KEY (`crt_id`);
+
+--
 -- Indexes for table `tblcategory`
 --
 ALTER TABLE `tblcategory`
@@ -167,6 +195,12 @@ ALTER TABLE `tbluser`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `tblcart`
+--
+ALTER TABLE `tblcart`
+  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tblcategory`

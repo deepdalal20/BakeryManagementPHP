@@ -126,7 +126,7 @@ body {
                   <div class="card-content">
                     <h3 class="card-title"> <?php echo $row['p_name']; ?></h3>
                     <form method="post">
-                        <input type="text" size="8" placeholder="Quantity" style="height: 30px; font-size=10px;">
+                        <input type="text" size="8" placeholder="Quantity" style="height: 30px; font-size: 10px;">
                   </form>      
                   <br>
                     <p> Price: ₹<?php echo $row['p_price']; ?>/dozens </p>    
@@ -153,7 +153,7 @@ body {
                   <div class="card-content">
                     <h3 class="card-title"> <?php echo $row['p_name']; ?></h3>
                     <form method="post">
-                        <input type="text" size="8" placeholder="quantity" style="height: 30px; font-size=10px;">
+                        <input type="text" size="8" placeholder="quantity" style="height: 30px; font-size: 10px;">
                   </form>      
                   <br>
                     <p> Price: ₹<?php echo $row['p_price']; ?>/piece </p>    
@@ -180,7 +180,7 @@ body {
                   <div class="card-content">
                     <h3 class="card-title"> <?php echo $row['p_name']; ?></h3>
                     <form method="post">
-                        <input type="text" size="8" placeholder="quantity" style="height: 30px; font-size=10px;">
+                        <input type="text" size="8" placeholder="quantity" style="height: 30px; font-size: 10px;">
                         <select name="weight" style="width: 70px; height: 28px;">
                         <option value="500g">500g</option>
                         <option value="1kg">1kg</option>

@@ -1,4 +1,5 @@
 <?php
+    include 'dbcon.php';
     session_start();
     if(!isset($_SESSION['loganame'])){
         header('location:login.php');
@@ -135,7 +136,6 @@ body {
 <section id="section-a" class="grid">
   <ul>
         <?php
-          include 'dbcon.php';
           $query = "select * from tblproduct where category='Breads and Buns' ";
           $result= mysqli_query($conn, $query);
           while($row = mysqli_fetch_assoc($result)):
@@ -145,13 +145,16 @@ body {
                 <img src="<?php echo $row['p_image']; ?>" style="float: right; width: 400; height: 200;">
                   <div class="card-content">
                     <h3 class="card-title"> <?php echo $row['p_name']; ?></h3>
-                    <form method="post">
-                        <input type="text" size="8" placeholder="Quantity" style="height: 30px; font-size:10px;">
+                    <form method="post" action="">
+                        <input type="int" size="2" name="product_quantity" value="1" style="height: 30px; font-size: 10px;">
+                        <input type="hidden" name="product_name" value="<?php echo $row['p_name']; ?>">
+                        <input type="hidden" name="product_price" value="<?php echo $row['p_price']; ?>">
+                        <input type="hidden" name="product_image" value="<?php echo $row['p_image']; ?>">
+                        <input type="submit" name="add_to_cart" value="Add to Cart">
                   </form>      
                   <br>
                     <p> Price: ₹<?php echo $row['p_price']; ?>/dozens </p>    
                   </div>
-                  <input type="button" value="Add to Cart">
                 </div>
               </li>
         <?php endwhile; ?>
@@ -171,14 +174,17 @@ body {
                 <div class="card">
                 <img src="<?php echo $row['p_image']; ?>" style="float: right; width: 400; height: 200;">
                   <div class="card-content">
-                    <h3 class="card-title"> <?php echo $row['p_name']; ?></h3>
-                    <form method="post">
-                        <input type="text" size="8" placeholder="quantity" style="height: 30px; font-size:10px;">
+                  <h3 class="card-title"> <?php echo $row['p_name']; ?></h3>
+                  <form method="post" action="">
+                        <input type="int" size="2" name="product_quantity" value="1" style="height: 30px; font-size: 10px;"><br>
+                        <input type="hidden" name="product_name" value="<?php echo $row['p_name']; ?>">
+                        <input type="hidden" name="product_price" value="<?php echo $row['p_price']; ?>">
+                        <input type="hidden" name="product_image" value="<?php echo $row['p_image']; ?>">
+                        <input type="submit" name="add_to_cart" value="Add to Cart">
                   </form>      
                   <br>
                     <p> Price: ₹<?php echo $row['p_price']; ?>/piece </p>    
                   </div>
-                  <input type="button" value="Add to Cart">
                 </div>
               </li> 
         <?php endwhile; ?>
@@ -199,23 +205,55 @@ body {
                 <img src="<?php echo $row['p_image']; ?>" style="float: right; width: 400; height: 200;">
                   <div class="card-content">
                     <h3 class="card-title"> <?php echo $row['p_name']; ?></h3>
-                    <form method="post">
-                        <input type="text" size="8" placeholder="quantity" style="height: 30px; font-size: 10px;">
-                        <select name="weight" style="width: 70px; height: 28px;">
-                        <option value="500g">500g</option>
-                        <option value="1kg">1kg</option>
-              </select>
+                    <form method="post" action="">
+                        <input type="int" size="2" name="product_quantity" value="1" style="height: 30px; font-size: 10px;">
+                        <!-- <select name="weight" style="width: 70px; height: 28px;">
+                          <option value="500g">500g</option>
+                          <option value="1kg">1kg</option>
+                        </select> -->
+                        <input type="hidden" name="product_name" value="<?php echo $row['p_name']; ?>">
+                        <input type="hidden" name="product_price" value="<?php echo $row['p_price']; ?>">
+                        <input type="hidden" name="product_image" value="<?php echo $row['p_image']; ?>">
+                        <input type="submit" name="add_to_cart" value="Add to Cart">
                   </form>      
                   <br>
                     <p> Price: ₹<?php echo $row['p_price']; ?>/kg </p>    
                   </div>
-                  <input type="button" value="Add to Cart">
                 </div>
               </li> 
-        <?php endwhile; ?>
+          <?php endwhile; ?>
           </ul>
           </section>
-        <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>
+
+          <?php
+            if(isset($_POST['add_to_cart'])){
+
+              $product_name = $_POST['product_name'];
+              $product_price = $_POST['product_price'];
+              $product_image = $_POST['product_image'];
+              $product_quantity = $_POST['product_quantity'];
+          
+              $select_cart = "SELECT * FROM `tblcart` WHERE crt_name = '$product_name'";
+              $scart = mysqli_query($conn, $select_cart);
+          
+              if(mysqli_num_rows($scart) > 0){
+                echo "<script>Product already added</script>";
+              }else{
+                $insert_product = "INSERT INTO `tblcart`(crt_name, crt_price, crt_qty, crt_image) VALUES('$product_name', '$product_price', '$product_quantity', '$product_image')";
+                $icart = mysqli_query($conn, $insert_product);
+
+                if($icart)
+                {
+                  echo "product added to cart succesfully";
+                }
+                else
+                {
+                  echo "Something Went Wrong";
+                }
+              }
+            }
+          ?>
+    <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
 </body>

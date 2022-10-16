@@ -1,4 +1,5 @@
 <?php
+    include 'dbcon.php';
     session_start();
     if(!isset($_SESSION['loganame'])){
         header('location:login.php');
@@ -76,39 +77,28 @@
 			<thead>
 				<tr>
 					<th>Name</th>
+          <th>Image</th>
 					<th>Price</th>
 					<th>Quantity</th>
 					<th>Total</th>
 				</tr>
 			</thead>
 			<tbody>
+      <?php
+          include 'dbcon.php';
+          $query = "select * from tblcart";
+          $result= mysqli_query($conn, $query);
+          while($row = mysqli_fetch_assoc($result)):
+          $total = $_POST['crt_price']*$_POST['crt_qty'];
+      ?>
 				<tr>
-					<td id="name" data-label="Name">24K Gold Cake</td>
-					<td id="price" data-label="Price">₹3000</td>
-					<td id="quntity" data-label="Quantity">2</td>
-					<td id="total" data-label="Total">₹6000</td>
+					<td id="name" data-label="Name"><?php echo $row['crt_name'];?></td>
+          <td id="image" data-label="image"><img src="<?php echo $row['crt_image'];?>" style="width: 100px; height: 100px;"></td>
+					<td id="price" data-label="Price"><?php echo $row['crt_price'];?></td>
+					<td id="quntity" data-label="Quantity"><?php echo $row['crt_qty'];?></td>
+					<td id="total" data-label="Total">₹ <?php echo $total; ?></td>
 				</tr>
-
-				<tr>
-					<td id="name" data-label="Name">Royal Chocolate Cake</td>
-					<td id="price" data-label="Price">₹450</td>
-					<td id="quntity" data-label="Quantity">1</td>
-					<td id="total" data-label="Total">₹450</td>
-				</tr>
-
-				<tr>
-					<td id="name" data-label="Name">Amul Chocolate</td>
-					<td id="price" data-label="Price">₹50</td>
-					<td id="quntity" data-label="Quantity">5</td>
-					<td id="total" data-label="Total">₹250</td>
-				</tr>
-
-				<tr>
-					<td id="name" data-label="Name">Wheat Bread</td>
-					<td id="price" data-label="Price">₹50</td>
-					<td id="quntity" data-label="Quantity">3</td>
-					<td id="total" data-label="Total">₹150</td>
-				</tr>
+      <?php endwhile; ?>
 			</tbody>
 		</table>
 	</div>
@@ -120,9 +110,7 @@
             <a href="product.php"> <input type="button" value="Return to Shopping"> </a>
             <br>
           </div>
-
 			</div>
-
 			<div class="cart-right">
 				<table class="table1">
 
@@ -149,13 +137,34 @@
 			</div>
 		</div>
     <div>
-            <a href="product.php"> <input type="button" value="Cancel Order"> </a>
+            <a href="product.php"> <input type="button" name="delete_all" value="Clear Cart"> </a>
             <br>
           </div>
 
-	</section>        
-            <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>
+	</section>  
+  <?php
+  if(isset($_POST['update_update_btn'])){
+     $update_value = $_POST['update_quantity'];
+     $update_id = $_POST['update_quantity_id'];
+     $update_quantity_query = mysqli_query($conn, "UPDATE `tblcart` SET crt_qty = '$update_value' WHERE tbl_id = '$update_id'");
+     if($update_quantity_query){
+        header('location: cart.php');
+     };
+  };
+  
+  if(isset($_GET['remove'])){
+     $remove_id = $_GET['remove'];
+     mysqli_query($conn, "DELETE FROM `tblcart` WHERE crt_id = '$remove_id'");
+     header('location: cart.php');
+  };
+  
+  if(isset($_GET['delete_all'])){
+     mysqli_query($conn, "DELETE FROM `tblcart`");
+     header('location:cart.php');
+  }
+?>      
+    <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
-    </body>
-    </html>
+</body>
+</html>

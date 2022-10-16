@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <style>
-      input[type=button] {
+      input[type=submit] {
   background-color: #fa9200;
   border: none;
   color: white;
@@ -79,7 +79,7 @@
 					<th>Name</th>
           <th>Image</th>
 					<th>Price</th>
-					<th>Quantity</th>
+					<th colspan=2>Quantity</th>
 					<th>Total</th>
 				</tr>
 			</thead>
@@ -96,6 +96,7 @@
           <td id="image" data-label="image"><img src="<?php echo $row['crt_image'];?>" style="width: 100px; height: 100px;"></td>
 					<td id="price" data-label="Price"><?php echo $row['crt_price'];?></td>
 					<td id="quntity" data-label="Quantity"><?php echo $row['crt_qty'];?></td>
+          <td> adkf </td>
 					<td id="total" data-label="Total">₹ <?php echo $total; ?></td>
 				</tr>
       <?php endwhile; ?>
@@ -107,7 +108,8 @@
 		<div class="main-cart">
 			<div class="cart-left">
       <div>
-            <a href="product.php"> <input type="button" value="Return to Shopping"> </a>
+            <a href="product.php"> <input type="submit" value="Return to Shopping"> </a> 
+            <input type="submit" value="Update Cart">
             <br>
           </div>
 			</div>
@@ -131,16 +133,12 @@
 					</tbody>
 				</table>
         <br>
-        <div>
-            <a href="output.php"> <input type="button" value="CheckOut"> </a>
-          </div>
+            <a href="output.php"> <input type="submit" value="Check Out"> </a>
+            <form method="post">
+              <input type="submit" name="delete_all" value="Clear Cart" class="button">
+            </form>
 			</div>
 		</div>
-    <div>
-            <a href="product.php"> <input type="button" name="delete_all" value="Clear Cart"> </a>
-            <br>
-          </div>
-
 	</section>  
   <?php
   if(isset($_POST['update_update_btn'])){
@@ -158,7 +156,7 @@
      header('location: cart.php');
   };
   
-  if(isset($_GET['delete_all'])){
+  if(isset($_POST['delete_all'])){
      mysqli_query($conn, "DELETE FROM `tblcart`");
      header('location:cart.php');
   }

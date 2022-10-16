@@ -78,7 +78,7 @@ body {
     #section-a li {
       width: 31%;
     }
-    input[type=button] {
+    input[type=submit] {
   background-color: #fa9200;
   border: none;
   color: white;
@@ -144,16 +144,16 @@ body {
                 <div class="card">
                 <img src="<?php echo $row['p_image']; ?>" style="float: right; width: 400; height: 200;">
                   <div class="card-content">
-                    <h3 class="card-title"> <?php echo $row['p_name']; ?></h3>
+                    <h3> <?php echo $row['p_name']; ?></h3>
+                    <p> Price: ₹<?php echo $row['p_price']; ?>/dozens </p> 
                     <form method="post" action="">
-                        <input type="int" size="2" name="product_quantity" value="1" style="height: 30px; font-size: 10px;">
+                        Qty: <input type="int" size="2" name="product_quantity" value="1">
                         <input type="hidden" name="product_name" value="<?php echo $row['p_name']; ?>">
                         <input type="hidden" name="product_price" value="<?php echo $row['p_price']; ?>">
                         <input type="hidden" name="product_image" value="<?php echo $row['p_image']; ?>">
-                        <input type="submit" name="add_to_cart" value="Add to Cart">
+                        <br><input type="submit" name="add_to_cart" value="Add to Cart">
                   </form>      
-                  <br>
-                    <p> Price: ₹<?php echo $row['p_price']; ?>/dozens </p>    
+                  <br>   
                   </div>
                 </div>
               </li>
@@ -174,16 +174,16 @@ body {
                 <div class="card">
                 <img src="<?php echo $row['p_image']; ?>" style="float: right; width: 400; height: 200;">
                   <div class="card-content">
-                  <h3 class="card-title"> <?php echo $row['p_name']; ?></h3>
+                  <h3> <?php echo $row['p_name']; ?></h3>
+                  <p> Price: ₹<?php echo $row['p_price']; ?>/piece </p>
                   <form method="post" action="">
-                        <input type="int" size="2" name="product_quantity" value="1" style="height: 30px; font-size: 10px;"><br>
+                        Qty: <input type="int" size="2" name="product_quantity" value="1">
                         <input type="hidden" name="product_name" value="<?php echo $row['p_name']; ?>">
                         <input type="hidden" name="product_price" value="<?php echo $row['p_price']; ?>">
                         <input type="hidden" name="product_image" value="<?php echo $row['p_image']; ?>">
-                        <input type="submit" name="add_to_cart" value="Add to Cart">
+                        <br><input type="submit" name="add_to_cart" value="Add to Cart">
                   </form>      
-                  <br>
-                    <p> Price: ₹<?php echo $row['p_price']; ?>/piece </p>    
+                  <br>  
                   </div>
                 </div>
               </li> 
@@ -204,9 +204,10 @@ body {
                 <div class="card">
                 <img src="<?php echo $row['p_image']; ?>" style="float: right; width: 400; height: 200;">
                   <div class="card-content">
-                    <h3 class="card-title"> <?php echo $row['p_name']; ?></h3>
+                    <h3> <?php echo $row['p_name']; ?></h3>
+                    <p> Price: ₹<?php echo $row['p_price']; ?>/kg </p>
                     <form method="post" action="">
-                        <input type="int" size="2" name="product_quantity" value="1" style="height: 30px; font-size: 10px;">
+                      Qty: <input type="int" size="2" name="product_quantity" value="1">
                         <!-- <select name="weight" style="width: 70px; height: 28px;">
                           <option value="500g">500g</option>
                           <option value="1kg">1kg</option>
@@ -214,10 +215,8 @@ body {
                         <input type="hidden" name="product_name" value="<?php echo $row['p_name']; ?>">
                         <input type="hidden" name="product_price" value="<?php echo $row['p_price']; ?>">
                         <input type="hidden" name="product_image" value="<?php echo $row['p_image']; ?>">
-                        <input type="submit" name="add_to_cart" value="Add to Cart">
-                  </form>      
-                  <br>
-                    <p> Price: ₹<?php echo $row['p_price']; ?>/kg </p>    
+                        <br><input type="submit" name="add_to_cart" value="Add to Cart">
+                  </form>          
                   </div>
                 </div>
               </li> 
@@ -244,7 +243,7 @@ body {
 
                 if($icart)
                 {
-                  echo "product added to cart succesfully";
+                  echo "<script> product added to cart succesfully </script>";
                 }
                 else
                 {

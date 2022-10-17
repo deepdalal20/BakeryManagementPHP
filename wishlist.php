@@ -43,25 +43,26 @@
               <li class="nav-item">
                 <a class="nav-link" href="product.php">Product</a>
               </li>  
-              <li class="nav-item">
-                <a class="nav-link" href="profile.php">Profile</a>
-              </li> 
-              <li class="nav-item">
-                <a class="nav-link active " aria-current="page" href="#">Wishlist</a>
-              </li> 
-              <li class="nav-item">
-              <a class="btn btn-outline-light btn-floating m-1" href="cart.php" role="button">
-                <i class="fa-solid fa-cart-shopping"></i>
-              </a>
-              </li>
-              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                My Account
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                  <li><a class="dropdown-item active" aria-current="page" href="#">Wishlist</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                </ul>
+              </li>            
             </ul>
             <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-warning" type="submit">Search</button>
             </form>
-            <a href="logout.php"><button class="btn btn-outline-warning" type="submit">Logout</button></a>
-          </div>
+            <a class="btn btn-outline-warning" href="cart.php" role="button">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </a>          
+            </div>
         </div>
       </nav>
       <section class="uts">

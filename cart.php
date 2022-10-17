@@ -11,6 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
       input[type=submit] {
   background-color: #fa9200;
@@ -80,7 +81,7 @@
 					<th>Name</th>
           <th>Image</th>
 					<th>Price</th>
-					<th colspan=2>Quantity</th>
+					<th>Quantity</th>
 					<th>Total</th>
 				</tr>
 			</thead>
@@ -90,17 +91,27 @@
           $query = "select * from tblcart";
           $result= mysqli_query($conn, $query);
           while($row = mysqli_fetch_assoc($result)):
-          $total = $_POST['crt_price']*$_POST['crt_qty'];
       ?>
 				<tr>
 					<td id="name" data-label="Name"><?php echo $row['crt_name'];?></td>
           <td id="image" data-label="image"><img src="<?php echo $row['crt_image'];?>" style="width: 100px; height: 100px;"></td>
 					<td id="price" data-label="Price"><?php echo $row['crt_price'];?></td>
-					<td id="quntity" data-label="Quantity"><?php echo $row['crt_qty'];?></td>
-          <td> adkf </td>
-					<td id="total" data-label="Total">₹ <?php echo $total; ?></td>
+          <td id="quntity" data-label="Quantity">
+            <form action="updatecrt.php" method="post">
+                <input type="hidden" name="cart_id" value="<?php echo $row['crt_id']; ?>">
+                <input type="number" min="1" name="cart_quantity" value="<?php echo $row['crt_qty'];?>">
+                <input type="submit" name="update_cart" value="Update" class="option-btn">
+            </form>
+            <?php
+              $total=($row['crt_qty']* $row['crt_price']);
+              $grandtotal += $total;
+            ?>
+					<td id="total" data-label="Total">₹<?php echo $total; ?></td>
+          <td><a href="removecrt.php?delete=<?php echo $row['crt_id']; ?>"><input type="submit" value="Remove"></a></td>
 				</tr>
-      <?php endwhile; ?>
+      <?php 
+        endwhile;
+      ?>
 			</tbody>
 		</table>
 	</div>
@@ -110,7 +121,6 @@
 			<div class="cart-left">
       <div>
             <a href="product.php"> <input type="submit" value="Return to Shopping"> </a> 
-            <input type="submit" value="Update Cart">
             <br>
           </div>
 			</div>
@@ -121,47 +131,18 @@
 					<hr class="carttotals">
 
 					<tbody>
-						<tr>
-							<td class="subtotal" data-label="subtotal">Subtotal</td>
-							<td class="price" data-label="price">₹6850</td>
-						</tr>
-
-						<tr>
-							<td class="subtotal" data-label="S.No">total</td>
-							<td class="price" data-label="Name">₹6850</td>
-						</tr>
+					<tr>
+					  <td class="price" data-label="Name">₹<?php echo $grandtotal; ?></td>
+					</tr>
 
 					</tbody>
 				</table>
         <br>
             <a href="output.php"> <input type="submit" value="Check Out"> </a>
-            <form method="post">
-              <input type="submit" name="delete_all" value="Clear Cart" class="button">
-            </form>
+            <a href="clearcrt.php"><input type="submit" value="Clear Cart"></a>
 			</div>
 		</div>
-	</section>  
-  <?php
-  if(isset($_POST['update_update_btn'])){
-     $update_value = $_POST['update_quantity'];
-     $update_id = $_POST['update_quantity_id'];
-     $update_quantity_query = mysqli_query($conn, "UPDATE `tblcart` SET crt_qty = '$update_value' WHERE tbl_id = '$update_id'");
-     if($update_quantity_query){
-        header('location: cart.php');
-     };
-  };
-  
-  if(isset($_GET['remove'])){
-     $remove_id = $_GET['remove'];
-     mysqli_query($conn, "DELETE FROM `tblcart` WHERE crt_id = '$remove_id'");
-     header('location: cart.php');
-  };
-  
-  if(isset($_POST['delete_all'])){
-     mysqli_query($conn, "DELETE FROM `tblcart`");
-     header('location:cart.php');
-  }
-?>      
+	</section>     
     <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>

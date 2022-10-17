@@ -10,12 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+    
   </head>
     <style>
       body {
         text-align: center;
-        padding: 40px 0;
-        background: #EBF0F5;
       }
         h1 {
           color: #88B04B;
@@ -30,16 +29,18 @@
           font-size:20px;
           margin: 0;
         }
-      i {
-        color: #9ABC66;
-        font-size: 100px;
-        line-height: 200px;
-        margin-left:-15px;
-      }
-
+        input[type=submit] {
+          background-color: #fa9200;
+          border: none;
+          color: white;
+          padding: 10px 20px;
+          text-decoration: none;
+          margin: 4px 2px;
+          cursor: pointer;
+        }
     </style>
     <body>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
         <a href="cust.php"> <img class="btn"  src="seewans.png" alt="" width="72" height="57"> </a>
           <a class="navbar-brand" href="cust.php"><h2>Seewans Bakery</h2></a>
@@ -47,9 +48,9 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active " aria-current="page" href="#">Home</a>
+                <a class="nav-link" href="cust.php">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="aboutus1.php">AboutUs</a>
@@ -57,30 +58,34 @@
               <li class="nav-item">
                 <a class="nav-link" href="product.php">Product</a>
               </li>  
-              <li class="nav-item">
-                <a class="nav-link" href="profile.php">Profile</a>
-              </li> 
-              <li class="nav-item">
-                <a class="nav-link" href="wishlist.php">Wishlist</a>
-              </li> 
-              <li class="nav-item">
-              <a class="btn btn-outline-light btn-floating m-1" href="cart.php" role="button">
-                <i class="fa-solid fa-cart-shopping"></i>
-              </a>
-              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                My Account
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                  <li><a class="dropdown-item" href="wishlist">Wishlist</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                </ul>
+              </li>            
             </ul>
             <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-warning" type="submit">Search</button>
             </form>
-            <a href="logout.php"><button class="btn btn-outline-warning" type="submit">Logout</button></a>
-          </div>
+            <a class="btn btn-outline-warning" href="cart.php" role="button">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </a>          
+            </div>
         </div>
       </nav>
-      <div class="card"></div>
+      <div>
         <h1>Thank you for Shopping with us.</h1>
         <h2>You have succesfully placed your order.</h2> 
-        <p>We received your contact request;<br/> we'll get in touch with you shortly!</p>
+        <p>We received your contact request;<br/> You'll receive your order very soon3`!</p>
       </div>
+      <a href="product.php"><input type="submit" value="Return to shop"></a>
+      <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>
     </body>
 </html>

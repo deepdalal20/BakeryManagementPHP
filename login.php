@@ -36,7 +36,7 @@ include 'dbcon.php';
                             <input type="checkbox" id="logCheck">
                             <label for="logCheck" class="text" name="reme">Remember me</label>
                         </div>
-                        <a href="#" class="text">Forgot password?</a>
+                        <a href="forgetpass.php" class="text">Forgot password?</a>
                     </div>
                     <div class="input-field button">
                         <input type="submit" value="Login" name="logsub">

@@ -1,8 +1,10 @@
 <?php
+    include 'dbcon.php';
     session_start();
     if(!isset($_SESSION['loganame'])){
         header('location:login.php');
     }    
+    $sname = $_SESSION['loganame'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -57,19 +59,21 @@
         <div class="Profile">
             <div class="profile">
                 <div class="left">
-
                     <div class="lefttop">
-
                         <div class="editprofile">
                             <h2>Customer Profile</h2>
                         </div>
                     </div>
-
+                    <?php 
+                        $sql = "SELECT * FROM tbluser WHERE name='$sname'";
+                        $data = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_assoc($data);
+                    ?>
                     <div class="inputleft">
                         <label for="">Name</label>
-                        <input type="text">
+                        <h4><?php echo $row['name']; ?></h4>
                         <label for="">Email</label>
-                        <input type="email">
+                        <h4><?php echo $row['email']; ?></h4>
                     </div>
 
                 </div>
@@ -80,13 +84,11 @@
                     </div>
 
                     <div class="inputright">
-                        <label for="">Last Name</label>
-                        <input type="text">
                         <label for="">Contact</label>
-                        <input type="email">
+                        <h4><?php echo $row['contact']; ?></h4>
+                        <label for="">Account Created on:</label>
+                        <h4><?php echo $row['date']; ?></h4>
                     </div>
-
-                    
                     <div class="editprofile">
                         <div class="lastbtn">
                             <button class="editbtn">Edit profile</button>

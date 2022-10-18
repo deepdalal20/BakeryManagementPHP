@@ -206,7 +206,7 @@ body {
                 <img src="<?php echo $row['p_image']; ?>" style="float: right; width: 400; height: 200;">
                   <div class="card-content">
                     <h3> <?php echo $row['p_name']; ?></h3>
-                    <p> Price: ₹<?php echo $row['p_price']; ?>/kg </p>
+                    <p> Price: ₹<?php echo $row['p_price']; ?>/100 gram </p>
                     <form method="post" action="">
                       Qty: <input type="int" size="2" name="product_quantity" value="1">
                         <!-- <select name="weight" style="width: 70px; height: 28px;">

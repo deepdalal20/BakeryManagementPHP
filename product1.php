@@ -187,7 +187,7 @@ body {
               </select>
                   </form>      
                   <br>
-                    <p> Price: ₹<?php echo $row['p_price']; ?>/kg </p>    
+                    <p> Price: ₹<?php echo $row['p_price']; ?>/100 gram </p>    
                   </div>
                   <a href="login.php"><input type="button" value="Add to Cart"></a>
                 </div>

@@ -138,7 +138,7 @@
 					</tbody>
 				</table>
         <br>
-            <a href="output.php"> <input type="submit" value="Check Out"> </a>
+            <a href="billing.php"> <input type="submit" value="Check Out"> </a>
             <a href="clearcrt.php"><input type="submit" value="Clear Cart"></a>
 			</div>
 		</div>

@@ -35,7 +35,7 @@
                 <a class="nav-link" href="product.php">Product</a>
               </li>  
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 My Account
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -91,7 +91,7 @@
                     </div>
                     <div class="editprofile">
                         <div class="lastbtn">
-                            <button class="editbtn">Edit profile</button>
+                            <a href="edprofile.php"><input type="submit" class="editbtn" value="Edit Profile"></a>
                         </div>
                     </div>
 

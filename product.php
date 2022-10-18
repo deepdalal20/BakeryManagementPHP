@@ -149,7 +149,8 @@ body {
                         <input type="hidden" name="product_price" value="<?php echo $row['p_price']; ?>">
                         <input type="hidden" name="product_image" value="<?php echo $row['p_image']; ?>">
                         <br><input type="submit" name="add_to_cart" value="Add to Cart">
-                  </form>      
+                        <br><input type="submit" name="add_to_wl" value="Wishlist">
+                  </form>   
                   <br>   
                   </div>
                 </div>
@@ -179,6 +180,7 @@ body {
                         <input type="hidden" name="product_price" value="<?php echo $row['p_price']; ?>">
                         <input type="hidden" name="product_image" value="<?php echo $row['p_image']; ?>">
                         <br><input type="submit" name="add_to_cart" value="Add to Cart">
+                        <br><input type="submit" name="add_to_wl" value="Wishlist">
                   </form>      
                   <br>  
                   </div>
@@ -206,13 +208,14 @@ body {
                     <form method="post" action="">
                       Qty: <input type="int" size="2" name="product_quantity" value="1">
                         <!-- <select name="weight" style="width: 70px; height: 28px;">
-                          <option value="500g">500g</option>
-                          <option value="1kg">1kg</option>
+                          <option value="0.5">500g</option>
+                          <option value="1">1kg</option>
                         </select> -->
                         <input type="hidden" name="product_name" value="<?php echo $row['p_name']; ?>">
                         <input type="hidden" name="product_price" value="<?php echo $row['p_price']; ?>">
                         <input type="hidden" name="product_image" value="<?php echo $row['p_image']; ?>">
                         <br><input type="submit" name="add_to_cart" value="Add to Cart">
+                        <br><input type="submit" name="add_to_wl" value="Wishlist">
                   </form>          
                   </div>
                 </div>
@@ -239,6 +242,32 @@ body {
                 $icart = mysqli_query($conn, $insert_product);
 
                 if($icart)
+                {
+                  echo "<script> product added to cart succesfully </script>";
+                }
+                else
+                {
+                  echo "Something Went Wrong";
+                }
+              }
+            }
+
+            if(isset($_POST['add_to_wl'])){
+
+              $product_name = $_POST['product_name'];
+              $product_price = $_POST['product_price'];
+              $product_image = $_POST['product_image'];
+          
+              $select_cart = "SELECT * FROM `tblwishlist` WHERE wl_name = '$product_name'";
+              $scart = mysqli_query($conn, $select_cart);
+          
+              if(mysqli_num_rows($scart) > 0){
+                echo "<script>Product already added</script>";
+              }else{
+                $insert_product = "INSERT INTO `tblwishlist`(`wl_name`, `wl_price`, `wl_image`) VALUES('$product_name', '$product_price', '$product_image')";
+                $icart1 = mysqli_query($conn, $insert_product);
+
+                if($icart1)
                 {
                   echo "<script> product added to cart succesfully </script>";
                 }

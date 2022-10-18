@@ -66,7 +66,7 @@
                 </div>
                 <div class="inputBox">
                     <span>credit card number :</span>
-                    <input type="number" placeholder="1111-2222-3333-4444" name="cnumber" required>
+                    <input type="number" placeholder="1111-2222-3333-4444" size="16" min="16" name="cnumber" required>
                 </div>
                 <div class="inputBox">
                     <span>exp month :</span>
@@ -76,11 +76,11 @@
                 <div class="flex">
                     <div class="inputBox">
                         <span>exp year :</span>
-                        <input type="number" placeholder="2022" name="cyear" required>
+                        <input type="number" placeholder="2022" size="4" name="cyear" required>
                     </div>
                     <div class="inputBox">
                         <span>CVV :</span>
-                        <input type="text" placeholder="123" max="3" name="cvv" required>
+                        <input type="text" placeholder="123" min="3" size="3" name="cvv" required>
                     </div>
                 </div>
                 <?php  

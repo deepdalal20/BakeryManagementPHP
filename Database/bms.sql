@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 18, 2022 at 03:56 PM
+-- Generation Time: Oct 18, 2022 at 06:00 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -197,6 +197,19 @@ INSERT INTO `tbluser` (`id`, `name`, `email`, `password`, `contact`, `date`) VAL
 (24, 'Preet', 'preet@yahoo.com', '$2y$10$0NCbP0qDLg/vnhlJD0B.c.Wup4Pji5WizW.8N8sWeOQPkJP8219uW', 9876536670, '2022-09-24 10:49:08'),
 (25, 'preet p', 'preet@hotmail.com', '$2y$10$DdWzl5U9Td/bnPwgfnIkpuhPNO949rhZwtCjIC1sZFA/7KfV2/Tgy', 2873898787, '2022-09-24 11:04:07');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblwishlist`
+--
+
+CREATE TABLE `tblwishlist` (
+  `wl_id` int(11) NOT NULL,
+  `wl_name` varchar(50) NOT NULL,
+  `wl_price` int(11) NOT NULL,
+  `wl_image` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
@@ -244,6 +257,12 @@ ALTER TABLE `tbluser`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tblwishlist`
+--
+ALTER TABLE `tblwishlist`
+  ADD PRIMARY KEY (`wl_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -251,7 +270,7 @@ ALTER TABLE `tbluser`
 -- AUTO_INCREMENT for table `tblcart`
 --
 ALTER TABLE `tblcart`
-  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tblcategory`
@@ -288,6 +307,12 @@ ALTER TABLE `tblstaff`
 --
 ALTER TABLE `tbluser`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `tblwishlist`
+--
+ALTER TABLE `tblwishlist`
+  MODIFY `wl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

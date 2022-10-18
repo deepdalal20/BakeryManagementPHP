@@ -20,7 +20,7 @@
 
 <div class="container">
 
-    <form action="" method="post">
+    <form action="orderdet.php" method="post">
 
         <div class="row">
 
@@ -83,9 +83,20 @@
                         <input type="text" placeholder="123" max="3" name="cvv" required>
                     </div>
                 </div>
-
+                <?php  
+                    $query = "select * from tblcart";
+                    $result= mysqli_query($conn, $query);
+                    while($row = mysqli_fetch_assoc($result)):
+                        $total=($row['crt_qty']* $row['crt_price']);
+                        $grandtotal += $total;
+                    endwhile;
+                ?>
+                <div class="inputBox">
+                    <span>Your Total Amount is:</span>
+                    <span><?php echo $grandtotal;?> </span>
+                    <input type="hidden" value="<?php echo $grandtotal;?>" name="grandtotal">
+                </div>
             </div>
-    
         </div>
 
         <input type="submit" value="proceed to checkout" name="submit" class="submit-btn">
@@ -95,11 +106,11 @@
         {   
             if(strlen($_POST['cvv']) == 3)
             {
-                header ('location: output.php');
+                header ('location: orderdet.php');
             }
             else
             {
-                echo "<script>Enter CVV precisely</script>";
+                echo "Enter CVV precisely";
             }
         }
     ?>

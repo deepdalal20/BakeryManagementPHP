@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 16, 2022 at 09:09 AM
+-- Generation Time: Oct 18, 2022 at 03:56 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -59,6 +59,53 @@ INSERT INTO `tblcategory` (`c_id`, `c_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tblorder`
+--
+
+CREATE TABLE `tblorder` (
+  `o_id` int(11) NOT NULL,
+  `o_total` int(11) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tblorder`
+--
+
+INSERT INTO `tblorder` (`o_id`, `o_total`, `date`) VALUES
+(1, 6240, '2022-10-18 19:22:03'),
+(2, 144, '2022-10-18 19:23:11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblorderdetail`
+--
+
+CREATE TABLE `tblorderdetail` (
+  `od_id` int(11) NOT NULL,
+  `od_name` varchar(40) NOT NULL,
+  `od_email` varchar(256) NOT NULL,
+  `od_address` varchar(100) NOT NULL,
+  `od_city` varchar(30) NOT NULL,
+  `od_state` varchar(30) NOT NULL,
+  `od_pin` varchar(10) NOT NULL,
+  `od_total` int(11) NOT NULL,
+  `od_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tblorderdetail`
+--
+
+INSERT INTO `tblorderdetail` (`od_id`, `od_name`, `od_email`, `od_address`, `od_city`, `od_state`, `od_pin`, `od_total`, `od_date`) VALUES
+(1, 'Deep Dalal', 'deepdalal20@gmail.com', 'picnic park society, rander road', 'SURAT', 'Gujarat', '395009', 6240, '2022-10-18 19:08:25'),
+(2, 'Deep Dalal', 'deep@gmail.com', 'picnic park society, rander road', 'SURAT', 'Gujarat', '395009', 6240, '2022-10-18 19:20:17'),
+(3, 'NewD', 'deep@gmail.com', 'picnic park society', 'SURAT', 'Gujarat', '395009', 144, '2022-10-18 19:23:11');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tblproduct`
 --
 
@@ -85,7 +132,7 @@ INSERT INTO `tblproduct` (`p_id`, `p_name`, `category`, `p_image`, `p_price`, `p
 (5, 'Amul Chocolate', 'Chocolates', 'amuldc.jpeg', 50, 'instock', 0, '2022-09-16 00:00:00'),
 (6, 'MrBeastBar', 'Chocolates', 'mrbeast.jpeg', 100, 'instock', 0, '2022-09-16 00:00:00'),
 (7, 'Royal Chocolate', 'Cakes', 'royalch.jpeg', 450, 'instock', 0, '2022-09-16 00:00:00'),
-(8, '24K Gold Cake', 'Cakes', 'gold.jpeg', 3000, 'instock', 0, '2022-09-23 09:47:05'),
+(8, '24K Gold Cake', 'Cakes', 'gold.jpeg', 300, 'instock', 0, '2022-09-23 09:47:05'),
 (9, 'Blue Coated Cake', 'Cakes', 'bluename.jpg', 360, 'instock', 0, '2022-10-03 05:46:15');
 
 -- --------------------------------------------------------
@@ -167,6 +214,18 @@ ALTER TABLE `tblcategory`
   ADD PRIMARY KEY (`c_id`);
 
 --
+-- Indexes for table `tblorder`
+--
+ALTER TABLE `tblorder`
+  ADD PRIMARY KEY (`o_id`);
+
+--
+-- Indexes for table `tblorderdetail`
+--
+ALTER TABLE `tblorderdetail`
+  ADD PRIMARY KEY (`od_id`);
+
+--
 -- Indexes for table `tblproduct`
 --
 ALTER TABLE `tblproduct`
@@ -192,13 +251,25 @@ ALTER TABLE `tbluser`
 -- AUTO_INCREMENT for table `tblcart`
 --
 ALTER TABLE `tblcart`
-  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tblcategory`
 --
 ALTER TABLE `tblcategory`
   MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tblorder`
+--
+ALTER TABLE `tblorder`
+  MODIFY `o_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tblorderdetail`
+--
+ALTER TABLE `tblorderdetail`
+  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tblproduct`

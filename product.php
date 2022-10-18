@@ -122,10 +122,6 @@ body {
                 </ul>
               </li>              
             </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-warning" type="submit">Search</button>
-      </form>
       <a class="btn btn-outline-warning" href="cart.php" role="button">
                 <i class="fa-solid fa-cart-shopping"></i>
               </a>

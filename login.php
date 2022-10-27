@@ -64,11 +64,13 @@ include 'dbcon.php';
                     if($resultuser = mysqli_query($conn, $query))
                     {
                         $row = mysqli_fetch_assoc($resultuser);
+                        $aid = $row["id"];
                         $aemail = $row["email"];
                         $apass = $row["password"];
                         $aname = $row["name"];
                         if($lemail == $aemail && password_verify($lpass, $apass))
                         {
+                            $_SESSION['logaid'] = $aid;
                             $_SESSION['loganame'] = $aname;
                             header('location:cust.php');
                             if(isset($_POST['reme']))

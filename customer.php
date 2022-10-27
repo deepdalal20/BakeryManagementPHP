@@ -82,8 +82,7 @@
                             Action
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <li><a class="dropdown-item edit_data" data-id = '<?php echo $row['user_id'] ?>' href="javascript:void(0)">Edit</a></li>
-                            <li><a class="dropdown-item delete_data" data-id = '<?php echo $row['user_id'] ?>' data-name = '<?php echo $row['fullname'] ?>' href="javascript:void(0)">Delete</a></li>
+                            <li><a class="dropdown-item delete_data" data-id = '<?php echo $row['user_id'] ?>'>Delete</a></li>
                             </ul>
                         </div>
                     </th>

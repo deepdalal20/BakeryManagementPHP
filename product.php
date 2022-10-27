@@ -4,6 +4,7 @@
     if(!isset($_SESSION['loganame'])){
         header('location:login.php');
     }    
+    $u_id = $_SESSION['logaid'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -277,6 +278,24 @@ body {
                 }
               }
             }
+
+            if(isset($_POST['add_to_cart'])){
+
+              $product_name = $_POST['product_name'];
+              $product_price = $_POST['product_price'];
+              $product_image = $_POST['product_image'];
+              $product_quantity = $_POST['product_quantity'];
+              $insert_product = "INSERT INTO `tblord`(u_id, ord_name, ord_price, ord_qty, ord_image) VALUES('$u_id', '$product_name', '$product_price', '$product_quantity', '$product_image')";
+              $icart = mysqli_query($conn, $insert_product);
+              if($icart)
+                {
+                  echo "<script> product added to cart succesfully </script>";
+                }
+              else
+                {
+                  echo "Something Went Wrong";
+                }
+              }
           ?>
     <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">

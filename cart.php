@@ -84,6 +84,7 @@
 			<tbody>
       <?php
           include 'dbcon.php';
+          
           $query = "select * from tblcart";
           $result= mysqli_query($conn, $query);
           while($row = mysqli_fetch_assoc($result)):
@@ -94,6 +95,12 @@
 					<td id="price" data-label="Price"><?php echo $row['crt_price'];?></td>
           <td id="quntity" data-label="Quantity">
             <form action="updatecrt.php" method="post">
+              <?php
+                  $query1 = "select * from tblord";
+                  $result1= mysqli_query($conn, $query1);
+                  $row1 = mysqli_fetch_assoc($result1);
+              ?>
+                <input type="hidden" name="ord_id" value="<?php echo $row1['ord_id']; ?>">
                 <input type="hidden" name="cart_id" value="<?php echo $row['crt_id']; ?>">
                 <input type="number" min="1" name="cart_quantity" value="<?php echo $row['crt_qty'];?>">
                 <input type="submit" name="update_cart" value="Update" class="option-btn">
@@ -103,7 +110,12 @@
               $grandtotal += $total;
             ?>
 					<td id="total" data-label="Total">₹<?php echo $total; ?></td>
-          <td><a href="removecrt.php?delete=<?php echo $row['crt_id']; ?>"><input type="submit" value="Remove"></a></td>
+          <td> <form method="post" action="removecrt.php">
+              <input type="hidden" name="ord_id" value="<?php echo $row1['ord_id']; ?>">
+                <input type="hidden" name="cart_id" value="<?php echo $row['crt_id']; ?>">
+                <input type="submit" value="Remove"></a>
+            </form>    
+          </td>
 				</tr>
       <?php 
         endwhile;

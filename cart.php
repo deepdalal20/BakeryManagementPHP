@@ -3,7 +3,8 @@
     session_start();
     if(!isset($_SESSION['loganame'])){
         header('location:login.php');
-    }    
+    }   
+    $u_id = $_SESSION['logaid']; 
 ?>
 <!doctype html>
 <html lang="en">
@@ -85,7 +86,7 @@
       <?php
           include 'dbcon.php';
           
-          $query = "select * from tblcart";
+          $query = "select * from tblcart where u_id = '$u_id'";
           $result= mysqli_query($conn, $query);
           while($row = mysqli_fetch_assoc($result)):
       ?>
@@ -96,7 +97,7 @@
           <td id="quntity" data-label="Quantity">
             <form action="updatecrt.php" method="post">
               <?php
-                  $query1 = "select * from tblord";
+                  $query1 = "select * from tblord where u_id = '$u_id'";
                   $result1= mysqli_query($conn, $query1);
                   $row1 = mysqli_fetch_assoc($result1);
               ?>
@@ -147,7 +148,6 @@
 				</table>
         <br>
             <a href="billing.php"> <input type="submit" value="Check Out"> </a>
-            <a href="clearcrt.php"><input type="submit" value="Clear Cart"></a>
 			</div>
 		</div>
 	</section>     

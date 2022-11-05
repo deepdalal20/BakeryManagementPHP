@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 27, 2022 at 05:54 PM
+-- Generation Time: Nov 05, 2022 at 01:36 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tblcart` (
   `crt_id` int(11) NOT NULL,
+  `u_id` int(11) NOT NULL,
   `crt_name` varchar(50) NOT NULL,
   `crt_price` int(11) NOT NULL,
   `crt_qty` int(11) NOT NULL,
@@ -76,7 +77,8 @@ CREATE TABLE `tblord` (
 --
 
 INSERT INTO `tblord` (`ord_id`, `u_id`, `ord_name`, `ord_price`, `ord_qty`, `ord_image`) VALUES
-(6, 24, 'Pav Bhaji Bread', 36, 1, 'pavbhajibread.jpeg');
+(39, 24, 'Dabeli Bread', 36, 1, 'dabeli-pav.jpg'),
+(40, 24, 'Burger Buns', 40, 1, 'burgerbun.jpg');
 
 -- --------------------------------------------------------
 
@@ -100,7 +102,10 @@ INSERT INTO `tblorder` (`o_id`, `u_id`, `o_total`, `date`) VALUES
 (2, 0, 144, '2022-10-18 19:23:11'),
 (3, 0, 308, '2022-10-19 10:21:56'),
 (4, 0, 1108, '2022-10-19 13:40:53'),
-(5, 24, 36, '2022-10-27 21:23:39');
+(5, 24, 36, '2022-10-27 21:23:39'),
+(6, 24, 666, '2022-10-30 13:13:00'),
+(7, 24, 36, '2022-11-05 17:43:38'),
+(8, 24, 36, '2022-11-05 17:44:01');
 
 -- --------------------------------------------------------
 
@@ -130,7 +135,8 @@ INSERT INTO `tblorderdetail` (`od_id`, `od_name`, `od_email`, `od_address`, `od_
 (3, 'NewD', 'deep@gmail.com', 'picnic park society', 'SURAT', 'Gujarat', '395009', 144, '2022-10-18 19:23:11'),
 (4, 'Deep', 'deep@gmail.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 308, '2022-10-19 10:21:56'),
 (5, 'Preet', 'preet@yahoo.com', 'Adajan', 'SURAT', 'Gujarat', '395009', 1108, '2022-10-19 13:40:53'),
-(6, 'Deep', 'deep20@gmail.com', 'rander road', 'SURAT', 'Gujarat', '395009', 36, '2022-10-27 21:23:39');
+(6, 'Deep', 'deep20@gmail.com', 'rander road', 'SURAT', 'Gujarat', '395009', 36, '2022-10-27 21:23:39'),
+(7, 'Deep', 'deep@gm.com', 'rander road', 'SURAT', 'Gujarat', '395009', 666, '2022-10-30 13:13:00');
 
 -- --------------------------------------------------------
 
@@ -305,7 +311,7 @@ ALTER TABLE `tblwishlist`
 -- AUTO_INCREMENT for table `tblcart`
 --
 ALTER TABLE `tblcart`
-  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `tblcategory`
@@ -317,19 +323,19 @@ ALTER TABLE `tblcategory`
 -- AUTO_INCREMENT for table `tblord`
 --
 ALTER TABLE `tblord`
-  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `tblorder`
 --
 ALTER TABLE `tblorder`
-  MODIFY `o_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `o_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tblorderdetail`
 --
 ALTER TABLE `tblorderdetail`
-  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tblproduct`
@@ -353,7 +359,7 @@ ALTER TABLE `tbluser`
 -- AUTO_INCREMENT for table `tblwishlist`
 --
 ALTER TABLE `tblwishlist`
-  MODIFY `wl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `wl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -17,7 +17,7 @@
 
     if($icart)
     {
-        header('location: clearcrt1.php');
+        header('location: copyord.php');
     }
     else
     {

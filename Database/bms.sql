@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 05, 2022 at 01:36 PM
+-- Generation Time: Nov 07, 2022 at 08:26 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -311,7 +311,7 @@ ALTER TABLE `tblwishlist`
 -- AUTO_INCREMENT for table `tblcart`
 --
 ALTER TABLE `tblcart`
-  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `tblcategory`

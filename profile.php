@@ -92,7 +92,7 @@
                     </div>
                     <div class="editprofile">
                         <div class="lastbtn">
-                            <a href="edprofile.php"><input type="submit" class="editbtn" value="Edit Profile"></a>
+                            <a href="cust.php"><input type="submit" class="editbtn" value="Return To Home"></a>
                         </div>
                     </div>
 

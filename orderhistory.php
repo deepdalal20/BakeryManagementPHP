@@ -3,8 +3,8 @@
     session_start();
     if(!isset($_SESSION['loganame'])){
         header('location:login.php');
-    }    
-    $sname = $_SESSION['loganame'];
+    }   
+    $u_id = $_SESSION['logaid']; 
 ?>
 <!doctype html>
 <html lang="en">
@@ -12,8 +12,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="staff.css">
-    <title>Customer Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      input[type=submit] {
+  background-color: #fa9200;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+</style>
+    <title>Order History</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -39,67 +51,75 @@
                 My Account
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item active " aria-current="page" href="#">Profile</a></li>
+                  <li><a class="dropdown-item" href="profile.php">Profile</a></li>
                   <li><a class="dropdown-item" href="wishlist.php">Wishlist</a></li>
-                  <li><a class="dropdown-item" href="orderhistory.php">Order History</a></li>
+                  <li><a class="dropdown-item active" aria-current="page" href="#">Order History</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                 </ul>
-              </li>              
+              </li>
             </ul>
             <a class="btn btn-outline-warning" href="cart.php" role="button">
                 <i class="fa-solid fa-cart-shopping"></i>
-              </a>
-            </div>
+            </a>
+          </div>
         </div>
-</nav>
-<div class="container">
-        <div class="Blank">
-
+      </nav>
+      <section class="uts">
+        <div>
+             <h1 class="primary-head">Cart</h1>
         </div>
-        <div class="Profile">
-            <div class="profile">
-                <div class="left">
-                    <div class="lefttop">
-                        <div class="editprofile">
-                            <h2>Customer Profile</h2>
-                        </div>
-                    </div>
-                    <?php 
-                        $sql = "SELECT * FROM tbluser WHERE name='$sname'";
-                        $data = mysqli_query($conn, $sql);
-                        $row = mysqli_fetch_assoc($data);
-                    ?>
-                    <div class="inputleft">
-                        <label for="">Name</label>
-                        <h4><?php echo $row['name']; ?></h4>
-                        <label for="">Email</label>
-                        <h4><?php echo $row['email']; ?></h4>
-                    </div>
+    </section>
+	<section class="m-b-remove">
+	<div class="container2">
 
-                </div>
-                <div class="right">
-
-                    <div class="lefttop">                     
-                       
-                    </div>
-
-                    <div class="inputright">
-                        <label for="">Contact</label>
-                        <h4><?php echo $row['contact']; ?></h4>
-                        <label for="">Account Created on:</label>
-                        <h4><?php echo $row['date']; ?></h4>
-                    </div>
-                    <div class="editprofile">
-                        <div class="lastbtn">
-                            <a href="edprofile.php"><input type="submit" class="editbtn" value="Edit Profile"></a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-      <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+                    <th>Image</th>
+					<th>Price</th>
+					<th>Quantity</th>
+					<th>Total</th>
+				</tr>
+			</thead>
+			<tbody>
+      <?php
+          include 'dbcon.php';
+          
+          $query = "select * from tblord where u_id = '$u_id'";
+          $result= mysqli_query($conn, $query);
+          while($row = mysqli_fetch_assoc($result)):
+      ?>
+				<tr>
+					<td id="name" data-label="Name"><?php echo $row['ord_name'];?></td>
+          <td id="image" data-label="image"><img src="<?php echo $row['ord_image'];?>" style="width: 100px; height: 100px;"></td>
+					<td id="price" data-label="Price"><?php echo $row['ord_price'];?></td>
+          <td id="quntity" data-label="Quantity"><?php echo $row['ord_qty'];?></td>
+            <?php
+              $total=($row['ord_qty']* $row['ord_price']);
+              $grandtotal += $total;
+            ?>
+					<td id="total" data-label="Total">₹<?php echo $total; ?></td>
+				</tr>
+      <?php 
+        endwhile;
+      ?>
+			</tbody>
+		</table>
+	</div>
+</section>
+	<section class="m-remove">
+		<div class="main-cart">
+			<div class="cart-left">
+      <div>
+            <a href="product.php"> <input type="submit" value="Return to Shopping"> </a> 
+            <br>
+          </div>
+			</div>
+		</div>
+	</section>     
+    <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
 </body>

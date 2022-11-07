@@ -53,6 +53,7 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="profile.php">Profile</a></li>
                   <li><a class="dropdown-item" href="wishlist.php">Wishlist</a></li>
+                  <li><a class="dropdown-item" href="orderhistory.php">Order History</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                 </ul>
@@ -101,7 +102,6 @@
                   $result1= mysqli_query($conn, $query1);
                   $row1 = mysqli_fetch_assoc($result1);
               ?>
-                <input type="hidden" name="ord_id" value="<?php echo $row1['ord_id']; ?>">
                 <input type="hidden" name="cart_id" value="<?php echo $row['crt_id']; ?>">
                 <input type="number" min="1" name="cart_quantity" value="<?php echo $row['crt_qty'];?>">
                 <input type="submit" name="update_cart" value="Update" class="option-btn">
@@ -112,7 +112,6 @@
             ?>
 					<td id="total" data-label="Total">₹<?php echo $total; ?></td>
           <td> <form method="post" action="removecrt.php">
-              <input type="hidden" name="ord_id" value="<?php echo $row1['ord_id']; ?>">
                 <input type="hidden" name="cart_id" value="<?php echo $row['crt_id']; ?>">
                 <input type="submit" value="Remove"></a>
             </form>    
@@ -148,6 +147,7 @@
 				</table>
         <br>
             <a href="billing.php"> <input type="submit" value="Check Out"> </a>
+            <a href="clearcrt.php"> <input type="submit" value="Clear Cart"> </a>
 			</div>
 		</div>
 	</section>     

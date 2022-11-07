@@ -1,4 +1,5 @@
 <?php
+    include 'dbcon.php';
     session_start();
     if(!isset($_SESSION['loguname'])){
         header('location:login.php');
@@ -167,7 +168,7 @@
             <hr>
             <div class="col-12">
                 <div class="row gx-3 row-cols-4">
-                    <div class="col">
+                <div class="col">
                         <div class="card text-dark">
                             <div class="card-body">
                                 <div class="w-100 d-flex align-items-center">
@@ -177,7 +178,12 @@
                                     <div class="col-auto flex-grow-1">
                                         <div class="fs-8"><b>Available Catrgories</b></div>
                                         <div class="fs-10 text-end fw-bold">
-                                            20
+                                        <?php
+                                            $query = "select * from tblcategory";
+                                            $result= mysqli_query($conn, $query);
+                                            $a =  mysqli_num_rows($result);
+                                            echo $a;
+                                        ?>
                                         </div>
                                     </div>
                                 </div>
@@ -192,16 +198,24 @@
                                         <span class="fas fa-shopping-bag fs-3 text-secondary"></span>
                                     </div>
                                     <div class="col-auto flex-grow-1">
-                                        <div class="fs-8"><b>Products</b></div>
+                                        <div class="fs-8"><b>Number of Products Ordered</b></div>
                                         <div class="fs-10 text-end fw-bold">
-                                            15
+                                        <?php
+                                            $query = "select * from tblord";
+                                            $result= mysqli_query($conn, $query);
+                                            while($row = mysqli_fetch_assoc($result)):
+                                                $qty=($row['ord_qty']);
+                                                $prqty += $qty;
+                                            endwhile;
+                                            echo $prqty;  
+                                        ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <!-- <div class="col">
                         <div class="card text-dark">
                             <div class="card-body">
                                 <div class="w-100 d-flex align-items-center">
@@ -217,7 +231,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col">
                         <div class="card text-dark">
                             <div class="card-body">
@@ -226,9 +240,17 @@
                                         <span class="fa fa-coins fs-3 text-warning"></span>
                                     </div>
                                     <div class="col-auto flex-grow-1">
-                                        <div class="fs-8"><b>Today's Sales</b></div>
+                                        <div class="fs-8"><b>Total Sales</b></div>
                                         <div class="fs-10 text-end fw-bold">
-                                            0
+                                        <?php
+                                            $query = "select * from tblord";
+                                            $result= mysqli_query($conn, $query);
+                                            while($row = mysqli_fetch_assoc($result)):
+                                                $total=($row['ord_qty']* $row['ord_price']);
+                                                $grandtotal += $total;
+                                            endwhile;
+                                            echo $grandtotal;  
+                                        ?>
                                         </div>
                                     </div>
                                 </div>
@@ -239,7 +261,7 @@
                 <hr>
                 <div class="row">
                     <div class="col-12">
-                        <h3>Stock Available</h3>
+                        <h3>Ordered Product Details</h3>
                         <hr>
                         <table class="table table-striped table-hover table-bordered" id="inventory">
                             <colgroup>
@@ -250,49 +272,33 @@
                             </colgroup>
                             <thead>
                                 <tr>
-                                    <th class="py-0 px-1">Category</th>
-                                    <th class="py-0 px-1">Product Code</th>
                                     <th class="py-0 px-1">Product Name</th>
-                                    <th class="py-0 px-1">Available Quantity</th>
-                                    <th class="py-0 px-1">Update Stock</th>
+                                    <th class="py-0 px-1">Product Image</th>
+                                    <th class="py-0 px-1">Product Price</th>
+                                    <th class="py-0 px-1">Product Quantity</th>
+                                    <th class="py-0 px-1">Total</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php
+                                $query = "select * from tblord";
+                                $result= mysqli_query($conn, $query);
+                                while($row = mysqli_fetch_assoc($result)):
+                            ?>
                                     <tr>
-                                        <td class="td py-0 px-1">Buns</td>
-                                        <td class="td py-0 px-1">001</td>
-                                        <td class="td py-0 px-1">Dabeli Buns</td>
-                                        <td class="td py-0 px-1">30</td>
-                                        <td class="td py-0 px-1 text-end"><a href="#">Restock</a></td>
+                                        <td class="td py-0 px-1"><?php echo $row['ord_name'];?></td>
+                                        <td class="td py-0 px-1"><img src="<?php echo $row['ord_image'];?>" style="width: 100px; height: 100px;"></td>
+                                        <td class="td py-0 px-1"><?php echo $row['ord_price'];?></td>
+                                        <td class="td py-0 px-1"><?php echo $row['ord_qty'];?></td>
+                                        <?php
+                                            $total=($row['ord_qty']* $row['ord_price']);
+                                            $grandtotal += $total;
+                                        ?>
+                                        <td class="td py-0 px-1 text-end"><?php echo $total;?></td>
                                     </tr>
-                                    <tr>
-                                        <td class="td py-0 px-1">Buns</td>
-                                        <td class="td py-0 px-1">002</td>
-                                        <td class="td py-0 px-1">Pav Bhaji Buns</td>
-                                        <td class="td py-0 px-1">40</td>
-                                        <td class="td py-0 px-1 text-end"><a href="#">Restock</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td py-0 px-1">Chocolates</td>
-                                        <td class="td py-0 px-1">003</td>
-                                        <td class="td py-0 px-1">KitKat</td>
-                                        <td class="td py-0 px-1">50</td>
-                                        <td class="td py-0 px-1 text-end"><a href="#">Restock</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td py-0 px-1">Cake</td>
-                                        <td class="td py-0 px-1">004</td>
-                                        <td class="td py-0 px-1">24K Gold Cake</td>
-                                        <td class="td py-0 px-1">2</td>
-                                        <td class="td py-0 px-1 text-end"><a href="#">Restock</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td py-0 px-1">Cake</td>
-                                        <td class="td py-0 px-1">005</td>
-                                        <td class="td py-0 px-1">Royal Chocolate</td>
-                                        <td class="td py-0 px-1">3</td>
-                                        <td class="td py-0 px-1 text-end"><a href="#">Restock</a></td>
-                                    </tr>
+                                    <?php 
+                                        endwhile;
+                                    ?>
                             </tbody>
                         </table>
                     </div>

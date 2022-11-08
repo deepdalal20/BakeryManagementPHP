@@ -82,7 +82,7 @@
                             Action
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <li><a class="dropdown-item delete_data" data-id = '<?php echo $row['user_id'] ?>'>Delete</a></li>
+                            <li><a class="dropdown-item delete_data" href="deletecust.php?id=<?php echo $row['id'] ?>">Delete</a></li>
                             </ul>
                         </div>
                     </th>

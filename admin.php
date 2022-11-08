@@ -215,7 +215,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="col">
+                    <div class="col">
                         <div class="card text-dark">
                             <div class="card-body">
                                 <div class="w-100 d-flex align-items-center">
@@ -225,13 +225,21 @@
                                     <div class="col-auto flex-grow-1">
                                         <div class="fs-8"><b>Total Stocks</b></div>
                                         <div class="fs-10 text-end fw-bold">
-                                            20
+                                        <?php
+                                            $query = "select * from tblstock";
+                                            $result= mysqli_query($conn, $query);
+                                            while($row = mysqli_fetch_assoc($result)):
+                                                $qty=($row['avl_stock']);
+                                                $prqty += $qty;
+                                            endwhile;
+                                            echo $prqty;  
+                                        ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="col">
                         <div class="card text-dark">
                             <div class="card-body">

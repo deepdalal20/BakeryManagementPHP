@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include 'dbcon.php';
     if(!isset($_SESSION['loguname'])){
         header('location:login.php');
     }    
@@ -162,89 +163,50 @@
 <div class="card rounded-0 shadow">
     <div class="card-header d-flex justify-content-between">
         <h3 class="card-title">Stock List</h3>
-        <div class="card-tools align-middle">
-            <a href="newproduct.php"><button class="btn btn-dark btn-sm py-1 rounded-0" type="button" id="create_new">Add New</button></a>
-        </div>
     </div>
     <div class="card-body">
         <table class="table table-hover table-striped table-bordered">
             <colgroup>
-                <col width="5%">
                 <col width="20%">
-                <col width="30%">
                 <col width="15%">
-                <col width="15%">
+                <col width="25%">
+                <col width="10%">
+                <col width="10%">
+                <col width="10%">
             </colgroup>
             <thead>
                 <tr>
-                    <th class="text-center p-0">#</th>
-                    <th class="text-center p-0">Date Added</th>
                     <th class="text-center p-0">Product</th>
-                    <th class="text-center p-0">Quantity</th>
+                    <th class="text-center p-0">Image</th>
+                    <th class="text-center p-0">Category</th>
+                    <th class="text-center p-0">Price</th>
+                    <th class="text-center p-0">Available Stock</th>
                     <th class="text-center p-0">Action</th>
                 </tr>
             </thead>
             <tbody>
+            <?php 
+                $sql1 = "SELECT * FROM tblstock where p_id='$id'";
+                $data1 = mysqli_query($conn, $sql1);
+                $row1 = mysqli_fetch_assoc($data1);
+                
+                $sql = "SELECT * FROM tblproduct";
+                $data = mysqli_query($conn, $sql);
+                while($row = mysqli_fetch_assoc($data)):
+            ?>
                 <tr>
-                    <td class="text-center p-0">1</td>
-                    <td class="py-0 px-1">12/02/2022</td>
-                    <td class="py-0 px-1">
-                        <div class="fs-6 fw-bold truncate-1"> sandwich breads </div>
-                        <div class="fs-6 fw-light truncate-1"> 101 </div>
-                    </td>
-                    <td class="py-0 px-1 text-end">5</td>
+                    <td class="p-0"><?php echo $row['p_name']; ?></td>
+                    <td class="text-center py-0 px-1"><img src="<?php echo $row['p_image']; ?>"  style="width: 100px; height: 100px;"></td>
+                    <td class="py-0 px-1"><?php echo $row['category']; ?></td>
+                    <td class="py-0 px-1"><?php echo $row['p_price']; ?></td>
+                    <td class="py-0 px-1 text-end"><?php echo $row1['avl_stock']; ?></td>
                     <td class="text-center py-0 px-1">
                         <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle btn-sm rounded-0 py-0" data-bs-toggle="dropdown" aria-expanded="true">
-                            Action
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <li><a class="dropdown-item edit_data" href="#">Edit</a></li>
-                            <li><a class="dropdown-item delete_data" href="#">Delete</a></li>
-                            </ul>
+                            <a href="addstock.php?id=<?php echo $row['p_id'];?>"><input id="btnGroupDrop1" type="submit" value="Restock" class="btn btn-primary dropdown-toggle btn-sm rounded-0 py-0"></a>
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <td class="text-center p-0">2</td>
-                    <td class="py-0 px-1">12/04/2022</td>
-                    <td class="py-0 px-1">
-                        <div class="fs-6 fw-bold truncate-1"> dabeli bun </div>
-                        <div class="fs-6 fw-light truncate-1"> 102 </div>
-                    </td>
-                    <td class="py-0 px-1 text-end">3</td>
-                    <td class="text-center py-0 px-1">
-                        <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle btn-sm rounded-0 py-0" data-bs-toggle="dropdown" aria-expanded="true">
-                            Action
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <li><a class="dropdown-item edit_data" href="#">Edit</a></li>
-                            <li><a class="dropdown-item delete_data" href="#">Delete</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center p-0">3</td>
-                    <td class="py-0 px-1">23/07/2022</td>
-                    <td class="py-0 px-1">
-                        <div class="fs-6 fw-bold truncate-1"> Brown breads </div>
-                        <div class="fs-6 fw-light truncate-1"> 103 </div>
-                    </td>
-                    <td class="py-0 px-1 text-end">7</td>
-                    <td class="text-center py-0 px-1">
-                        <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle btn-sm rounded-0 py-0" data-bs-toggle="dropdown" aria-expanded="true">
-                            Action
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <li><a class="dropdown-item edit_data" href="#">Edit</a></li>
-                            <li><a class="dropdown-item delete_data" href="#">Delete</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
+                <?php endwhile; ?>
             </tbody>
         </table>
     </div>

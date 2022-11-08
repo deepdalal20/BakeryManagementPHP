@@ -1,3 +1,7 @@
+<?php
+    include 'dbcon.php';
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,16 +23,20 @@
                 <span class="title">Forget Password</span>
                 <form action="" method="post" enctype="multipart/form-data">
                 <div class="input-field">
-                        <input type="text" class="password" placeholder="Enter new password" name="logpass" required>
+                    <input type="email" placeholder="Enter your email" name="femail" required>
+                    <i class="uil uil-envelope icon"></i>
+                </div>
+                <div class="input-field">
+                        <input type="password" class="password" placeholder="Enter new password" name="fpass1" required>
                         <i class="uil uil-lock icon"></i>
                     </div>
                     <div class="input-field">
-                        <input type="password" class="password" placeholder="Confirm your password" name="conpass" required>
+                        <input type="password" class="password" placeholder="Confirm new password" name="confpass" required>
                         <i class="uil uil-lock icon"></i>
                         <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
                     <div class="input-field button">
-                        <input type="submit" value="Login" name="logsub">
+                        <input type="submit" value="Login" name="fpass">
                     </div>
                 </form>
                 <div class="login-signup">
@@ -64,5 +72,49 @@
         })
     })
     </script>
+    <?php
+        if(isset($_POST['fpass']))
+        {
+            if(!empty($_POST['femail']))
+            {
+                $email = $_POST['femail'];
+                $pass1 = $_POST['fpass1'];
+                $h_pass = password_hash($pass1, PASSWORD_DEFAULT);
+
+                $ch = "SELECT * FROM tbluser WHERE email = '$email'";
+                $che = mysqli_query($conn, $ch);
+                $check = mysqli_num_rows($che); 
+
+                if($check > 0)
+                {
+                    if($_POST['fpass1'] == $_POST['confpass'])
+                    {
+                        $query = "UPDATE `tbluser` SET `password`='$h_pass' WHERE email='$email'";
+                        $data = mysqli_query($conn, $query);
+                        if($data)
+                        {
+                            header('location: login.php');
+                        }
+                        else
+                        {
+                            echo "Password not updated";
+                        }
+                    }
+                    else
+                    {
+                        echo "Password Not Match";
+                    }
+                }
+                else
+                {
+                    echo "User not found";
+                }
+            }  
+            else
+            {
+                echo "Please enter the email";
+            } 
+        }
+    ?>
     </body>
 </html>

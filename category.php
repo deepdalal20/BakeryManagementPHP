@@ -177,9 +177,6 @@
                                 <div class="col-auto flex-grow-1">
                                     <?php echo $row['c_name']; ?>
                                 </div>
-                                <div class="col-auto pe-2">
-                                    <small><span class='badge rounded-pill bg-success'>Active</span></small>
-                                </div>
                                 <div class="col-auto d-flex justify-content-end">
                                     <a href="updatecat.php?id=<?php echo $row['c_id'];?>" class="edit_category btn btn-sm btn-primary bg-gradient py-0 px-1 me-1" title="Edit Category Details"><span class="fa fa-edit"></span></a>
                                     <a href="deletecat.php?id=<?php echo $row['c_id'];?>" class="delete_category btn btn-sm btn-danger bg-gradient py-0 px-1" title="Delete Category"><span class="fa fa-trash"></span></a>

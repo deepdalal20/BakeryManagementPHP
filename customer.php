@@ -61,6 +61,7 @@
             </colgroup>
             <thead>
                 <tr>
+                    <th class="text-center p-0">ID</th>
                     <th class="text-center p-0">Name</th>
                     <th class="text-center p-0">Email</th>
                     <th class="text-center p-0">Contact</th>
@@ -73,6 +74,7 @@
               while($row = mysqli_fetch_assoc($data)):
             ?>
                 <tr>
+                    <td class="py-0 px-1"><?php echo $row['id']; ?></td>
                     <td class="py-0 px-1"><?php echo $row['name']; ?></td>
                     <td class="py-0 px-1"><?php echo $row['email']; ?></td>
                     <td class="py-0 px-1"><?php echo $row['contact']; ?></td>

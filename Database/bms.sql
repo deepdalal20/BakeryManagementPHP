@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 08, 2022 at 09:28 AM
+-- Generation Time: Nov 08, 2022 at 11:46 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -213,7 +213,7 @@ INSERT INTO `tblstock` (`st_id`, `p_id`, `avl_stock`, `date`) VALUES
 (1, 1, 5, '2022-11-08 13:30:27'),
 (2, 2, 0, '2022-11-08 13:32:12'),
 (3, 3, 0, '2022-11-08 13:33:27'),
-(4, 4, 0, '2022-11-08 13:33:32'),
+(4, 4, 10, '2022-11-08 16:14:56'),
 (5, 5, 0, '2022-11-08 13:33:35'),
 (6, 6, 0, '2022-11-08 13:33:39'),
 (7, 9, 3, '2022-11-08 13:56:34'),
@@ -240,7 +240,6 @@ CREATE TABLE `tbluser` (
 --
 
 INSERT INTO `tbluser` (`id`, `name`, `email`, `password`, `contact`, `date`) VALUES
-(4, 'notdeep', 'notdeep@gmail.com', 'aamadmin', 1234056789, '2022-09-10 19:34:16'),
 (6, 'aamdeep', 'deep@aam.com', '$2y$10$x5vnqJ12UtflhTyBNkPweOmb5SNW9dLdH/AzZ9ChKkNqp/TK6hhFy', 987654321, '2022-09-11 15:57:28'),
 (9, 'admin', 'admin@gmail.com', '$2y$10$8So7TWHGYh1w3Q0Oj06JROIVA8PlRVxh3Dph9dj3fdhEGqpaZ3nii', 192867851, '2022-09-22 19:41:41'),
 (10, 'admin123', 'admin23@gmail.com', '$2y$10$F4bXlewWtEa/zEQjCQkGaeBg4nRUvD1gfV/lk79Abmd7MIHVPaE6S', 1278283690, '2022-09-22 19:50:54'),
@@ -256,7 +255,7 @@ INSERT INTO `tbluser` (`id`, `name`, `email`, `password`, `contact`, `date`) VAL
 (20, 'abcdef', 'abcdef@gmail.com', '$2y$10$oOZ2cz.6HkMMpMW99OD8Gu.oZDVsAm8JeWV7ikMVvgU8DbX/vtvAi', 982878657, '2022-09-23 21:25:08'),
 (22, 'shivam Patel', 'shivamp2819@gmail.com', '$2y$10$T.qJYbS0D3fIuYKTTSK04udr/Wg0ktWymtkSmCkuIKh5p/G9rSwL2', 7990597887, '2022-09-24 10:06:09'),
 (23, 'deep', 'deepdalal@gmail.com', '$2y$10$9iKKuDk1sVvv1B6OvH.pEuHETV0DdBWl55zvVpz8sZN.cgWLP/l2.', 9883738299, '2022-09-24 10:21:22'),
-(24, 'Preet', 'preet@yahoo.com', '$2y$10$0NCbP0qDLg/vnhlJD0B.c.Wup4Pji5WizW.8N8sWeOQPkJP8219uW', 9876536670, '2022-09-24 10:49:08'),
+(24, 'Preet', 'preet@yahoo.com', '$2y$10$Wn9Qfc9y.JnhC00KIFL3d.v2gLm95hCTvCPccIzkUEBtOl7lf8U0W', 9876536670, '2022-09-24 10:49:08'),
 (25, 'preet p', 'preet@hotmail.com', '$2y$10$DdWzl5U9Td/bnPwgfnIkpuhPNO949rhZwtCjIC1sZFA/7KfV2/Tgy', 2873898787, '2022-09-24 11:04:07');
 
 -- --------------------------------------------------------

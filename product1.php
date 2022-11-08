@@ -124,14 +124,15 @@ body {
                 <div class="card">
                 <img src="<?php echo $row['p_image']; ?>" style="float: right; width: 400; height: 200;">
                   <div class="card-content">
-                    <h3 class="card-title"> <?php echo $row['p_name']; ?></h3>
+                  <h3> <?php echo $row['p_name']; ?></h3>
+                  <p> Price: ₹<?php echo $row['p_price']; ?>/dozens </p>
                     <form method="post">
-                        <input type="text" size="8" placeholder="Quantity" style="height: 30px; font-size: 10px;">
+                    Qty: <input type="int" size="2" name="product_quantity" value="1">
                   </form>      
-                  <br>
-                    <p> Price: ₹<?php echo $row['p_price']; ?>/dozens </p>    
+                  
                   </div>
                   <a href="login.php"><input type="button" value="Add to Cart"></a>
+                  <a href="login.php"><input type="button" value="Add to Wishlist"></a>
                 </div>
               </li>
         <?php endwhile; ?>
@@ -151,14 +152,15 @@ body {
                 <div class="card">
                 <img src="<?php echo $row['p_image']; ?>" style="float: right; width: 400; height: 200;">
                   <div class="card-content">
-                    <h3 class="card-title"> <?php echo $row['p_name']; ?></h3>
+                  <h3> <?php echo $row['p_name']; ?></h3>
+                  <p> Price: ₹<?php echo $row['p_price']; ?>/piece </p>
                     <form method="post">
-                        <input type="text" size="8" placeholder="quantity" style="height: 30px; font-size: 10px;">
+                    Qty: <input type="int" size="2" name="product_quantity" value="1">
                   </form>      
-                  <br>
-                    <p> Price: ₹<?php echo $row['p_price']; ?>/piece </p>    
+                  
                   </div>
                   <a href="login.php"><input type="button" value="Add to Cart"></a>
+                  <a href="login.php"><input type="button" value="Add to Wishlist"></a>
                 </div>
               </li> 
         <?php endwhile; ?>
@@ -178,18 +180,15 @@ body {
                 <div class="card">
                 <img src="<?php echo $row['p_image']; ?>" style="float: right; width: 400; height: 200;">
                   <div class="card-content">
-                    <h3 class="card-title"> <?php echo $row['p_name']; ?></h3>
+                  <h3> <?php echo $row['p_name']; ?></h3>
+                  <p> Price: ₹<?php echo $row['p_price']; ?>/100 gram </p>
                     <form method="post">
-                        <input type="text" size="8" placeholder="quantity" style="height: 30px; font-size: 10px;">
-                        <select name="weight" style="width: 70px; height: 28px;">
-                        <option value="500g">500g</option>
-                        <option value="1kg">1kg</option>
-              </select>
+                    Qty: <input type="int" size="2" name="product_quantity" value="1">
                   </form>      
-                  <br>
-                    <p> Price: ₹<?php echo $row['p_price']; ?>/100 gram </p>    
+                  
                   </div>
                   <a href="login.php"><input type="button" value="Add to Cart"></a>
+                  <a href="login.php"><input type="button" value="Add to Wishlist"></a>
                 </div>
               </li> 
         <?php endwhile; ?>

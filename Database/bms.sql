@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 08, 2022 at 09:21 AM
+-- Generation Time: Nov 08, 2022 at 09:28 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -216,7 +216,7 @@ INSERT INTO `tblstock` (`st_id`, `p_id`, `avl_stock`, `date`) VALUES
 (4, 4, 0, '2022-11-08 13:33:32'),
 (5, 5, 0, '2022-11-08 13:33:35'),
 (6, 6, 0, '2022-11-08 13:33:39'),
-(7, 9, 0, '2022-11-08 13:33:43'),
+(7, 9, 3, '2022-11-08 13:56:34'),
 (8, 8, 0, '2022-11-08 13:33:46'),
 (9, 7, 2, '2022-11-08 13:34:13');
 

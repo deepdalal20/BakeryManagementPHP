@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 07, 2022 at 08:26 AM
+-- Generation Time: Nov 08, 2022 at 09:21 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -195,6 +195,34 @@ INSERT INTO `tblstaff` (`sid`, `sname`, `semail`, `spassword`, `scontact`, `sdat
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tblstock`
+--
+
+CREATE TABLE `tblstock` (
+  `st_id` int(11) NOT NULL,
+  `p_id` int(11) NOT NULL,
+  `avl_stock` int(11) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tblstock`
+--
+
+INSERT INTO `tblstock` (`st_id`, `p_id`, `avl_stock`, `date`) VALUES
+(1, 1, 5, '2022-11-08 13:30:27'),
+(2, 2, 0, '2022-11-08 13:32:12'),
+(3, 3, 0, '2022-11-08 13:33:27'),
+(4, 4, 0, '2022-11-08 13:33:32'),
+(5, 5, 0, '2022-11-08 13:33:35'),
+(6, 6, 0, '2022-11-08 13:33:39'),
+(7, 9, 0, '2022-11-08 13:33:43'),
+(8, 8, 0, '2022-11-08 13:33:46'),
+(9, 7, 2, '2022-11-08 13:34:13');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbluser`
 --
 
@@ -212,7 +240,6 @@ CREATE TABLE `tbluser` (
 --
 
 INSERT INTO `tbluser` (`id`, `name`, `email`, `password`, `contact`, `date`) VALUES
-(2, 'deep', 'deep@gmail.com', 'admin123', 123456789, '2022-09-10 19:17:28'),
 (4, 'notdeep', 'notdeep@gmail.com', 'aamadmin', 1234056789, '2022-09-10 19:34:16'),
 (6, 'aamdeep', 'deep@aam.com', '$2y$10$x5vnqJ12UtflhTyBNkPweOmb5SNW9dLdH/AzZ9ChKkNqp/TK6hhFy', 987654321, '2022-09-11 15:57:28'),
 (9, 'admin', 'admin@gmail.com', '$2y$10$8So7TWHGYh1w3Q0Oj06JROIVA8PlRVxh3Dph9dj3fdhEGqpaZ3nii', 192867851, '2022-09-22 19:41:41'),
@@ -292,6 +319,12 @@ ALTER TABLE `tblstaff`
   ADD PRIMARY KEY (`sid`);
 
 --
+-- Indexes for table `tblstock`
+--
+ALTER TABLE `tblstock`
+  ADD PRIMARY KEY (`st_id`);
+
+--
 -- Indexes for table `tbluser`
 --
 ALTER TABLE `tbluser`
@@ -348,6 +381,12 @@ ALTER TABLE `tblproduct`
 --
 ALTER TABLE `tblstaff`
   MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tblstock`
+--
+ALTER TABLE `tblstock`
+  MODIFY `st_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tbluser`

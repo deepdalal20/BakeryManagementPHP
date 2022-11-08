@@ -1,5 +1,9 @@
 <?php
-     include 'dbcon.php';
+    include 'dbcon.php';
+    session_start();
+    if(!isset($_SESSION['loguname'])){
+        header('location:login.php');
+    }
      $id=$_GET['id'];
      $select = "SELECT * FROM tblcategory WHERE c_id='$id'";
      $data = mysqli_query($conn, $select);

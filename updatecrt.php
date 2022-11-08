@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    if(!isset($_SESSION['loganame'])){
+        header('location:login.php');
+    }
     include 'dbcon.php';
     $cart_id = $_POST['cart_id'];
     $cart_quantity = $_POST['cart_quantity'];

@@ -229,10 +229,10 @@
                                             $query = "select * from tblstock";
                                             $result= mysqli_query($conn, $query);
                                             while($row = mysqli_fetch_assoc($result)):
-                                                $qty=($row['avl_stock']);
-                                                $prqty += $qty;
+                                                $sqty=($row['avl_stock']);
+                                                $stqty += $sqty;
                                             endwhile;
-                                            echo $prqty;  
+                                            echo $stqty;  
                                         ?>
                                         </div>
                                     </div>
@@ -254,10 +254,10 @@
                                             $query = "select * from tblord";
                                             $result= mysqli_query($conn, $query);
                                             while($row = mysqli_fetch_assoc($result)):
-                                                $total=($row['ord_qty']* $row['ord_price']);
-                                                $grandtotal += $total;
+                                                $total1=($row['ord_qty']* $row['ord_price']);
+                                                $grandtotal1 += $total1;
                                             endwhile;
-                                            echo $grandtotal;  
+                                            echo $grandtotal1;  
                                         ?>
                                         </div>
                                     </div>
@@ -300,7 +300,6 @@
                                         <td class="td py-0 px-1"><?php echo $row['ord_qty'];?></td>
                                         <?php
                                             $total=($row['ord_qty']* $row['ord_price']);
-                                            $grandtotal += $total;
                                         ?>
                                         <td class="td py-0 px-1 text-end"><?php echo $total;?></td>
                                     </tr>

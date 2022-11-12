@@ -4,10 +4,6 @@
         header('location:login.php');
     }
      include 'dbcon.php';
-     session_start();
-        if(!isset($_SESSION['loguname'])){
-            header('location:login.php');
-        }
      $id=$_GET['id'];
      $select = "SELECT * FROM tblproduct WHERE p_id='$id'";
      $data = mysqli_query($conn, $select);

@@ -78,6 +78,9 @@ include 'dbcon.php';
                                 setcookie("Email", $lemail, time()+60*60*24);
                                 setcookie("Pass", $lpass, time()+60*60*24);
                             }
+                            else{
+                                echo "<script>alert('Email and Password not verified. Please check the credentials again!');</script>";
+                            }
                         }
                         else if($resultstaff = mysqli_query($conn, $query2))
                         {
@@ -91,19 +94,22 @@ include 'dbcon.php';
                                 $_SESSION['loguname'] = $aname;
                                 header('location: admin.php');
                             }
+                            else{
+                                echo "<script>alert('Email and Password not verified. Please check the credentials again!');</script>";
+                            }
                         }
                         else{
-                            echo '<script>alert("Something went wrong")</script>';
+                            echo "<script>alert('Something went wrong');</script>";
                         }
                     }    
                 }
             else{
-                echo 'Enter data precisely.';
+                echo "<script>alert('Enter data precisely.');</script>";
             }
         }
     }
     else{
-        echo 'Connection error';
+        echo "<script>alert('Connection error');</script>";
     }
     ?>
     <script>

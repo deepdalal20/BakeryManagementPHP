@@ -88,18 +88,12 @@
 
       if($passworderr == true)
       {
-        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Attention please!</strong> Your password should be contains 8 characters or more
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>';
+        echo "<script> alert('Your password should be contains 8 characters or more'); </script>";
       }
 
       if($existalert == true)
       {
-        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Attention please!</strong> Email already taken! Select another email!
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>';
+        echo "<script> alert('Email already taken! Select another email!')</script>";
       }
     ?>
     </body>

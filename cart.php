@@ -89,6 +89,17 @@
           
           $query = "select * from tblcart where u_id = '$u_id'";
           $result= mysqli_query($conn, $query);
+          $row1 = mysqli_num_rows($result);
+          if($row1 < 1)
+          {
+          ?>
+            <tr>
+              <td>Cart is Empty</td>
+          </tr>
+          <?php
+          }
+          else
+          {
           while($row = mysqli_fetch_assoc($result)):
       ?>
 				<tr>
@@ -119,6 +130,7 @@
 				</tr>
       <?php 
         endwhile;
+      }
       ?>
 			</tbody>
 		</table>

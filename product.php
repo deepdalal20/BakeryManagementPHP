@@ -238,7 +238,7 @@ body {
               $scart = mysqli_query($conn, $select_cart);
           
               if(mysqli_num_rows($scart) > 0){
-                echo "<script>Product already added</script>";
+                echo "<script>alert('Product already added');</script>";
               }else{
                 $insert_product = "INSERT INTO `tblcart`(u_id, crt_name, crt_price, crt_qty, crt_image) VALUES('$u_id', '$product_name', '$product_price', '$product_quantity', '$product_image')";
                 $icart = mysqli_query($conn, $insert_product);

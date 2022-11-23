@@ -37,7 +37,18 @@
    <form method="post">
       <h3>Add New Product</h3>
       Product Name: <input type="text" name="p_name" placeholder="enter product name" required><br>
-      Product Category: <input type="text" name="p_cat" placeholder="enter product category" required><br>
+      Product Category: 
+      <select name="p_cat" class="box">
+                     <?php 
+                        $sql = "SELECT * FROM tblcategory";
+                        $data = mysqli_query($conn, $sql);
+                        while($row = mysqli_fetch_assoc($data)):
+                    ?>
+         <option value="<?php echo $row['c_name']; ?>"><?php echo $row['c_name']; ?></option>
+         <?php
+            endwhile;
+         ?>
+      </select><br>
       Image: <input type="file" name="p_image" placeholder="confirm image" required><br>
       Product Price: <input type="text" name="p_price" placeholder="enter product price" maxlength="10" required><br>
       Status: <select name="p_status" class="box">

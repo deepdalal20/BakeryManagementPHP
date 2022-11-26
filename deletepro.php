@@ -14,6 +14,6 @@
     }
     else 
     {
-        echo "Unable to delete";
+        echo "<script> alert('Some Error Occured'); </script>";
     }
 ?>

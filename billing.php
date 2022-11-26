@@ -110,7 +110,7 @@
             }
             else
             {
-                echo "Enter CVV precisely";
+                echo "<script> alert('Enter CVV precisely'); </script>";
             }
         }
     ?>

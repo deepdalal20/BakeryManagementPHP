@@ -245,11 +245,11 @@ body {
 
                 if($icart)
                 {
-                  echo "<script> product added to cart succesfully </script>";
+                  echo "Product added to Wishlist succesfully";
                 }
                 else
                 {
-                  echo "Something Went Wrong";
+                  echo "<script> alert('Some Error Occured'); </script>";
                 }
               }
             }
@@ -275,7 +275,7 @@ body {
                 }
                 else
                 {
-                  echo "<script> alert('Something Went Wrong'); </script>";
+                  echo "<script> alert('Some Error Occured'); </script>";
                 }
               }
             }

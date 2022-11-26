@@ -13,6 +13,6 @@
     }
     else
     {
-      echo "Some Error Occured";
+      echo "<script> alert('Some Error Occured'); </script>";
     }
 ?>   

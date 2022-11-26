@@ -97,22 +97,22 @@
                         }
                         else
                         {
-                            echo "Password not updated";
+                            echo "<script> alert('Password not updated'); </script>";
                         }
                     }
                     else
                     {
-                        echo "Password Not Match";
+                        echo "<script> alert('Password Not Match'); </script>";
                     }
                 }
                 else
                 {
-                    echo "User not found";
+                    echo "<script> alert('User not found'); </script>";
                 }
             }  
             else
             {
-                echo "Please enter the email";
+                echo "<script> alert('Please enter the email'); </script>";
             } 
         }
     ?>

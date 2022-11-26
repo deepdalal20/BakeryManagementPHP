@@ -14,6 +14,6 @@
     }
     else
     {
-        echo "Something went wrong!";
+        echo "<script> alert('Some Error Occured'); </script>";
     }
 ?>  

@@ -22,7 +22,7 @@
         }
         else
         {
-            echo "Something Went Wrong";
+            echo "<script> alert('Some Error Occured'); </script>";
         }
 
 ?>

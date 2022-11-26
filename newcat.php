@@ -18,7 +18,7 @@
         header('location: category.php');
        }
        else {
-         echo "Some Error occured!!";
+        echo "<script> alert('Some Error Occured'); </script>";
        }
     }
 ?>

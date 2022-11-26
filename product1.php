@@ -1,3 +1,4 @@
+<?php include 'dbcon.php'; ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -111,12 +112,16 @@ body {
   </div>
 </nav>
 
-<h2> Breads & Buns </h2>
+<?php
+  $query = "select * from tblcategory";
+  $result1= mysqli_query($conn, $query);
+  while($row1 = mysqli_fetch_assoc($result1)):
+?>
 <section id="section-a" class="grid">
+<h2> <?php $cat = $row1['c_name']; echo $cat; ?> </h2>
   <ul>
         <?php
-          include 'dbcon.php';
-          $query = "select * from tblproduct where category='Breads and Buns' ";
+          $query = "select * from tblproduct where category='$cat' ";
           $result= mysqli_query($conn, $query);
           while($row = mysqli_fetch_assoc($result)):
         ?>
@@ -138,62 +143,7 @@ body {
         <?php endwhile; ?>
           </ul>
           </section>
-
-          <h2> Chocolates </h2>
-<section id="section-a" class="grid">
-  <ul>
-        <?php
-          include 'dbcon.php';
-          $query = "select * from tblproduct where category='Chocolates' ";
-          $result= mysqli_query($conn, $query);
-          while($row = mysqli_fetch_assoc($result)):
-        ?>
-            <li>
-                <div class="card">
-                <img src="<?php echo $row['p_image']; ?>" style="float: right; width: 400; height: 200;">
-                  <div class="card-content">
-                  <h3> <?php echo $row['p_name']; ?></h3>
-                  <p> Price: ₹<?php echo $row['p_price']; ?>/piece </p>
-                    <form method="post">
-                    Qty: <input type="int" size="2" name="product_quantity" value="1">
-                  </form>      
-                  
-                  </div>
-                  <a href="login.php"><input type="button" value="Add to Cart"></a>
-                  <a href="login.php"><input type="button" value="Add to Wishlist"></a>
-                </div>
-              </li> 
-        <?php endwhile; ?>
-          </ul>
-          </section>
-
-          <h2> Cakes </h2>
-<section id="section-a" class="grid">
-  <ul>
-        <?php
-          include 'dbcon.php';
-          $query = "select * from tblproduct where category='Cakes' ";
-          $result= mysqli_query($conn, $query);
-          while($row = mysqli_fetch_assoc($result)):
-        ?>
-            <li>
-                <div class="card">
-                <img src="<?php echo $row['p_image']; ?>" style="float: right; width: 400; height: 200;">
-                  <div class="card-content">
-                  <h3> <?php echo $row['p_name']; ?></h3>
-                  <p> Price: ₹<?php echo $row['p_price']; ?>/100 gram </p>
-                    <form method="post">
-                    Qty: <input type="int" size="2" name="product_quantity" value="1">
-                  </form>      
-                  
-                  </div>
-                  <a href="login.php"><input type="button" value="Add to Cart"></a>
-                  <a href="login.php"><input type="button" value="Add to Wishlist"></a>
-                </div>
-              </li> 
-        <?php endwhile; ?>
-          </ul>
-          </section>
+          <?php endwhile; ?>
         <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>

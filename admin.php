@@ -273,10 +273,11 @@
                         <hr>
                         <table class="table table-striped table-hover table-bordered" id="inventory">
                             <colgroup>
-                                <col width="25%">
-                                <col width="25%">
-                                <col width="25%">
-                                <col width="25%">
+                                <col width="20%">
+                                <col width="30%">
+                                <col width="15%">
+                                <col width="15%">
+                                <col width="20%">
                             </colgroup>
                             <thead>
                                 <tr>
@@ -295,7 +296,7 @@
                             ?>
                                     <tr>
                                         <td class="td py-0 px-1"><?php echo $row['ord_name'];?></td>
-                                        <td class="td py-0 px-1"><img src="<?php echo $row['ord_image'];?>" style="width: 100px; height: 100px;"></td>
+                                        <td class="td py-0 px-1"><center><img src="<?php echo $row['ord_image'];?>" style="width: 200px; height: 200px;"></center></td>
                                         <td class="td py-0 px-1"><?php echo $row['ord_price'];?></td>
                                         <td class="td py-0 px-1"><?php echo $row['ord_qty'];?></td>
                                         <?php

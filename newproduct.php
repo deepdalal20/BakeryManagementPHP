@@ -23,22 +23,64 @@
         header('location: edproduct.php');
        }
        else {
-         echo "Some Error occured!!";
+         echo "<script> alert('Some Error occured!!'); </script>";
        }
     }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-   <title>Add New Product</title>
-</head>
+    <title>
+      New Product
+    </title>
+  </head>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
 <body>
-   <form method="post">
-      <h3>Add New Product</h3>
-      Product Name: <input type="text" name="p_name" placeholder="enter product name" required><br>
-      Product Category: 
-      <select name="p_cat" class="box">
+
+<h3>Add new product</h3>
+
+<div>
+  <form action="" method="post">
+    <label for="fname">Product Name: </label>
+    <input type="text" id="fname" name="p_name" placeholder="Enter Product name" required>
+
+    <label for="fname">Product Price: </label>
+    <input type="text" id="fname" name="p_price" placeholder="Enter Product Price" required>
+
+    <label for="country">Category: </label>
+    <select name="p_cat" id="country" class="box">
                      <?php 
                         $sql = "SELECT * FROM tblcategory";
                         $data = mysqli_query($conn, $sql);
@@ -49,13 +91,19 @@
             endwhile;
          ?>
       </select><br>
-      Image: <input type="file" name="p_image" placeholder="confirm image" required><br>
-      Product Price: <input type="text" name="p_price" placeholder="enter product price" maxlength="10" required><br>
-      Status: <select name="p_status" class="box">
+
+    <label for="lname">Product Image: </label>
+    <input type="file" id="lname" name="p_image" placeholder="Upload Image" required> <br><br>
+
+    <label for="country">Status: </label>
+    <select name="p_status" id="country" class="box">
          <option value="instock">In Stock</option>
          <option value="outofstock">Out of Stock</option>
-      </select><br><br>
-      <input type="submit" name="regproduct" value="Register new product"> 
-   </form>
+      </select>
+  
+    <input type="submit" name="regproduct" value="Submit">
+  </form>
+</div>
+
 </body>
 </html>

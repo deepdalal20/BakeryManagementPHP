@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 08, 2022 at 11:46 AM
+-- Generation Time: Nov 26, 2022 at 01:29 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -78,7 +78,8 @@ CREATE TABLE `tblord` (
 
 INSERT INTO `tblord` (`ord_id`, `u_id`, `ord_name`, `ord_price`, `ord_qty`, `ord_image`) VALUES
 (39, 24, 'Dabeli Bread', 36, 1, 'dabeli-pav.jpg'),
-(40, 24, 'Burger Buns', 40, 1, 'burgerbun.jpg');
+(40, 24, 'Burger Buns', 40, 1, 'burgerbun.jpg'),
+(46, 24, 'Pav Bhaji Bread', 36, 1, 'pavbhajibread.jpeg');
 
 -- --------------------------------------------------------
 
@@ -105,7 +106,8 @@ INSERT INTO `tblorder` (`o_id`, `u_id`, `o_total`, `date`) VALUES
 (5, 24, 36, '2022-10-27 21:23:39'),
 (6, 24, 666, '2022-10-30 13:13:00'),
 (7, 24, 36, '2022-11-05 17:43:38'),
-(8, 24, 36, '2022-11-05 17:44:01');
+(8, 24, 36, '2022-11-05 17:44:01'),
+(17, 24, 36, '2022-11-12 11:37:29');
 
 -- --------------------------------------------------------
 
@@ -136,7 +138,8 @@ INSERT INTO `tblorderdetail` (`od_id`, `od_name`, `od_email`, `od_address`, `od_
 (4, 'Deep', 'deep@gmail.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 308, '2022-10-19 10:21:56'),
 (5, 'Preet', 'preet@yahoo.com', 'Adajan', 'SURAT', 'Gujarat', '395009', 1108, '2022-10-19 13:40:53'),
 (6, 'Deep', 'deep20@gmail.com', 'rander road', 'SURAT', 'Gujarat', '395009', 36, '2022-10-27 21:23:39'),
-(7, 'Deep', 'deep@gm.com', 'rander road', 'SURAT', 'Gujarat', '395009', 666, '2022-10-30 13:13:00');
+(7, 'Deep', 'deep@gm.com', 'rander road', 'SURAT', 'Gujarat', '395009', 666, '2022-10-30 13:13:00'),
+(17, 'Deep Dalal', 'deep@admin.com', ' rander road', 'SURAT', 'Gujarat', '395009', 36, '2022-11-12 11:37:29');
 
 -- --------------------------------------------------------
 
@@ -160,7 +163,7 @@ CREATE TABLE `tblproduct` (
 --
 
 INSERT INTO `tblproduct` (`p_id`, `p_name`, `category`, `p_image`, `p_price`, `p_status`, `delete_flag`, `date`) VALUES
-(1, 'Pav Bhaji Bread', 'Breads and Buns', 'pavbhajibread.jpeg', 36, 'instock', 0, '2022-09-16 00:00:00'),
+(1, 'Pav Bhaji Bread', 'Breads and Buns', 'pavbhajibread.jpeg', 36, 'instock', 0, '2022-11-26 17:54:47'),
 (2, 'Dabeli Bread', 'Breads and Buns', 'dabeli-pav.jpg', 36, 'instock', 0, '2022-09-16 00:00:00'),
 (3, 'Burger Buns', 'Breads and Buns', 'burgerbun.jpg', 40, 'instock', 0, '2022-09-16 00:00:00'),
 (4, 'Cadbury Silk', 'Chocolates', 'dmsilk.jpeg', 80, 'instock', 0, '2022-10-15 14:27:44'),
@@ -168,7 +171,7 @@ INSERT INTO `tblproduct` (`p_id`, `p_name`, `category`, `p_image`, `p_price`, `p
 (6, 'MrBeastBar', 'Chocolates', 'mrbeast.jpeg', 100, 'instock', 0, '2022-09-16 00:00:00'),
 (7, 'Royal Chocolate', 'Cakes', 'royalch.jpeg', 450, 'instock', 0, '2022-09-16 00:00:00'),
 (8, '24K Gold Cake', 'Cakes', 'gold.jpeg', 300, 'instock', 0, '2022-09-23 09:47:05'),
-(9, 'Red Velvet Cake', 'Cakes', 'bluename.jpg', 360, 'instock', 0, '2022-10-18 22:15:14');
+(9, 'Red Velvet Cake', 'Cakes', 'rvcake.jpeg', 360, 'instock', 0, '2022-11-26 17:32:05');
 
 -- --------------------------------------------------------
 
@@ -210,12 +213,12 @@ CREATE TABLE `tblstock` (
 --
 
 INSERT INTO `tblstock` (`st_id`, `p_id`, `avl_stock`, `date`) VALUES
-(1, 1, 5, '2022-11-08 13:30:27'),
+(1, 1, 3, '2022-11-26 17:59:04'),
 (2, 2, 0, '2022-11-08 13:32:12'),
 (3, 3, 0, '2022-11-08 13:33:27'),
 (4, 4, 10, '2022-11-08 16:14:56'),
 (5, 5, 0, '2022-11-08 13:33:35'),
-(6, 6, 0, '2022-11-08 13:33:39'),
+(6, 6, 2, '2022-11-26 17:07:42'),
 (7, 9, 3, '2022-11-08 13:56:34'),
 (8, 8, 0, '2022-11-08 13:33:46'),
 (9, 7, 2, '2022-11-08 13:34:13');
@@ -343,37 +346,37 @@ ALTER TABLE `tblwishlist`
 -- AUTO_INCREMENT for table `tblcart`
 --
 ALTER TABLE `tblcart`
-  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `tblcategory`
 --
 ALTER TABLE `tblcategory`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tblord`
 --
 ALTER TABLE `tblord`
-  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `tblorder`
 --
 ALTER TABLE `tblorder`
-  MODIFY `o_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `o_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tblorderdetail`
 --
 ALTER TABLE `tblorderdetail`
-  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tblproduct`
 --
 ALTER TABLE `tblproduct`
-  MODIFY `p_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `p_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tblstaff`
@@ -397,7 +400,7 @@ ALTER TABLE `tbluser`
 -- AUTO_INCREMENT for table `tblwishlist`
 --
 ALTER TABLE `tblwishlist`
-  MODIFY `wl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `wl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

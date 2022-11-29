@@ -120,6 +120,7 @@
             <?php
               $total=($row['crt_qty']* $row['crt_price']);
               $grandtotal += $total;
+              $_SESSION['gt'] = $grandtotal;
             ?>
 					<td id="total" data-label="Total">₹<?php echo $total; ?></td>
           <td> <form method="post" action="removecrt.php">

@@ -4,6 +4,8 @@
     if(!isset($_SESSION['loganame'])){
         header('location:login.php');
     }    
+    $u_id = $_SESSION['logaid']; 
+    $gt = $_SESSION['gt'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,18 +85,10 @@
                         <input type="text" placeholder="123" min="3" size="3" name="cvv" required>
                     </div>
                 </div>
-                <?php  
-                    $query = "select * from tblcart";
-                    $result= mysqli_query($conn, $query);
-                    while($row = mysqli_fetch_assoc($result)):
-                        $total=($row['crt_qty']* $row['crt_price']);
-                        $grandtotal += $total;
-                    endwhile;
-                ?>
                 <div class="inputBox">
                     <span>Your Total Amount is:</span>
-                    <span><?php echo $grandtotal;?> </span>
-                    <input type="hidden" value="<?php echo $grandtotal;?>" name="grandtotal">
+                    <span><?php echo $gt;?> </span>
+                    <input type="hidden" value="<?php echo $gt;?>" name="grandtotal">
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@
     if(!isset($_SESSION['loganame'])){
         header('location:login.php');
     }
+    $gt = $_SESSION['gt'];
 
         $name = $_POST['bname'];
         $email = $_POST['bemail'];
@@ -13,12 +14,12 @@
         $zipcode = $_POST['pincode'];
         $total = $_POST['grandtotal'];
 
-        $insert_product = "INSERT INTO `tblorderdetail`(`od_name`, `od_email`, `od_address`, `od_city`, `od_state`, `od_pin`, `od_total`, `od_date`) VALUES ('$name', '$email', '$address', '$city', '$state', '$zipcode', '$total', current_timestamp())";
+        $insert_product = "INSERT INTO `tblorderdetail`(`od_name`, `od_email`, `od_address`, `od_city`, `od_state`, `od_pin`, `od_total`, `od_date`) VALUES ('$name', '$email', '$address', '$city', '$state', '$zipcode', '$gt', current_timestamp())";
         $icart = mysqli_query($conn, $insert_product);
 
         if($icart)
         {
-            header('location: order.php');
+            header('location: copyord.php');
         }
         else
         {

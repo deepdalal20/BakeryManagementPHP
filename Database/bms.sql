@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 26, 2022 at 01:29 PM
+-- Generation Time: Nov 30, 2022 at 02:06 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -79,35 +79,8 @@ CREATE TABLE `tblord` (
 INSERT INTO `tblord` (`ord_id`, `u_id`, `ord_name`, `ord_price`, `ord_qty`, `ord_image`) VALUES
 (39, 24, 'Dabeli Bread', 36, 1, 'dabeli-pav.jpg'),
 (40, 24, 'Burger Buns', 40, 1, 'burgerbun.jpg'),
-(46, 24, 'Pav Bhaji Bread', 36, 1, 'pavbhajibread.jpeg');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tblorder`
---
-
-CREATE TABLE `tblorder` (
-  `o_id` int(11) NOT NULL,
-  `u_id` int(11) NOT NULL,
-  `o_total` int(11) NOT NULL,
-  `date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tblorder`
---
-
-INSERT INTO `tblorder` (`o_id`, `u_id`, `o_total`, `date`) VALUES
-(1, 0, 6240, '2022-10-18 19:22:03'),
-(2, 0, 144, '2022-10-18 19:23:11'),
-(3, 0, 308, '2022-10-19 10:21:56'),
-(4, 0, 1108, '2022-10-19 13:40:53'),
-(5, 24, 36, '2022-10-27 21:23:39'),
-(6, 24, 666, '2022-10-30 13:13:00'),
-(7, 24, 36, '2022-11-05 17:43:38'),
-(8, 24, 36, '2022-11-05 17:44:01'),
-(17, 24, 36, '2022-11-12 11:37:29');
+(46, 24, 'Pav Bhaji Bread', 36, 1, 'pavbhajibread.jpeg'),
+(49, 24, 'Pav Bhaji Bread', 36, 1, 'pavbhajibread.jpeg');
 
 -- --------------------------------------------------------
 
@@ -139,7 +112,8 @@ INSERT INTO `tblorderdetail` (`od_id`, `od_name`, `od_email`, `od_address`, `od_
 (5, 'Preet', 'preet@yahoo.com', 'Adajan', 'SURAT', 'Gujarat', '395009', 1108, '2022-10-19 13:40:53'),
 (6, 'Deep', 'deep20@gmail.com', 'rander road', 'SURAT', 'Gujarat', '395009', 36, '2022-10-27 21:23:39'),
 (7, 'Deep', 'deep@gm.com', 'rander road', 'SURAT', 'Gujarat', '395009', 666, '2022-10-30 13:13:00'),
-(17, 'Deep Dalal', 'deep@admin.com', ' rander road', 'SURAT', 'Gujarat', '395009', 36, '2022-11-12 11:37:29');
+(17, 'Deep Dalal', 'deep@admin.com', ' rander road', 'SURAT', 'Gujarat', '395009', 36, '2022-11-12 11:37:29'),
+(19, 'Deep', 'deep@gmail.com', 'rander road', 'SURAT', 'Gujarat', '395009', 36, '2022-11-30 18:35:39');
 
 -- --------------------------------------------------------
 
@@ -297,12 +271,6 @@ ALTER TABLE `tblord`
   ADD PRIMARY KEY (`ord_id`);
 
 --
--- Indexes for table `tblorder`
---
-ALTER TABLE `tblorder`
-  ADD PRIMARY KEY (`o_id`);
-
---
 -- Indexes for table `tblorderdetail`
 --
 ALTER TABLE `tblorderdetail`
@@ -346,7 +314,7 @@ ALTER TABLE `tblwishlist`
 -- AUTO_INCREMENT for table `tblcart`
 --
 ALTER TABLE `tblcart`
-  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `tblcategory`
@@ -358,19 +326,13 @@ ALTER TABLE `tblcategory`
 -- AUTO_INCREMENT for table `tblord`
 --
 ALTER TABLE `tblord`
-  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
-
---
--- AUTO_INCREMENT for table `tblorder`
---
-ALTER TABLE `tblorder`
-  MODIFY `o_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `tblorderdetail`
 --
 ALTER TABLE `tblorderdetail`
-  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tblproduct`

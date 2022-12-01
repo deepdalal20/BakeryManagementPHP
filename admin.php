@@ -281,6 +281,7 @@
                             </colgroup>
                             <thead>
                                 <tr>
+                                    <th class="py-0 px-1">User ID</th>
                                     <th class="py-0 px-1">Product Name</th>
                                     <th class="py-0 px-1">Product Image</th>
                                     <th class="py-0 px-1">Product Price</th>
@@ -295,6 +296,7 @@
                                 while($row = mysqli_fetch_assoc($result)):
                             ?>
                                     <tr>
+                                        <td class="td py-0 px-1"><?php echo $row['u_id'];?></td>
                                         <td class="td py-0 px-1"><?php echo $row['ord_name'];?></td>
                                         <td class="td py-0 px-1"><center><img src="<?php echo $row['ord_image'];?>" style="width: 200px; height: 200px;"></center></td>
                                         <td class="td py-0 px-1"><?php echo $row['ord_price'];?></td>

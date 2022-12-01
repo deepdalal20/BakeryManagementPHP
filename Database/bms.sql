@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 30, 2022 at 02:06 PM
+-- Generation Time: Dec 01, 2022 at 05:16 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -80,7 +80,8 @@ INSERT INTO `tblord` (`ord_id`, `u_id`, `ord_name`, `ord_price`, `ord_qty`, `ord
 (39, 24, 'Dabeli Bread', 36, 1, 'dabeli-pav.jpg'),
 (40, 24, 'Burger Buns', 40, 1, 'burgerbun.jpg'),
 (46, 24, 'Pav Bhaji Bread', 36, 1, 'pavbhajibread.jpeg'),
-(49, 24, 'Pav Bhaji Bread', 36, 1, 'pavbhajibread.jpeg');
+(49, 24, 'Pav Bhaji Bread', 36, 1, 'pavbhajibread.jpeg'),
+(50, 26, 'Pav Bhaji Bread', 36, 1, 'pavbhajibread.jpeg');
 
 -- --------------------------------------------------------
 
@@ -113,7 +114,8 @@ INSERT INTO `tblorderdetail` (`od_id`, `od_name`, `od_email`, `od_address`, `od_
 (6, 'Deep', 'deep20@gmail.com', 'rander road', 'SURAT', 'Gujarat', '395009', 36, '2022-10-27 21:23:39'),
 (7, 'Deep', 'deep@gm.com', 'rander road', 'SURAT', 'Gujarat', '395009', 666, '2022-10-30 13:13:00'),
 (17, 'Deep Dalal', 'deep@admin.com', ' rander road', 'SURAT', 'Gujarat', '395009', 36, '2022-11-12 11:37:29'),
-(19, 'Deep', 'deep@gmail.com', 'rander road', 'SURAT', 'Gujarat', '395009', 36, '2022-11-30 18:35:39');
+(19, 'Deep', 'deep@gmail.com', 'rander road', 'SURAT', 'Gujarat', '395009', 36, '2022-11-30 18:35:39'),
+(20, 'Deep', 'deep@cust.com', 'rander road', 'SURAT', 'Gujarat', '395009', 36, '2022-12-01 21:43:56');
 
 -- --------------------------------------------------------
 
@@ -233,7 +235,8 @@ INSERT INTO `tbluser` (`id`, `name`, `email`, `password`, `contact`, `date`) VAL
 (22, 'shivam Patel', 'shivamp2819@gmail.com', '$2y$10$T.qJYbS0D3fIuYKTTSK04udr/Wg0ktWymtkSmCkuIKh5p/G9rSwL2', 7990597887, '2022-09-24 10:06:09'),
 (23, 'deep', 'deepdalal@gmail.com', '$2y$10$9iKKuDk1sVvv1B6OvH.pEuHETV0DdBWl55zvVpz8sZN.cgWLP/l2.', 9883738299, '2022-09-24 10:21:22'),
 (24, 'Preet', 'preet@yahoo.com', '$2y$10$Wn9Qfc9y.JnhC00KIFL3d.v2gLm95hCTvCPccIzkUEBtOl7lf8U0W', 9876536670, '2022-09-24 10:49:08'),
-(25, 'preet p', 'preet@hotmail.com', '$2y$10$DdWzl5U9Td/bnPwgfnIkpuhPNO949rhZwtCjIC1sZFA/7KfV2/Tgy', 2873898787, '2022-09-24 11:04:07');
+(25, 'preet p', 'preet@hotmail.com', '$2y$10$DdWzl5U9Td/bnPwgfnIkpuhPNO949rhZwtCjIC1sZFA/7KfV2/Tgy', 2873898787, '2022-09-24 11:04:07'),
+(26, 'Deep', 'deep@cust.com', '$2y$10$fpvbLPgBHoxDgEDLkHL.UuDwJyATIKVPGsVbvUCyP/G19r.eX27h6', 1234567890, '2022-12-01 21:40:40');
 
 -- --------------------------------------------------------
 
@@ -314,7 +317,7 @@ ALTER TABLE `tblwishlist`
 -- AUTO_INCREMENT for table `tblcart`
 --
 ALTER TABLE `tblcart`
-  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `tblcategory`
@@ -326,13 +329,13 @@ ALTER TABLE `tblcategory`
 -- AUTO_INCREMENT for table `tblord`
 --
 ALTER TABLE `tblord`
-  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `tblorderdetail`
 --
 ALTER TABLE `tblorderdetail`
-  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tblproduct`
@@ -356,7 +359,7 @@ ALTER TABLE `tblstock`
 -- AUTO_INCREMENT for table `tbluser`
 --
 ALTER TABLE `tbluser`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tblwishlist`

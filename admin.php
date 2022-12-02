@@ -273,11 +273,12 @@
                         <hr>
                         <table class="table table-striped table-hover table-bordered" id="inventory">
                             <colgroup>
+                                <col width="10%">
                                 <col width="20%">
-                                <col width="30%">
-                                <col width="15%">
-                                <col width="15%">
                                 <col width="20%">
+                                <col width="20%">
+                                <col width="20%">
+                                <col width="10%">
                             </colgroup>
                             <thead>
                                 <tr>

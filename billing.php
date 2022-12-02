@@ -6,6 +6,9 @@
     }    
     $u_id = $_SESSION['logaid']; 
     $gt = $_SESSION['gt'];
+    $name= $_SESSION['loganame'];
+    $email = $_SESSION['logaemail'];
+    $con = $_SESSION['logacon'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +16,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Payment Page </title>
+    <title> Shipping Details Page </title>
     <!-- custom css file link  -->
     <link rel="stylesheet" href="billstyle.css">
 
@@ -22,13 +25,13 @@
 
 <div class="container">
 
-    <form action="orderdet.php" method="post">
+    <form action="" method="post">
 
         <div class="row">
 
             <div class="col">
 
-                <h3 class="title">billing address</h3>
+                <h3 class="title">Shipping Details</h3>
 
                 <div class="inputBox">
                     <span>full name :</span>
@@ -59,38 +62,6 @@
                 </div>
             </div>
 
-            <div class="col">
-
-                <h3 class="title">payment</h3>
-                <div class="inputBox">
-                    <span>name on card :</span>
-                    <input type="text" placeholder="mr. john deo" name="cname" required>
-                </div>
-                <div class="inputBox">
-                    <span>credit card number :</span>
-                    <input type="number" placeholder="1111-2222-3333-4444" size="16" min="16" name="cnumber" required>
-                </div>
-                <div class="inputBox">
-                    <span>exp month :</span>
-                    <input type="text" placeholder="january" name="cmonth" required>
-                </div>
-
-                <div class="flex">
-                    <div class="inputBox">
-                        <span>exp year :</span>
-                        <input type="number" placeholder="2022" size="4" name="cyear" required>
-                    </div>
-                    <div class="inputBox">
-                        <span>CVV :</span>
-                        <input type="text" placeholder="123" min="3" size="3" name="cvv" required>
-                    </div>
-                </div>
-                <div class="inputBox">
-                    <span>Your Total Amount is:</span>
-                    <span><?php echo $gt;?> </span>
-                    <input type="hidden" value="<?php echo $gt;?>" name="grandtotal">
-                </div>
-            </div>
         </div>
 
         <input type="submit" value="proceed to checkout" name="submit" class="submit-btn">
@@ -98,14 +69,13 @@
     <?php
         if(isset($_POST['submit']))
         {   
-            if(strlen($_POST['cvv']) == 3)
-            {
-                header ('location: orderdet.php');
-            }
-            else
-            {
-                echo "<script> alert('Enter CVV precisely'); </script>";
-            }
+                $_SESSION['oname'] = $_POST['bname'];
+                $_SESSION['oemail'] = $_POST['bemail'];
+                $_SESSION['oadd'] = $_POST['baddress'];
+                $_SESSION['ocity'] = $_POST['bcity'];
+                $_SESSION['ostate'] = $_POST['bstate'];
+                $_SESSION['ozipcode'] = $_POST['pincode'];
+                header ('location: pay.php');
         }
     ?>
 

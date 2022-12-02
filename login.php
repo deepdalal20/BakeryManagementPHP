@@ -68,10 +68,13 @@ include 'dbcon.php';
                         $aemail = $row["email"];
                         $apass = $row["password"];
                         $aname = $row["name"];
+                        $acon = $row["contact"];
                         if($lemail == $aemail && password_verify($lpass, $apass))
                         {
                             $_SESSION['logaid'] = $aid;
                             $_SESSION['loganame'] = $aname;
+                            $_SESSION['logaemail'] = $aemail;
+                            $_SESSION['logacon'] = $acon;
                             header('location:cust.php');
                             if(isset($_POST['reme']))
                             {

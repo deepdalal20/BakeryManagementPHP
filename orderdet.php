@@ -5,16 +5,15 @@
         header('location:login.php');
     }
     $gt = $_SESSION['gt'];
+    $payment_id = $_SESSION['razorpay_order_id'];
+    $name= $_SESSION['oname'];
+    $email= $_SESSION['oemail'];
+    $address = $_SESSION['oadd'];
+    $city = $_SESSION['ocity'];
+    $state = $_SESSION['ostate'];
+    $zipcode = $_SESSION['ozipcode'];
 
-        $name = $_POST['bname'];
-        $email = $_POST['bemail'];
-        $address = $_POST['baddress'];
-        $city = $_POST['bcity'];
-        $state = $_POST['bstate'];
-        $zipcode = $_POST['pincode'];
-        $total = $_POST['grandtotal'];
-
-        $insert_product = "INSERT INTO `tblorderdetail`(`od_name`, `od_email`, `od_address`, `od_city`, `od_state`, `od_pin`, `od_total`, `od_date`) VALUES ('$name', '$email', '$address', '$city', '$state', '$zipcode', '$gt', current_timestamp())";
+        $insert_product = "INSERT INTO `tblorderdetail`(`od_name`, `od_email`, `od_address`, `od_city`, `od_state`, `od_pin`, `od_total`, `od_pay`, `od_date`) VALUES ('$name', '$email', '$address', '$city', '$state', '$zipcode', '$gt', '$payment_id', current_timestamp())";
         $icart = mysqli_query($conn, $insert_product);
 
         if($icart)

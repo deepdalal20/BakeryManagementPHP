@@ -4,6 +4,7 @@
     if(!isset($_SESSION['loganame'])){
         header('location:login.php');
     }    
+    $u_id = $_SESSION['logaid'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -82,7 +83,7 @@
 			<tbody>
         <?php
             include 'dbcon.php';
-            $query = "select * from tblwishlist";
+            $query = "select * from tblwishlist where u_id='$u_id'";
             $result= mysqli_query($conn, $query);
             $row1 = mysqli_num_rows($result);
             if($row1 < 1)

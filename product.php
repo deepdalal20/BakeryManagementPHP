@@ -207,7 +207,7 @@ body {
               if(mysqli_num_rows($scart) > 0){
                 echo "<script> alert('Product already added'); </script>";
               }else{
-                $insert_product = "INSERT INTO `tblwishlist`(`wl_name`, `wl_price`, `wl_image`) VALUES('$product_name', '$product_price', '$product_image')";
+                $insert_product = "INSERT INTO `tblwishlist`(`u_id`, `wl_name`, `wl_price`, `wl_image`) VALUES('$u_id', '$product_name', '$product_price', '$product_image')";
                 $icart1 = mysqli_query($conn, $insert_product);
 
                 if($icart1)

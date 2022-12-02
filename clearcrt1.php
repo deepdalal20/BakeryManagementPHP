@@ -4,7 +4,7 @@
     if(!isset($_SESSION['loganame'])){
         header('location:login.php');
     }
-    
-    mysqli_query($conn, "DELETE FROM `tblcart`");
+    $u_id = $_SESSION['logaid'];
+    mysqli_query($conn, "DELETE FROM `tblcart` WHERE u_id = '$u_id'");
     header('location: output.php');
 ?>

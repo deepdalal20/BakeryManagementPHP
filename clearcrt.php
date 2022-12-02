@@ -5,7 +5,7 @@
         header('location:login.php');
     }   
     $u_id = $_SESSION['logaid'];
-    $del1 = "DELETE FROM `tblcart`";
+    $del1 = "DELETE FROM `tblcart` WHERE u_id = '$u_id'";
     $data1 = mysqli_query($conn, $del1);
     
     if($data1)

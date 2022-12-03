@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 03, 2022 at 08:59 AM
+-- Generation Time: Dec 03, 2022 at 05:24 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tblcart` (
   `crt_id` int(11) NOT NULL,
+  `p_id` int(11) NOT NULL,
   `u_id` int(11) NOT NULL,
   `crt_name` varchar(50) NOT NULL,
   `crt_price` int(11) NOT NULL,
@@ -65,6 +66,7 @@ INSERT INTO `tblcategory` (`c_id`, `c_name`) VALUES
 
 CREATE TABLE `tblord` (
   `ord_id` int(11) NOT NULL,
+  `p_id` int(11) NOT NULL,
   `u_id` int(11) NOT NULL,
   `ord_name` varchar(30) NOT NULL,
   `ord_price` int(11) NOT NULL,
@@ -76,19 +78,27 @@ CREATE TABLE `tblord` (
 -- Dumping data for table `tblord`
 --
 
-INSERT INTO `tblord` (`ord_id`, `u_id`, `ord_name`, `ord_price`, `ord_qty`, `ord_image`) VALUES
-(39, 24, 'Dabeli Bread', 36, 1, 'dabeli-pav.jpg'),
-(40, 24, 'Burger Buns', 40, 1, 'burgerbun.jpg'),
-(46, 24, 'Pav Bhaji Bread', 36, 1, 'pavbhajibread.jpeg'),
-(49, 24, 'Pav Bhaji Bread', 36, 1, 'pavbhajibread.jpeg'),
-(50, 26, 'Pav Bhaji Bread', 36, 1, 'pavbhajibread.jpeg'),
-(51, 24, 'Dabeli Bread', 36, 1, 'dabeli-pav.jpg'),
-(52, 24, 'Pav Bhaji Bread', 36, 6, 'pavbhajibread.jpeg'),
-(53, 24, '24K Gold Cake', 300, 1, 'gold.jpeg'),
-(54, 26, 'Royal Chocolate', 450, 2, 'royalch.jpeg'),
-(55, 26, 'Amul Chocolate', 50, 1, 'amuldc.jpeg'),
-(60, 26, 'Dabeli Bread', 36, 5, 'dabeli-pav.jpg'),
-(61, 26, '24K Gold Cake', 300, 3, 'gold.jpeg');
+INSERT INTO `tblord` (`ord_id`, `p_id`, `u_id`, `ord_name`, `ord_price`, `ord_qty`, `ord_image`) VALUES
+(39, 0, 24, 'Dabeli Bread', 36, 1, 'dabeli-pav.jpg'),
+(40, 0, 24, 'Burger Buns', 40, 1, 'burgerbun.jpg'),
+(46, 0, 24, 'Pav Bhaji Bread', 36, 1, 'pavbhajibread.jpeg'),
+(49, 0, 24, 'Pav Bhaji Bread', 36, 1, 'pavbhajibread.jpeg'),
+(50, 0, 26, 'Pav Bhaji Bread', 36, 1, 'pavbhajibread.jpeg'),
+(51, 0, 24, 'Dabeli Bread', 36, 1, 'dabeli-pav.jpg'),
+(52, 0, 24, 'Pav Bhaji Bread', 36, 6, 'pavbhajibread.jpeg'),
+(53, 0, 24, '24K Gold Cake', 300, 1, 'gold.jpeg'),
+(54, 0, 26, 'Royal Chocolate', 450, 2, 'royalch.jpeg'),
+(55, 0, 26, 'Amul Chocolate', 50, 1, 'amuldc.jpeg'),
+(60, 0, 26, 'Dabeli Bread', 36, 5, 'dabeli-pav.jpg'),
+(61, 0, 26, '24K Gold Cake', 300, 3, 'gold.jpeg'),
+(65, 0, 26, 'Toast Biscuits', 50, 10, 'bakery2.jpg'),
+(66, 0, 26, 'Dabeli Bread', 36, 3, 'dabeli-pav.jpg'),
+(67, 0, 26, 'Dabeli Bread', 36, 4, 'dabeli-pav.jpg'),
+(68, 1, 26, 'Pav Bhaji Bread', 36, 3, 'pavbhajibread.jpeg'),
+(69, 15, 26, 'Toast Biscuits', 50, 10, 'bakery2.jpg'),
+(70, 1, 26, 'Pav Bhaji Bread', 36, 3, 'pavbhajibread.jpeg'),
+(71, 1, 26, 'Pav Bhaji Bread', 36, 3, 'pavbhajibread.jpeg'),
+(72, 2, 26, 'Dabeli Bread', 36, 3, 'dabeli-pav.jpg');
 
 -- --------------------------------------------------------
 
@@ -128,7 +138,13 @@ INSERT INTO `tblorderdetail` (`od_id`, `od_name`, `od_email`, `od_address`, `od_
 (22, 'Deep Check', 'deep@pay.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 300, 'order_Kn1gykT3oqMVTF', '2022-12-02 17:03:02'),
 (23, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 900, 'order_Kn2UNfCqU7trQM', '2022-12-02 17:49:36'),
 (24, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 50, 'order_Kn2WvW0NRGrepe', '2022-12-02 17:52:26'),
-(25, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 1080, 'pay_KnMajXSkRtxtFK', '2022-12-03 13:29:23');
+(25, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 1080, 'pay_KnMajXSkRtxtFK', '2022-12-03 13:29:23'),
+(26, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 500, 'pay_KnUUIZkVJmcW05', '2022-12-03 21:12:49'),
+(27, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 108, 'pay_KnUaCeSkdOhDag', '2022-12-03 21:18:25'),
+(28, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 144, 'pay_KnUbXERn4tjeqk', '2022-12-03 21:19:40'),
+(29, 'Deep', 'deep@cust.com', 'rander road', 'SURAT', 'Gujarat', '395009', 608, 'pay_KnUz38qQfwtw77', '2022-12-03 21:41:57'),
+(30, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 108, 'pay_KnV5HIZIpkEU90', '2022-12-03 21:47:51'),
+(31, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 216, 'pay_KnV7avEmscJ0BU', '2022-12-03 21:50:02');
 
 -- --------------------------------------------------------
 
@@ -143,7 +159,6 @@ CREATE TABLE `tblproduct` (
   `p_image` varchar(256) NOT NULL,
   `p_price` int(100) NOT NULL,
   `p_status` varchar(100) NOT NULL,
-  `delete_flag` int(100) NOT NULL,
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -151,16 +166,17 @@ CREATE TABLE `tblproduct` (
 -- Dumping data for table `tblproduct`
 --
 
-INSERT INTO `tblproduct` (`p_id`, `p_name`, `category`, `p_image`, `p_price`, `p_status`, `delete_flag`, `date`) VALUES
-(1, 'Pav Bhaji Bread', 'Breads and Buns', 'pavbhajibread.jpeg', 36, 'instock', 0, '2022-11-26 17:54:47'),
-(2, 'Dabeli Bread', 'Breads and Buns', 'dabeli-pav.jpg', 36, 'instock', 0, '2022-09-16 00:00:00'),
-(3, 'Burger Buns', 'Breads and Buns', 'burgerbun.jpg', 40, 'instock', 0, '2022-09-16 00:00:00'),
-(4, 'Cadbury Silk', 'Chocolates', 'dmsilk.jpeg', 80, 'instock', 0, '2022-10-15 14:27:44'),
-(5, 'Amul Chocolate', 'Chocolates', 'amuldc.jpeg', 50, 'instock', 0, '2022-09-16 00:00:00'),
-(6, 'MrBeastBar', 'Chocolates', 'mrbeast.jpeg', 100, 'instock', 0, '2022-09-16 00:00:00'),
-(7, 'Royal Chocolate', 'Cakes', 'royalch.jpeg', 450, 'instock', 0, '2022-09-16 00:00:00'),
-(8, '24K Gold Cake', 'Cakes', 'gold.jpeg', 300, 'instock', 0, '2022-09-23 09:47:05'),
-(9, 'Red Velvet Cake', 'Cakes', 'rvcake.jpeg', 360, 'instock', 0, '2022-11-26 17:32:05');
+INSERT INTO `tblproduct` (`p_id`, `p_name`, `category`, `p_image`, `p_price`, `p_status`, `date`) VALUES
+(1, 'Pav Bhaji Bread', 'Breads and Buns', 'pavbhajibread.jpeg', 36, 'instock', '2022-12-03 16:21:05'),
+(2, 'Dabeli Bread', 'Breads and Buns', 'dabeli-pav.jpg', 36, 'instock', '2022-09-16 00:00:00'),
+(3, 'Burger Buns', 'Breads and Buns', 'burgerbun.jpg', 40, 'instock', '2022-09-16 00:00:00'),
+(4, 'Cadbury Silk', 'Chocolates', 'dmsilk.jpeg', 80, 'instock', '2022-10-15 14:27:44'),
+(5, 'Amul Chocolate', 'Chocolates', 'amuldc.jpeg', 50, 'instock', '2022-09-16 00:00:00'),
+(6, 'MrBeastBar', 'Chocolates', 'mrbeast.jpeg', 100, 'instock', '2022-09-16 00:00:00'),
+(7, 'Royal Chocolate', 'Cakes', 'royalch.jpeg', 450, 'instock', '2022-09-16 00:00:00'),
+(8, '24K Gold Cake', 'Cakes', 'gold.jpeg', 300, 'instock', '2022-09-23 09:47:05'),
+(9, 'Red Velvet Cake', 'Cakes', 'rvcake.jpeg', 360, 'instock', '2022-11-26 17:32:05'),
+(15, 'Toast Biscuits', 'Biscuits', 'bakery2.jpg', 50, 'instock', '2022-12-03 16:21:40');
 
 -- --------------------------------------------------------
 
@@ -202,15 +218,16 @@ CREATE TABLE `tblstock` (
 --
 
 INSERT INTO `tblstock` (`st_id`, `p_id`, `avl_stock`, `date`) VALUES
-(1, 1, 3, '2022-11-26 17:59:04'),
-(2, 2, 0, '2022-11-08 13:32:12'),
-(3, 3, 0, '2022-11-08 13:33:27'),
+(1, 1, 2, '2022-11-26 17:59:04'),
+(2, 2, 4, '2022-12-03 14:01:53'),
+(3, 3, 30, '2022-12-03 16:22:04'),
 (4, 4, 10, '2022-11-08 16:14:56'),
-(5, 5, 0, '2022-11-08 13:33:35'),
+(5, 5, 70, '2022-12-03 16:22:09'),
 (6, 6, 2, '2022-11-26 17:07:42'),
 (7, 9, 3, '2022-11-08 13:56:34'),
-(8, 8, 0, '2022-11-08 13:33:46'),
-(9, 7, 2, '2022-11-08 13:34:13');
+(8, 8, 5, '2022-12-03 16:21:59'),
+(9, 7, 2, '2022-11-08 13:34:13'),
+(10, 15, 50, '2022-12-03 16:21:52');
 
 -- --------------------------------------------------------
 
@@ -331,7 +348,7 @@ ALTER TABLE `tblwishlist`
 -- AUTO_INCREMENT for table `tblcart`
 --
 ALTER TABLE `tblcart`
-  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `tblcategory`
@@ -343,19 +360,19 @@ ALTER TABLE `tblcategory`
 -- AUTO_INCREMENT for table `tblord`
 --
 ALTER TABLE `tblord`
-  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `tblorderdetail`
 --
 ALTER TABLE `tblorderdetail`
-  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `tblproduct`
 --
 ALTER TABLE `tblproduct`
-  MODIFY `p_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `p_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tblstaff`
@@ -367,7 +384,7 @@ ALTER TABLE `tblstaff`
 -- AUTO_INCREMENT for table `tblstock`
 --
 ALTER TABLE `tblstock`
-  MODIFY `st_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `st_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbluser`

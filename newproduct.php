@@ -13,9 +13,8 @@
         $pimage = $_POST['p_image'];
         $pprice = $_POST['p_price'];
         $pstatus = $_POST['p_status'];
-        $df = 0;
         
-        $query = "INSERT INTO `tblproduct`(`p_name`, `category`, `p_image`, `p_price`, `p_status`, `delete_flag`, `date`) VALUES ('$pname','$pcategory','$pimage','$pprice','$pstatus','$df',current_timestamp())";
+        $query = "INSERT INTO `tblproduct`(`p_name`, `category`, `p_image`, `p_price`, `p_status`, `date`) VALUES ('$pname','$pcategory','$pimage','$pprice','$pstatus',current_timestamp())";
         $data = mysqli_query($conn, $query);
         
        if ($data) {

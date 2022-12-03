@@ -97,9 +97,8 @@ div {
             $pimage = $_POST['p_image'];
             $pprice = $_POST['p_price'];
             $pstatus = $_POST['p_status'];
-            $df = 0;
             
-            $query = "UPDATE `tblproduct` SET `p_name`='$pname',`category`='$pcategory',`p_image`='$pimage',`p_price`='$pprice',`p_status`='$pstatus',`delete_flag`='$df',`date`=current_timestamp() WHERE p_id='$id'";
+            $query = "UPDATE `tblproduct` SET `p_name`='$pname',`category`='$pcategory',`p_image`='$pimage',`p_price`='$pprice',`p_status`='$pstatus',`date`=current_timestamp() WHERE p_id='$id'";
             $data=mysqli_query($conn,$query);
             
             if($data)

@@ -199,7 +199,7 @@ body {
                     }
                     else
                     {
-                      $insert_product = "INSERT INTO `tblcart`(u_id, crt_name, crt_price, crt_qty, crt_image) VALUES('$u_id', '$product_name', '$product_price', '$product_quantity', '$product_image')";
+                      $insert_product = "INSERT INTO `tblcart`(p_id, u_id, crt_name, crt_price, crt_qty, crt_image) VALUES('$product_id', '$u_id', '$product_name', '$product_price', '$product_quantity', '$product_image')";
                       $icart = mysqli_query($conn, $insert_product);
 
                       if($icart)

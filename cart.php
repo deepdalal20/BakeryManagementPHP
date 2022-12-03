@@ -131,7 +131,7 @@
 				</tr>
       <?php 
         endwhile;
-      }
+      
       ?>
 			</tbody>
 		</table>
@@ -162,6 +162,9 @@
             <a href="billing.php"> <input type="submit" value="Check Out"> </a>
             <a href="clearcrt.php"> <input type="submit" value="Clear Cart"> </a>
 			</div>
+      <?php
+          }
+          ?>
 		</div>
 	</section>     
     <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>

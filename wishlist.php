@@ -107,7 +107,7 @@
 				</tr>
         <?php 
         endwhile;
-      }
+      
       ?>
 			</tbody>
 		</table>
@@ -121,7 +121,7 @@
             <a href="clearwl.php"> <input type="submit" value="Clear Wishlist"> </a>
             <br>
           </div>
-
+<?php } ?>
 			</div>
 	</section>        
             <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>

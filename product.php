@@ -174,23 +174,31 @@ body {
               $product_price = $_POST['product_price'];
               $product_image = $_POST['product_image'];
               $product_quantity = $_POST['product_quantity'];
-          
-              $select_cart = "SELECT * FROM `tblcart` WHERE crt_name = '$product_name'";
-              $scart = mysqli_query($conn, $select_cart);
-          
-              if(mysqli_num_rows($scart) > 0){
-                echo "<script>alert('Product already added');</script>";
-              }else{
-                $insert_product = "INSERT INTO `tblcart`(u_id, crt_name, crt_price, crt_qty, crt_image) VALUES('$u_id', '$product_name', '$product_price', '$product_quantity', '$product_image')";
-                $icart = mysqli_query($conn, $insert_product);
+              if($product_quantity <= 0)
+              {
+                echo "<script> alert('Product Quantity must be greater than 0'); </script>";
+              }
+              else
+              {
+                $select_cart = "SELECT * FROM `tblcart` WHERE u_id = '$u_id'";
+                $scart = mysqli_query($conn, $select_cart);
+                $row = mysqli_fetch_assoc($scart);
+                $pr = $row['crt_name'];
+            
+                if($product_name == $pr){
+                  echo "<script>alert('Product already added');</script>";
+                }else{
+                  $insert_product = "INSERT INTO `tblcart`(u_id, crt_name, crt_price, crt_qty, crt_image) VALUES('$u_id', '$product_name', '$product_price', '$product_quantity', '$product_image')";
+                  $icart = mysqli_query($conn, $insert_product);
 
-                if($icart)
-                {
-                  echo "Product added to Wishlist succesfully";
-                }
-                else
-                {
-                  echo "<script> alert('Some Error Occured'); </script>";
+                  if($icart)
+                  {
+                    echo "Product added to Cart succesfully";
+                  }
+                  else
+                  {
+                    echo "<script> alert('Some Error Occured'); </script>";
+                  }
                 }
               }
             }
@@ -201,10 +209,12 @@ body {
               $product_price = $_POST['product_price'];
               $product_image = $_POST['product_image'];
           
-              $select_cart = "SELECT * FROM `tblwishlist` WHERE wl_name = '$product_name'";
+              $select_cart = "SELECT * FROM `tblwishlist` WHERE u_id = '$u_id'";
               $scart = mysqli_query($conn, $select_cart);
+              $row = mysqli_fetch_assoc($scart);
+              $pr = $row['wl_name'];
           
-              if(mysqli_num_rows($scart) > 0){
+              if($product_name == $pr){
                 echo "<script> alert('Product already added'); </script>";
               }else{
                 $insert_product = "INSERT INTO `tblwishlist`(`u_id`, `wl_name`, `wl_price`, `wl_image`) VALUES('$u_id', '$product_name', '$product_price', '$product_image')";

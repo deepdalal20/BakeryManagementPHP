@@ -152,6 +152,7 @@ body {
                     <p> Price: ₹<?php echo $row['p_price']; ?>/dozens </p> 
                     <form method="post" action="">
                         Qty: <input type="int" size="2" name="product_quantity" value="1">
+                        <input type="hidden" name="product_id" value="<?php echo $row['p_id']; ?>">
                         <input type="hidden" name="product_name" value="<?php echo $row['p_name']; ?>">
                         <input type="hidden" name="product_price" value="<?php echo $row['p_price']; ?>">
                         <input type="hidden" name="product_image" value="<?php echo $row['p_image']; ?>">
@@ -168,8 +169,9 @@ body {
           <?php endwhile; ?>
 
           <?php
-            if(isset($_POST['add_to_cart'])){
-
+            if(isset($_POST['add_to_cart']))
+            {
+              $product_id = $_POST['product_id'];
               $product_name = $_POST['product_name'];
               $product_price = $_POST['product_price'];
               $product_image = $_POST['product_image'];
@@ -180,26 +182,40 @@ body {
               }
               else
               {
-                $select_cart = "SELECT * FROM `tblcart` WHERE u_id = '$u_id'";
-                $scart = mysqli_query($conn, $select_cart);
-                $row = mysqli_fetch_assoc($scart);
-                $pr = $row['crt_name'];
-            
-                if($product_name == $pr){
-                  echo "<script>alert('Product already added');</script>";
-                }else{
-                  $insert_product = "INSERT INTO `tblcart`(u_id, crt_name, crt_price, crt_qty, crt_image) VALUES('$u_id', '$product_name', '$product_price', '$product_quantity', '$product_image')";
-                  $icart = mysqli_query($conn, $insert_product);
+                $stock = "SELECT * FROM `tblstock` WHERE p_id = '$product_id'";
+                $stockcheck = mysqli_query($conn, $stock);
+                $row = mysqli_fetch_assoc($stockcheck);
+                $st = $row['avl_stock'];
+                if($product_quantity <= $st)
+                {
+                    $select_cart = "SELECT * FROM `tblcart` WHERE u_id = '$u_id'";
+                    $scart = mysqli_query($conn, $select_cart);
+                    $row = mysqli_fetch_assoc($scart);
+                    $pr = $row['crt_name'];
+                
+                    if($product_name == $pr)
+                    {
+                      echo "<script>alert('Product already added');</script>";
+                    }
+                    else
+                    {
+                      $insert_product = "INSERT INTO `tblcart`(u_id, crt_name, crt_price, crt_qty, crt_image) VALUES('$u_id', '$product_name', '$product_price', '$product_quantity', '$product_image')";
+                      $icart = mysqli_query($conn, $insert_product);
 
-                  if($icart)
-                  {
-                    echo "Product added to Cart succesfully";
+                      if($icart)
+                      {
+                        echo "Product added to Cart succesfully";
+                      }
+                      else
+                      {
+                        echo "<script> alert('Some Error Occured'); </script>";
+                      }
+                    }
                   }
                   else
                   {
-                    echo "<script> alert('Some Error Occured'); </script>";
+                    echo "<script> alert('Not Enough Stock'); </script>";
                   }
-                }
               }
             }
 

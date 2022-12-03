@@ -5,6 +5,7 @@
         header('location:login.php');
     }    
     $sname = $_SESSION['loganame'];
+    $u_id = $_SESSION['logaid'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -62,11 +63,11 @@
                 <div class="left">
                     <div class="lefttop">
                         <div class="editprofile">
-                            <h2>Customer Profile</h2>
+                            <h2>Profile</h2>
                         </div>
                     </div>
                     <?php 
-                        $sql = "SELECT * FROM tbluser WHERE name='$sname'";
+                        $sql = "SELECT * FROM tbluser WHERE id='$u_id'";
                         $data = mysqli_query($conn, $sql);
                         $row = mysqli_fetch_assoc($data);
                     ?>
@@ -76,7 +77,9 @@
                         <label for="">Email</label>
                         <h4><?php echo $row['email']; ?></h4>
                     </div>
-
+                    <div class="lastbtn">
+                      <a href="cust.php"><input type="submit" class="editbtn" value="Return To Home"></a>
+                    </div>
                 </div>
                 <div class="right">
 
@@ -92,7 +95,7 @@
                     </div>
                     <div class="editprofile">
                         <div class="lastbtn">
-                            <a href="cust.php"><input type="submit" class="editbtn" value="Return To Home"></a>
+                          <a href="logout.php"><input type="submit" class="editbtn" value="Logout"></a>
                         </div>
                     </div>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 02, 2022 at 01:25 PM
+-- Generation Time: Dec 03, 2022 at 08:59 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -86,7 +86,9 @@ INSERT INTO `tblord` (`ord_id`, `u_id`, `ord_name`, `ord_price`, `ord_qty`, `ord
 (52, 24, 'Pav Bhaji Bread', 36, 6, 'pavbhajibread.jpeg'),
 (53, 24, '24K Gold Cake', 300, 1, 'gold.jpeg'),
 (54, 26, 'Royal Chocolate', 450, 2, 'royalch.jpeg'),
-(55, 26, 'Amul Chocolate', 50, 1, 'amuldc.jpeg');
+(55, 26, 'Amul Chocolate', 50, 1, 'amuldc.jpeg'),
+(60, 26, 'Dabeli Bread', 36, 5, 'dabeli-pav.jpg'),
+(61, 26, '24K Gold Cake', 300, 3, 'gold.jpeg');
 
 -- --------------------------------------------------------
 
@@ -125,7 +127,8 @@ INSERT INTO `tblorderdetail` (`od_id`, `od_name`, `od_email`, `od_address`, `od_
 (21, '', '', '', '', '', '', 216, '', '2022-12-02 16:56:53'),
 (22, 'Deep Check', 'deep@pay.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 300, 'order_Kn1gykT3oqMVTF', '2022-12-02 17:03:02'),
 (23, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 900, 'order_Kn2UNfCqU7trQM', '2022-12-02 17:49:36'),
-(24, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 50, 'order_Kn2WvW0NRGrepe', '2022-12-02 17:52:26');
+(24, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 50, 'order_Kn2WvW0NRGrepe', '2022-12-02 17:52:26'),
+(25, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 1080, 'pay_KnMajXSkRtxtFK', '2022-12-03 13:29:23');
 
 -- --------------------------------------------------------
 
@@ -256,6 +259,7 @@ INSERT INTO `tbluser` (`id`, `name`, `email`, `password`, `contact`, `date`) VAL
 
 CREATE TABLE `tblwishlist` (
   `wl_id` int(11) NOT NULL,
+  `u_id` int(11) NOT NULL,
   `wl_name` varchar(50) NOT NULL,
   `wl_price` int(11) NOT NULL,
   `wl_image` varchar(256) NOT NULL
@@ -327,7 +331,7 @@ ALTER TABLE `tblwishlist`
 -- AUTO_INCREMENT for table `tblcart`
 --
 ALTER TABLE `tblcart`
-  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `tblcategory`
@@ -339,13 +343,13 @@ ALTER TABLE `tblcategory`
 -- AUTO_INCREMENT for table `tblord`
 --
 ALTER TABLE `tblord`
-  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `tblorderdetail`
 --
 ALTER TABLE `tblorderdetail`
-  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tblproduct`
@@ -375,7 +379,7 @@ ALTER TABLE `tbluser`
 -- AUTO_INCREMENT for table `tblwishlist`
 --
 ALTER TABLE `tblwishlist`
-  MODIFY `wl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `wl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

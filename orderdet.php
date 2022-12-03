@@ -5,19 +5,27 @@
         header('location:login.php');
     }
     $gt = $_SESSION['gt'];
-    $payment_id = $_SESSION['razorpay_order_id'];
     $name= $_SESSION['oname'];
     $email= $_SESSION['oemail'];
     $address = $_SESSION['oadd'];
     $city = $_SESSION['ocity'];
     $state = $_SESSION['ostate'];
     $zipcode = $_SESSION['ozipcode'];
+    $payment = $_SESSION['razorpay_payment_id'];
 
-        $insert_product = "INSERT INTO `tblorderdetail`(`od_name`, `od_email`, `od_address`, `od_city`, `od_state`, `od_pin`, `od_total`, `od_pay`, `od_date`) VALUES ('$name', '$email', '$address', '$city', '$state', '$zipcode', '$gt', '$payment_id', current_timestamp())";
+        $insert_product = "INSERT INTO `tblorderdetail`(`od_name`, `od_email`, `od_address`, `od_city`, `od_state`, `od_pin`, `od_total`, `od_pay`, `od_date`) VALUES ('$name', '$email', '$address', '$city', '$state', '$zipcode', '$gt', '$payment', current_timestamp())";
         $icart = mysqli_query($conn, $insert_product);
 
         if($icart)
         {
+            unset($_SESSION['gt']);
+            unset($_SESSION['razorpay_order_id']);
+            unset($_SESSION['oname']);
+            unset($_SESSION['oemail']);
+            unset($_SESSION['oadd']);
+            unset($_SESSION['ocity']);
+            unset($_SESSION['ostate']);
+            unset($_SESSION['ozipcode']);
             header('location: copyord.php');
         }
         else

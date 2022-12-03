@@ -38,7 +38,7 @@ if (empty($_POST['razorpay_payment_id']) === false)
 if ($success === true)
 {
     $razorpay_order_id = $_SESSION['razorpay_order_id'];
-    $razorpay_payment_id = $_POST['razorpay_payment_id'];
+    $_SESSION['razorpay_payment_id'] = $razorpay_payment_id = $_POST['razorpay_payment_id'];
     $email = $_SESSION['email'];
     $price = $_SESSION['price'];
     header('location: orderdet.php');

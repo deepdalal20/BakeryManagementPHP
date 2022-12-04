@@ -66,11 +66,12 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="profile.php">Profile</a></li>
-                  <li><a class="dropdown-item" href="wishlist">Wishlist</a></li>
+                  <li><a class="dropdown-item" href="wishlist.php">Wishlist</a></li>
+                  <li><a class="dropdown-item" href="orderhistory.php">Order History</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                 </ul>
-              </li>            
+              </li>     
             </ul>
             <a class="btn btn-outline-warning" href="cart.php" role="button">
                 <i class="fa-solid fa-cart-shopping"></i>

@@ -113,6 +113,7 @@
                   $result1= mysqli_query($conn, $query1);
                   $row1 = mysqli_fetch_assoc($result1);
               ?>
+                <input type="hidden" name="product_id" value="<?php echo $row['p_id']; ?>">
                 <input type="hidden" name="cart_id" value="<?php echo $row['crt_id']; ?>">
                 <input type="number" min="1" name="cart_quantity" value="<?php echo $row['crt_qty'];?>">
                 <input type="submit" name="update_cart" value="Update" class="option-btn">

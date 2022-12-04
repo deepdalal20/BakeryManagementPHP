@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 03, 2022 at 05:24 PM
+-- Generation Time: Dec 04, 2022 at 08:25 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -98,7 +98,8 @@ INSERT INTO `tblord` (`ord_id`, `p_id`, `u_id`, `ord_name`, `ord_price`, `ord_qt
 (69, 15, 26, 'Toast Biscuits', 50, 10, 'bakery2.jpg'),
 (70, 1, 26, 'Pav Bhaji Bread', 36, 3, 'pavbhajibread.jpeg'),
 (71, 1, 26, 'Pav Bhaji Bread', 36, 3, 'pavbhajibread.jpeg'),
-(72, 2, 26, 'Dabeli Bread', 36, 3, 'dabeli-pav.jpg');
+(72, 2, 26, 'Dabeli Bread', 36, 3, 'dabeli-pav.jpg'),
+(73, 5, 26, 'Amul Chocolate', 50, 5, 'amuldc.jpeg');
 
 -- --------------------------------------------------------
 
@@ -144,7 +145,8 @@ INSERT INTO `tblorderdetail` (`od_id`, `od_name`, `od_email`, `od_address`, `od_
 (28, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 144, 'pay_KnUbXERn4tjeqk', '2022-12-03 21:19:40'),
 (29, 'Deep', 'deep@cust.com', 'rander road', 'SURAT', 'Gujarat', '395009', 608, 'pay_KnUz38qQfwtw77', '2022-12-03 21:41:57'),
 (30, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 108, 'pay_KnV5HIZIpkEU90', '2022-12-03 21:47:51'),
-(31, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 216, 'pay_KnV7avEmscJ0BU', '2022-12-03 21:50:02');
+(31, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 216, 'pay_KnV7avEmscJ0BU', '2022-12-03 21:50:02'),
+(32, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 250, 'pay_KnkHGsqdgvS3cU', '2022-12-04 12:39:36');
 
 -- --------------------------------------------------------
 
@@ -222,11 +224,11 @@ INSERT INTO `tblstock` (`st_id`, `p_id`, `avl_stock`, `date`) VALUES
 (2, 2, 4, '2022-12-03 14:01:53'),
 (3, 3, 30, '2022-12-03 16:22:04'),
 (4, 4, 10, '2022-11-08 16:14:56'),
-(5, 5, 70, '2022-12-03 16:22:09'),
+(5, 5, 65, '2022-12-03 16:22:09'),
 (6, 6, 2, '2022-11-26 17:07:42'),
 (7, 9, 3, '2022-11-08 13:56:34'),
 (8, 8, 5, '2022-12-03 16:21:59'),
-(9, 7, 2, '2022-11-08 13:34:13'),
+(9, 7, 3, '2022-11-08 13:34:13'),
 (10, 15, 50, '2022-12-03 16:21:52');
 
 -- --------------------------------------------------------
@@ -281,6 +283,13 @@ CREATE TABLE `tblwishlist` (
   `wl_price` int(11) NOT NULL,
   `wl_image` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tblwishlist`
+--
+
+INSERT INTO `tblwishlist` (`wl_id`, `u_id`, `wl_name`, `wl_price`, `wl_image`) VALUES
+(17, 26, 'Dabeli Bread', 36, 'dabeli-pav.jpg');
 
 --
 -- Indexes for dumped tables
@@ -348,7 +357,7 @@ ALTER TABLE `tblwishlist`
 -- AUTO_INCREMENT for table `tblcart`
 --
 ALTER TABLE `tblcart`
-  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `tblcategory`
@@ -360,13 +369,13 @@ ALTER TABLE `tblcategory`
 -- AUTO_INCREMENT for table `tblord`
 --
 ALTER TABLE `tblord`
-  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `tblorderdetail`
 --
 ALTER TABLE `tblorderdetail`
-  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `tblproduct`
@@ -396,7 +405,7 @@ ALTER TABLE `tbluser`
 -- AUTO_INCREMENT for table `tblwishlist`
 --
 ALTER TABLE `tblwishlist`
-  MODIFY `wl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `wl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -4,6 +4,7 @@
         header('location:login.php');
     }
     include 'dbcon.php';
+    $product_id = $_POST['product_id'];
     $cart_id = $_POST['cart_id'];
     $cart_quantity = $_POST['cart_quantity'];
     if($cart_quantity <= 0)
@@ -16,7 +17,7 @@
                 $stockcheck = mysqli_query($conn, $stock);
                 $row = mysqli_fetch_assoc($stockcheck);
                 $st = $row['avl_stock'];
-                if($cart_quantity <= $st)
+                if($cart_quantity < $st)
                 {
                   $upq = "UPDATE `tblcart` SET crt_qty = '$cart_quantity' WHERE crt_id = '$cart_id'";
                   $data = mysqli_query($conn,$upq);

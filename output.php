@@ -3,6 +3,8 @@
     if(!isset($_SESSION['loganame'])){
         header('location:login.php');
     }    
+    $u_id = $_SESSION['logaid'];
+    $payment = $_SESSION['razorpay_payment_id'];
 ?>
 <html>
   <head>
@@ -79,7 +81,8 @@
       <div>
         <h1>Thank you for Shopping with us.</h1>
         <h2>You have succesfully placed your order.</h2> 
-        <p>We received your contact request;<br/> You'll receive your order very soon3`!</p>
+        <p>We received your order<br/> You'll receive your order very soon!</p>
+        <p> Your Payment id is: <?php echo $payment; unset($_SESSION['razorpay_payment_id']); ?>
       </div>
       <a href="product.php"><input type="submit" value="Return to shop"></a>
       <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>

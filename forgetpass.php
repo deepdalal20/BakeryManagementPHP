@@ -36,7 +36,7 @@
                         <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
                     <div class="input-field button">
-                        <input type="submit" value="Login" name="fpass">
+                        <input type="submit" value="Reset Password" name="fpass">
                     </div>
                 </form>
                 <div class="login-signup">

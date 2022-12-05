@@ -9,18 +9,27 @@
 <?php
     if(isset($_POST['regcat'])){
         $cname = $_POST['c_name'];
-        
-        $query = "INSERT INTO `tblcategory`(`c_name`) VALUES ('$cname')";
-        $data = mysqli_query($conn, $query);
-        
-       if ($data) {
-        //  echo "Done";
-        header('location: category.php');
-       }
-       else {
-        echo "<script> alert('Some Error Occured'); </script>";
-       }
-    }
+
+        $existssql = "select * from tblcategory where c_name = '$cname'";
+        $existresult = mysqli_query($conn, $existssql);
+        $numrows = mysqli_num_rows($existresult);
+        if($numrows <= 0)
+        {
+            $query = "INSERT INTO `tblcategory`(`c_name`) VALUES ('$cname')";
+            $data = mysqli_query($conn, $query);
+            
+          if ($data) {
+            header('location: category.php');
+          }
+          else {
+            echo "<script> alert('Some Error Occured'); </script>";
+          }
+        }
+        else
+        {
+          echo "<script> alert('Category already listed'); </script>";
+        }
+      }
 ?>
 
 <!DOCTYPE html>

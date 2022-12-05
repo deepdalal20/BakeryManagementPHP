@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 05, 2022 at 03:21 PM
+-- Generation Time: Dec 05, 2022 at 05:01 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -249,6 +249,7 @@ CREATE TABLE `tbluser` (
   `email` varchar(256) NOT NULL,
   `password` varchar(256) NOT NULL,
   `contact` bigint(10) NOT NULL,
+  `otp` int(11) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -256,24 +257,25 @@ CREATE TABLE `tbluser` (
 -- Dumping data for table `tbluser`
 --
 
-INSERT INTO `tbluser` (`id`, `name`, `email`, `password`, `contact`, `date`) VALUES
-(9, 'admin', 'admin@gmail.com', '$2y$10$8So7TWHGYh1w3Q0Oj06JROIVA8PlRVxh3Dph9dj3fdhEGqpaZ3nii', 192867851, '2022-09-22 19:41:41'),
-(10, 'admin123', 'admin23@gmail.com', '$2y$10$F4bXlewWtEa/zEQjCQkGaeBg4nRUvD1gfV/lk79Abmd7MIHVPaE6S', 1278283690, '2022-09-22 19:50:54'),
-(11, 'abchs', 'deep@yahoo.com', '$2y$10$u6tk8fDoJ5UbopXNblu0fO6zlyoCc33GqHcIoetLZR2EkbzAI.jAe', 2983972312, '2022-09-23 10:09:11'),
-(12, 'abra', 'kadabra@abc.com', '$2y$10$TAL9bGSF681dqaXb9oe6..GieIPYtdyUX4g91rxMdVKbJ2ejUvHg6', 9817298621, '2022-09-23 11:05:03'),
-(13, 'ajbfd', 'abcb@abc.com', '$2y$10$eqmu.DXlv3GWiH3P9HckEugMU.qPom.qtS6aDvnKsCxhD3An.A5ni', 2737678611, '2022-09-23 11:06:25'),
-(14, 'deepd', 'deepd@gmail.com', '$2y$10$vKcHvSYttwjUUnE1IqTHa.eYI4/59jaaG6RIXGwe2T59iMX3PTimG', 1234567890, '2022-09-23 11:31:37'),
-(15, 'nf', 'nf@nf.nf', '$2y$10$M.yTKohNoOTIq0757eDKOuCAYgrNCagl4/hH99x3xWtX0dsOAWune', 1827986361, '2022-09-23 13:16:16'),
-(16, 'hsfdujk', 'jdbfj@kndg.cq', '$2y$10$OOAgD/dy4HbpBJOP1/ku0.3Fc.eTjo88GCiYd3J.T1frow9.IIyma', 187627816, '2022-09-23 13:45:19'),
-(17, 'oneplus', 'oneplus@gmail.com', '$2y$10$0lIW7LGAPeBYZj/Z1xZPE.vTmi35Vr6NevkHeCY.8qSPVTDQ7nv7S', 2222222222, '2022-09-23 14:44:17'),
-(18, 'pratham', '20bmiit031@gmail.com', '$2y$10$JDexCYv5Nf/VmUGFha5qGuSMtVFPoRUCAiMypaKLXBAlRWYdpoho6', 7878435553, '2022-09-23 16:29:13'),
-(19, 'pratham', 'pratham5553@gmail.com', '$2y$10$SOMykxD5aWQ3XraV.elxNuB4Qsh.qZYaQBJjAX7pl9nrZPgwz9R.S', 7878435553, '2022-09-23 16:43:19'),
-(20, 'abcdef', 'abcdef@gmail.com', '$2y$10$oOZ2cz.6HkMMpMW99OD8Gu.oZDVsAm8JeWV7ikMVvgU8DbX/vtvAi', 982878657, '2022-09-23 21:25:08'),
-(22, 'shivam Patel', 'shivamp2819@gmail.com', '$2y$10$T.qJYbS0D3fIuYKTTSK04udr/Wg0ktWymtkSmCkuIKh5p/G9rSwL2', 7990597887, '2022-09-24 10:06:09'),
-(23, 'deep', 'deepdalal@gmail.com', '$2y$10$9iKKuDk1sVvv1B6OvH.pEuHETV0DdBWl55zvVpz8sZN.cgWLP/l2.', 9883738299, '2022-09-24 10:21:22'),
-(24, 'Preet', 'preet@yahoo.com', '$2y$10$Wn9Qfc9y.JnhC00KIFL3d.v2gLm95hCTvCPccIzkUEBtOl7lf8U0W', 9876536670, '2022-09-24 10:49:08'),
-(25, 'preet p', 'preet@hotmail.com', '$2y$10$DdWzl5U9Td/bnPwgfnIkpuhPNO949rhZwtCjIC1sZFA/7KfV2/Tgy', 2873898787, '2022-09-24 11:04:07'),
-(26, 'Deep', 'deep@cust.com', '$2y$10$fpvbLPgBHoxDgEDLkHL.UuDwJyATIKVPGsVbvUCyP/G19r.eX27h6', 9089089765, '2022-12-01 21:40:40');
+INSERT INTO `tbluser` (`id`, `name`, `email`, `password`, `contact`, `otp`, `date`) VALUES
+(9, 'admin', 'admin@gmail.com', '$2y$10$8So7TWHGYh1w3Q0Oj06JROIVA8PlRVxh3Dph9dj3fdhEGqpaZ3nii', 192867851, 0, '2022-09-22 19:41:41'),
+(10, 'admin123', 'admin23@gmail.com', '$2y$10$F4bXlewWtEa/zEQjCQkGaeBg4nRUvD1gfV/lk79Abmd7MIHVPaE6S', 1278283690, 0, '2022-09-22 19:50:54'),
+(11, 'abchs', 'deep@yahoo.com', '$2y$10$u6tk8fDoJ5UbopXNblu0fO6zlyoCc33GqHcIoetLZR2EkbzAI.jAe', 2983972312, 0, '2022-09-23 10:09:11'),
+(12, 'abra', 'kadabra@abc.com', '$2y$10$TAL9bGSF681dqaXb9oe6..GieIPYtdyUX4g91rxMdVKbJ2ejUvHg6', 9817298621, 0, '2022-09-23 11:05:03'),
+(13, 'ajbfd', 'abcb@abc.com', '$2y$10$eqmu.DXlv3GWiH3P9HckEugMU.qPom.qtS6aDvnKsCxhD3An.A5ni', 2737678611, 0, '2022-09-23 11:06:25'),
+(14, 'deepd', 'deepd@gmail.com', '$2y$10$vKcHvSYttwjUUnE1IqTHa.eYI4/59jaaG6RIXGwe2T59iMX3PTimG', 1234567890, 0, '2022-09-23 11:31:37'),
+(15, 'nf', 'nf@nf.nf', '$2y$10$M.yTKohNoOTIq0757eDKOuCAYgrNCagl4/hH99x3xWtX0dsOAWune', 1827986361, 0, '2022-09-23 13:16:16'),
+(16, 'hsfdujk', 'jdbfj@kndg.cq', '$2y$10$OOAgD/dy4HbpBJOP1/ku0.3Fc.eTjo88GCiYd3J.T1frow9.IIyma', 187627816, 0, '2022-09-23 13:45:19'),
+(17, 'oneplus', 'oneplus@gmail.com', '$2y$10$0lIW7LGAPeBYZj/Z1xZPE.vTmi35Vr6NevkHeCY.8qSPVTDQ7nv7S', 2222222222, 0, '2022-09-23 14:44:17'),
+(18, 'pratham', '20bmiit031@gmail.com', '$2y$10$JDexCYv5Nf/VmUGFha5qGuSMtVFPoRUCAiMypaKLXBAlRWYdpoho6', 7878435553, 0, '2022-09-23 16:29:13'),
+(19, 'pratham', 'pratham5553@gmail.com', '$2y$10$SOMykxD5aWQ3XraV.elxNuB4Qsh.qZYaQBJjAX7pl9nrZPgwz9R.S', 7878435553, 0, '2022-09-23 16:43:19'),
+(20, 'abcdef', 'abcdef@gmail.com', '$2y$10$oOZ2cz.6HkMMpMW99OD8Gu.oZDVsAm8JeWV7ikMVvgU8DbX/vtvAi', 982878657, 0, '2022-09-23 21:25:08'),
+(22, 'shivam Patel', 'shivamp2819@gmail.com', '$2y$10$T.qJYbS0D3fIuYKTTSK04udr/Wg0ktWymtkSmCkuIKh5p/G9rSwL2', 7990597887, 0, '2022-09-24 10:06:09'),
+(23, 'deep', 'deepdalal@gmail.com', '$2y$10$9iKKuDk1sVvv1B6OvH.pEuHETV0DdBWl55zvVpz8sZN.cgWLP/l2.', 9883738299, 0, '2022-09-24 10:21:22'),
+(24, 'Preet', 'preet@yahoo.com', '$2y$10$Wn9Qfc9y.JnhC00KIFL3d.v2gLm95hCTvCPccIzkUEBtOl7lf8U0W', 9876536670, 0, '2022-09-24 10:49:08'),
+(25, 'preet p', 'preet@hotmail.com', '$2y$10$DdWzl5U9Td/bnPwgfnIkpuhPNO949rhZwtCjIC1sZFA/7KfV2/Tgy', 2873898787, 0, '2022-09-24 11:04:07'),
+(26, 'Deep', 'deep@cust.com', '$2y$10$fpvbLPgBHoxDgEDLkHL.UuDwJyATIKVPGsVbvUCyP/G19r.eX27h6', 9089089765, 0, '2022-12-01 21:40:40'),
+(35, 'Deep', 'deepdalal20@gmail.com', '$2y$10$e3.J6ZdK1qdOBV6BPM9A8O8hfErXUJ6DwXin4nkjqgSERcivYp4OK', 1234567890, 417069, '2022-12-05 21:28:26');
 
 -- --------------------------------------------------------
 
@@ -397,7 +399,7 @@ ALTER TABLE `tblstock`
 -- AUTO_INCREMENT for table `tbluser`
 --
 ALTER TABLE `tbluser`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `tblwishlist`

@@ -4,6 +4,7 @@
     if(!isset($_SESSION['loganame'])){
         header('location:login.php');
     }
+    $uid= $_SESSION['logaid'];
     $gt = $_SESSION['gt'];
     $name= $_SESSION['oname'];
     $email= $_SESSION['oemail'];
@@ -13,7 +14,7 @@
     $zipcode = $_SESSION['ozipcode'];
     $payment = $_SESSION['razorpay_payment_id'];
 
-        $insert_product = "INSERT INTO `tblorderdetail`(`od_name`, `od_email`, `od_address`, `od_city`, `od_state`, `od_pin`, `od_total`, `od_pay`, `od_date`) VALUES ('$name', '$email', '$address', '$city', '$state', '$zipcode', '$gt', '$payment', current_timestamp())";
+        $insert_product = "INSERT INTO `tblorderdetail`(`u_id`, `od_name`, `od_email`, `od_address`, `od_city`, `od_state`, `od_pin`, `od_total`, `od_pay`, `od_date`) VALUES ('$uid', '$name', '$email', '$address', '$city', '$state', '$zipcode', '$gt', '$payment', current_timestamp())";
         $icart = mysqli_query($conn, $insert_product);
 
         if($icart)

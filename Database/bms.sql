@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 05, 2022 at 08:29 AM
+-- Generation Time: Dec 05, 2022 at 03:21 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -102,7 +102,9 @@ INSERT INTO `tblord` (`ord_id`, `p_id`, `u_id`, `ord_name`, `ord_price`, `ord_qt
 (73, 5, 26, 'Amul Chocolate', 50, 5, 'amuldc.jpeg'),
 (74, 1, 24, 'Pav Bhaji Bread', 36, 1, 'pavbhajibread.jpeg'),
 (76, 15, 26, 'Toast Biscuits', 50, 25, 'bakery2.jpg'),
-(77, 2, 26, 'Dabeli Bread', 36, 3, 'dabeli-pav.jpg');
+(77, 2, 26, 'Dabeli Bread', 36, 3, 'dabeli-pav.jpg'),
+(78, 15, 26, 'Toast Biscuits', 50, 10, 'bakery2.jpg'),
+(79, 5, 26, 'Amul Chocolate', 50, 10, 'amuldc.jpeg');
 
 -- --------------------------------------------------------
 
@@ -112,6 +114,7 @@ INSERT INTO `tblord` (`ord_id`, `p_id`, `u_id`, `ord_name`, `ord_price`, `ord_qt
 
 CREATE TABLE `tblorderdetail` (
   `od_id` int(11) NOT NULL,
+  `u_id` int(11) NOT NULL,
   `od_name` varchar(40) NOT NULL,
   `od_email` varchar(256) NOT NULL,
   `od_address` varchar(100) NOT NULL,
@@ -127,31 +130,29 @@ CREATE TABLE `tblorderdetail` (
 -- Dumping data for table `tblorderdetail`
 --
 
-INSERT INTO `tblorderdetail` (`od_id`, `od_name`, `od_email`, `od_address`, `od_city`, `od_state`, `od_pin`, `od_total`, `od_pay`, `od_date`) VALUES
-(1, 'Deep Dalal', 'deepdalal20@gmail.com', 'picnic park society, rander road', 'SURAT', 'Gujarat', '395009', 6240, '', '2022-10-18 19:08:25'),
-(2, 'Deep Dalal', 'deep@gmail.com', 'picnic park society, rander road', 'SURAT', 'Gujarat', '395009', 6240, '', '2022-10-18 19:20:17'),
-(3, 'NewD', 'deep@gmail.com', 'picnic park society', 'SURAT', 'Gujarat', '395009', 144, '', '2022-10-18 19:23:11'),
-(4, 'Deep', 'deep@gmail.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 308, '', '2022-10-19 10:21:56'),
-(5, 'Preet', 'preet@yahoo.com', 'Adajan', 'SURAT', 'Gujarat', '395009', 1108, '', '2022-10-19 13:40:53'),
-(6, 'Deep', 'deep20@gmail.com', 'rander road', 'SURAT', 'Gujarat', '395009', 36, '', '2022-10-27 21:23:39'),
-(7, 'Deep', 'deep@gm.com', 'rander road', 'SURAT', 'Gujarat', '395009', 666, '', '2022-10-30 13:13:00'),
-(17, 'Deep Dalal', 'deep@admin.com', ' rander road', 'SURAT', 'Gujarat', '395009', 36, '', '2022-11-12 11:37:29'),
-(19, 'Deep', 'deep@gmail.com', 'rander road', 'SURAT', 'Gujarat', '395009', 36, '', '2022-11-30 18:35:39'),
-(20, 'Deep', 'deep@cust.com', 'rander road', 'SURAT', 'Gujarat', '395009', 36, '', '2022-12-01 21:43:56'),
-(21, '', '', '', '', '', '', 216, '', '2022-12-02 16:56:53'),
-(22, 'Deep Check', 'deep@pay.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 300, 'order_Kn1gykT3oqMVTF', '2022-12-02 17:03:02'),
-(23, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 900, 'order_Kn2UNfCqU7trQM', '2022-12-02 17:49:36'),
-(24, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 50, 'order_Kn2WvW0NRGrepe', '2022-12-02 17:52:26'),
-(25, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 1080, 'pay_KnMajXSkRtxtFK', '2022-12-03 13:29:23'),
-(26, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 500, 'pay_KnUUIZkVJmcW05', '2022-12-03 21:12:49'),
-(27, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 108, 'pay_KnUaCeSkdOhDag', '2022-12-03 21:18:25'),
-(28, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 144, 'pay_KnUbXERn4tjeqk', '2022-12-03 21:19:40'),
-(29, 'Deep', 'deep@cust.com', 'rander road', 'SURAT', 'Gujarat', '395009', 608, 'pay_KnUz38qQfwtw77', '2022-12-03 21:41:57'),
-(30, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 108, 'pay_KnV5HIZIpkEU90', '2022-12-03 21:47:51'),
-(31, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 216, 'pay_KnV7avEmscJ0BU', '2022-12-03 21:50:02'),
-(32, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 250, 'pay_KnkHGsqdgvS3cU', '2022-12-04 12:39:36'),
-(34, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 1250, 'pay_Kns0BnIA2KqYxJ', '2022-12-04 20:12:58'),
-(35, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 108, 'pay_Knsduab5rp7TfW', '2022-12-04 20:50:36');
+INSERT INTO `tblorderdetail` (`od_id`, `u_id`, `od_name`, `od_email`, `od_address`, `od_city`, `od_state`, `od_pin`, `od_total`, `od_pay`, `od_date`) VALUES
+(4, 0, 'Deep', 'deep@gmail.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 308, '', '2022-10-19 10:21:56'),
+(5, 0, 'Preet', 'preet@yahoo.com', 'Adajan', 'SURAT', 'Gujarat', '395009', 1108, '', '2022-10-19 13:40:53'),
+(6, 0, 'Deep', 'deep20@gmail.com', 'rander road', 'SURAT', 'Gujarat', '395009', 36, '', '2022-10-27 21:23:39'),
+(7, 0, 'Deep', 'deep@gm.com', 'rander road', 'SURAT', 'Gujarat', '395009', 666, '', '2022-10-30 13:13:00'),
+(17, 0, 'Deep Dalal', 'deep@admin.com', ' rander road', 'SURAT', 'Gujarat', '395009', 36, '', '2022-11-12 11:37:29'),
+(19, 0, 'Deep', 'deep@gmail.com', 'rander road', 'SURAT', 'Gujarat', '395009', 36, '', '2022-11-30 18:35:39'),
+(20, 0, 'Deep', 'deep@cust.com', 'rander road', 'SURAT', 'Gujarat', '395009', 36, '', '2022-12-01 21:43:56'),
+(21, 0, '', '', '', '', '', '', 216, '', '2022-12-02 16:56:53'),
+(22, 0, 'Deep Check', 'deep@pay.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 300, 'order_Kn1gykT3oqMVTF', '2022-12-02 17:03:02'),
+(23, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 900, 'order_Kn2UNfCqU7trQM', '2022-12-02 17:49:36'),
+(24, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 50, 'order_Kn2WvW0NRGrepe', '2022-12-02 17:52:26'),
+(25, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 1080, 'pay_KnMajXSkRtxtFK', '2022-12-03 13:29:23'),
+(26, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 500, 'pay_KnUUIZkVJmcW05', '2022-12-03 21:12:49'),
+(27, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 108, 'pay_KnUaCeSkdOhDag', '2022-12-03 21:18:25'),
+(28, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 144, 'pay_KnUbXERn4tjeqk', '2022-12-03 21:19:40'),
+(29, 0, 'Deep', 'deep@cust.com', 'rander road', 'SURAT', 'Gujarat', '395009', 608, 'pay_KnUz38qQfwtw77', '2022-12-03 21:41:57'),
+(30, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 108, 'pay_KnV5HIZIpkEU90', '2022-12-03 21:47:51'),
+(31, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 216, 'pay_KnV7avEmscJ0BU', '2022-12-03 21:50:02'),
+(32, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 250, 'pay_KnkHGsqdgvS3cU', '2022-12-04 12:39:36'),
+(34, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 1250, 'pay_Kns0BnIA2KqYxJ', '2022-12-04 20:12:58'),
+(35, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 108, 'pay_Knsduab5rp7TfW', '2022-12-04 20:50:36'),
+(36, 26, 'Deep', 'deep@cust.com', 'Rander', 'SURAT', 'Gujarat', '395009', 1000, 'pay_KoFnFyfxKN2PCw', '2022-12-05 19:29:23');
 
 -- --------------------------------------------------------
 
@@ -229,12 +230,12 @@ INSERT INTO `tblstock` (`st_id`, `p_id`, `avl_stock`, `date`) VALUES
 (2, 2, 1, '2022-12-03 14:01:53'),
 (3, 3, 30, '2022-12-03 16:22:04'),
 (4, 4, 10, '2022-11-08 16:14:56'),
-(5, 5, 65, '2022-12-03 16:22:09'),
+(5, 5, 55, '2022-12-03 16:22:09'),
 (6, 6, 2, '2022-11-26 17:07:42'),
 (7, 9, 3, '2022-11-08 13:56:34'),
 (8, 8, 5, '2022-12-03 16:21:59'),
 (9, 7, 3, '2022-11-08 13:34:13'),
-(10, 15, 10, '2022-12-04 20:19:12');
+(10, 15, 0, '2022-12-04 20:19:12');
 
 -- --------------------------------------------------------
 
@@ -354,7 +355,7 @@ ALTER TABLE `tblwishlist`
 -- AUTO_INCREMENT for table `tblcart`
 --
 ALTER TABLE `tblcart`
-  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `tblcategory`
@@ -366,13 +367,13 @@ ALTER TABLE `tblcategory`
 -- AUTO_INCREMENT for table `tblord`
 --
 ALTER TABLE `tblord`
-  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `tblorderdetail`
 --
 ALTER TABLE `tblorderdetail`
-  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `tblproduct`

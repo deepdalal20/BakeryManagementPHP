@@ -204,7 +204,7 @@ body {
 
                       if($icart)
                       {
-                        echo "Product added to Cart succesfully";
+                        echo "";
                       }
                       else
                       {

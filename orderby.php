@@ -4,6 +4,7 @@
     if(!isset($_SESSION['loguname'])){
         header('location:login.php');
     }    
+    $id=$_GET['id'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -12,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="admin.css">
-    <title>Admin/Staff</title>
+    <title>Orders</title>
     <link rel="stylesheet" href="./Font-Awesome-master/css/all.min.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./select2/css/select2.min.css">
@@ -135,10 +136,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active " aria-current="page" href="#">Admin Dashboard</a>
+                <a class="nav-link" href="admin.php">Admin Dashboard</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="orders.php">Orders Details</a>
+                <a class="nav-link active" aria-current="page" href="orders.php">Orders Details</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="category.php"> Category</a>
@@ -157,117 +158,15 @@
         </div>
         </div>
 </nav>
-        <div class="content py-3">
-    <div class="card rounded-0 shadow">
-        <div class="card-body">
-            <h3>Seewans Bakery</h3>
-            <hr>
-            <div class="col-12">
-                <div class="row gx-3 row-cols-4">
-                <div class="col">
-                        <div class="card text-dark">
-                            <div class="card-body">
-                                <div class="w-100 d-flex align-items-center">
-                                    <div class="col-auto pe-1">
-                                        <span class="fa fa-th-list fs-3 text-primary"></span>
-                                    </div>
-                                    <div class="col-auto flex-grow-1">
-                                        <div class="fs-8"><b>Available Catrgories</b></div>
-                                        <div class="fs-10 text-end fw-bold">
-                                        <?php
-                                            $query = "select * from tblcategory";
-                                            $result= mysqli_query($conn, $query);
-                                            $a =  mysqli_num_rows($result);
-                                            echo $a;
-                                        ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card text-dark">
-                            <div class="card-body">
-                                <div class="w-100 d-flex align-items-center">
-                                    <div class="col-auto pe-1">
-                                        <span class="fas fa-shopping-bag fs-3 text-secondary"></span>
-                                    </div>
-                                    <div class="col-auto flex-grow-1">
-                                        <div class="fs-8"><b>Number of Products Ordered</b></div>
-                                        <div class="fs-10 text-end fw-bold">
-                                        <?php
-                                            $query = "select * from tblord";
-                                            $result= mysqli_query($conn, $query);
-                                            while($row = mysqli_fetch_assoc($result)):
-                                                $qty=($row['ord_qty']);
-                                                $prqty += $qty;
-                                            endwhile;
-                                            echo $prqty;  
-                                        ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card text-dark">
-                            <div class="card-body">
-                                <div class="w-100 d-flex align-items-center">
-                                    <div class="col-auto pe-1">
-                                        <span class="fa fa-file-alt fs-3 text-info"></span>
-                                    </div>
-                                    <div class="col-auto flex-grow-1">
-                                        <div class="fs-8"><b>Total Stocks</b></div>
-                                        <div class="fs-10 text-end fw-bold">
-                                        <?php
-                                            $query = "select * from tblstock";
-                                            $result= mysqli_query($conn, $query);
-                                            while($row = mysqli_fetch_assoc($result)):
-                                                $sqty=($row['avl_stock']);
-                                                $stqty += $sqty;
-                                            endwhile;
-                                            echo $stqty;  
-                                        ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card text-dark">
-                            <div class="card-body">
-                                <div class="w-100 d-flex align-items-center">
-                                    <div class="col-auto pe-1">
-                                        <span class="fa fa-coins fs-3 text-warning"></span>
-                                    </div>
-                                    <div class="col-auto flex-grow-1">
-                                        <div class="fs-8"><b>Total Sales</b></div>
-                                        <div class="fs-10 text-end fw-bold">
-                                        <?php
-                                            $query = "select * from tblord";
-                                            $result= mysqli_query($conn, $query);
-                                            while($row = mysqli_fetch_assoc($result)):
-                                                $total1=($row['ord_qty']* $row['ord_price']);
-                                                $grandtotal1 += $total1;
-                                            endwhile;
-                                            echo $grandtotal1;  
-                                        ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-12">
-                        <h3>Ordered Product Details</h3>
-                        <hr>
-                        <table class="table table-striped table-hover table-bordered" id="inventory">
+<div class="card rounded-0 shadow">
+    <div class="card-header d-flex justify-content-between">
+        <h3 class="card-title">Placed Orders for user id <?php echo $id; ?></h3>
+        <div class="card-tools align-middle">
+            <a href="admin.php"><button class="btn btn-dark btn-sm py-1 rounded-0" type="button" id="create_new">Back to Dashboard</button></a>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped table-hover table-bordered" id="inventory">
                             <colgroup>
                                 <col width="10%">
                                 <col width="20%">
@@ -288,7 +187,7 @@
                             </thead>
                             <tbody>
                             <?php
-                                $query = "select * from tblord";
+                                $query = "select * from tblord where u_id = '$id'";
                                 $result= mysqli_query($conn, $query);
                                 $num = mysqli_num_rows($result);
                                 if($num > 0 )
@@ -319,15 +218,11 @@
                                     <?php
                                 }
                             ?>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </table>
     </div>
 </div>
     <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
-  </body>
+    </body>
 </html>

@@ -144,6 +144,9 @@
                 <a class="nav-link" href="admin.php">Admin Dashboard</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="orders.php">Orders Details</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="category.php"> Category</a>
               </li>  
               <li class="nav-item">

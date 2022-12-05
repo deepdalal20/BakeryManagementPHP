@@ -1,6 +1,6 @@
 <?php
-    session_start();
     include 'dbcon.php';
+    session_start();
     if(!isset($_SESSION['loguname'])){
         header('location:login.php');
     }    
@@ -11,18 +11,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>Stock</title>
+    <link rel="stylesheet" href="admin.css">
+    <title>Orders</title>
     <link rel="stylesheet" href="./Font-Awesome-master/css/all.min.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./select2/css/select2.min.css">
-    <script src="./js/jquery-3.6.0.min.js"></script>
-    <script src="./js/popper.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./DataTables/datatables.min.css">
-    <script src="./DataTables/datatables.min.js"></script>
-    <script src="./select2/js/select2.full.min.js"></script>
     <script src="./Font-Awesome-master/js/all.min.js"></script>
-    <script src="./js/script.js"></script>
     <style>
         :root{
             --bs-success-rgb:71, 222, 152 !important;
@@ -131,10 +125,10 @@
     </style>
   </head>
   <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-        <a href="admin.php"> <img class="btn"  src="seewans.png" alt="" width="72" height="57"> </a>
-          <a class="navbar-brand" href="admin.php"><h2>Seewans Bakery</h2></a>
+        <a href="#"> <img class="btn"  src="seewans.png" alt="" width="72" height="57"> </a>
+          <a class="navbar-brand" href="#"><h2>Seewans Bakery</h2></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -144,92 +138,104 @@
                 <a class="nav-link" href="admin.php">Admin Dashboard</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="orders.php">Orders Details</a>
+                <a class="nav-link active" aria-current="page" href="#">Orders Details</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="category.php"> Category</a>
               </li>  
               <li class="nav-item">
-                <a class="nav-link active " aria-current="page" href="#"> Update Products</a>
+                <a class="nav-link" href="edproduct.php"> Update Products</a>
               </li>  
               <li class="nav-item">
                 <a class="nav-link" href="stock.php"> Update Stock</a>
-              </li>
+              </li> 
               <li class="nav-item">
                 <a class="nav-link" href="customer.php">Customer</a>
               </li>
             </ul>
             <a href="logout.php"><button class="btn btn-outline-warning" type="submit">Logout</button></a>
-          </div>
+        </div>
         </div>
 </nav>
-
 <div class="card rounded-0 shadow">
     <div class="card-header d-flex justify-content-between">
-        <h3 class="card-title">Product List</h3>
-        <div class="card-tools align-middle">
-            <a href="newproduct.php"><button class="btn btn-dark btn-sm py-1 rounded-0" type="button" id="create_new">Add New</button></a>
-        </div>
+        <h3 class="card-title">Placed Orders</h3>
     </div>
     <div class="card-body">
         <table class="table table-hover table-striped table-bordered">
             <colgroup>
                 <col width="10%">
-                <col width="15%">
-                <col width="30%">
                 <col width="10%">
-                <col width="15%">
+                <col width="10%">
+                <col width="10%">
+                <col width="10%">
+                <col width="10%">
+                <col width="10%">
+                <col width="10%">
+                <col width="10%">
+                <col width="10%">
+                <col width="10%">
             </colgroup>
             <thead>
                 <tr>
-                    <th class="text-center p-0">Code</th>
-                    <th class="text-center p-0">Image</th>
-                    <th class="text-center p-0">Category</th>
-                    <th class="text-center p-0">Product</th>
-                    <th class="text-center p-0">Price</th>
-                    <th class="text-center p-0">Action</th>
+                    <th class="text-center p-0">Order ID</th>
+                    <th class="text-center p-0">User ID</th>
+                    <th class="text-center p-0">Name</th>
+                    <th class="text-center p-0">Email</th>
+                    <th class="text-center p-0">Address</th>
+                    <th class="text-center p-0">City</th>
+                    <th class="text-center p-0">State</th>
+                    <th class="text-center p-0">Pin</th>
+                    <th class="text-center p-0">Total Amount</th>
+                    <th class="text-center p-0">Payment ID</th>
+                    <th class="text-center p-0">Order Date</th>
                 </tr>
             </thead>
             <tbody>
             <?php 
-                $sql = "SELECT * FROM tblproduct";
+                $sql = "SELECT * FROM tblorderdetail";
                 $data = mysqli_query($conn, $sql);
+                $num = mysqli_num_rows($data);
+                if($num > 0)
+                {
                 while($row = mysqli_fetch_assoc($data)):
             ?>
                 <tr>
-                    <td class="py-0 px-1"><?php echo $row['p_id']; ?></td>
-                    <td class="py-0 px-1"><img src="<?php echo $row['p_image']; ?>"  style="width: 100px; height: 100px;"></td>
-                    <td class="py-0 px-1"><?php echo $row['category']; ?></td>
+                    <td class="py-0 px-1"><?php echo $row['od_id']; ?></td>
+                    <td class="py-0 px-1"><?php echo $row['u_id']; ?></td>
+                    <td class="py-0 px-1"><?php echo $row['od_name']; ?></td>
+                    <td class="py-0 px-1"><?php echo $row['od_email']; ?></td>
+                    <td class="py-0 px-1"><?php echo $row['od_address']; ?></td>
+                    <td class="py-0 px-1"><?php echo $row['od_city']; ?></td>
+                    <td class="py-0 px-1"><?php echo $row['od_state']; ?></td>
+                    <td class="py-0 px-1"><?php echo $row['od_pin']; ?></td>
+                    <td class="py-0 px-1"><?php echo $row['od_total']; ?></td>
+                    <td class="py-0 px-1"><?php echo $row['od_pay']; ?></td>
+                    <td class="py-0 px-1"><?php echo $row['od_date']; ?></td>
                     <td class="py-0 px-1">
-                        <div class="fs-6 fw-bold truncate-1"> <?php echo $row['p_name']; ?></div>
-                    </td>
-                    <td class="py-0 px-1 text-end"><?php echo $row['p_price']; ?></td>
-                    <td class="text-center py-0 px-1">
-                        <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle btn-sm rounded-0 py-0" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="btn-group" role="group">
+                    <a href="orderby.php?id=<?php echo $row['u_id'];?>"><button  type="button" class="btn btn-primary btn-sm rounded-0 py-0">
                             Action
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                <li><a class="dropdown-item edit_data" href="updatepro.php?id=<?php echo $row['p_id'];?>">Edit</a></li>
-                                <li><a class="dropdown-item delete_data" href="deletepro.php?id=<?php echo $row['p_id'];?>">Delete</a></li>
-                            </ul>
-                        </div>
+                            </button></a>
+                    </div>
                     </td>
                 </tr>
                 <?php endwhile; ?>
             </tbody>
+            <?php
+                }
+                else
+                {
+                    ?>
+                    <td class="py-0 px-1">No Orders Placed</td>
+                    <?php
+                }
+            ?>
         </table>
     </div>
 </div>
     <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
-    <script>
-    $(function(){
-        $('#create_new').click(function(){
-            uni_modal('Add New Product',"newproduct.php",'mid-large')
-        })
-     })
-    </script>
-</body>
+    </body>
 </html>

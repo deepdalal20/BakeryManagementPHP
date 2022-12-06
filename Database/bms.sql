@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 06, 2022 at 09:00 AM
+-- Generation Time: Dec 06, 2022 at 09:17 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -106,7 +106,9 @@ INSERT INTO `tblord` (`ord_id`, `p_id`, `u_id`, `ord_name`, `ord_price`, `ord_qt
 (78, 15, 26, 'Toast Biscuits', 50, 10, 'bakery2.jpg'),
 (79, 5, 26, 'Amul Chocolate', 50, 10, 'amuldc.jpeg'),
 (80, 2, 26, 'Dabeli Bread', 36, 1, 'dabeli-pav.jpg'),
-(81, 2, 26, 'Dabeli Bread', 36, 10, 'dabeli-pav.jpg');
+(81, 2, 26, 'Dabeli Bread', 36, 10, 'dabeli-pav.jpg'),
+(82, 1, 26, 'Pav Bhaji Bread', 36, 1, 'pavbhajibread.jpeg'),
+(83, 7, 26, 'Royal Chocolate', 450, 1, 'royalch.jpeg');
 
 -- --------------------------------------------------------
 
@@ -156,7 +158,9 @@ INSERT INTO `tblorderdetail` (`od_id`, `u_id`, `od_name`, `od_email`, `od_addres
 (35, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 108, 'pay_Knsduab5rp7TfW', '2022-12-04 20:50:36'),
 (36, 26, 'Deep', 'deep@cust.com', 'Rander', 'SURAT', 'Gujarat', '395009', 1000, 'pay_KoFnFyfxKN2PCw', '2022-12-05 19:29:23'),
 (37, 26, 'Deep', 'deepdalal20@gmail.com', 'picnic park society, rander road', 'SURAT', 'Gujarat', '395009', 36, 'pay_KoWIc7uG6m80P7', '2022-12-06 11:38:10'),
-(38, 26, 'Deep Dalal', 'deepdalal20@gmail.com', 'picnic park society, rander road', 'SURAT', 'Gujarat', '395009', 360, 'pay_KoWMwNWFqhXna6', '2022-12-06 11:42:15');
+(38, 26, 'Deep Dalal', 'deepdalal20@gmail.com', 'picnic park society, rander road', 'SURAT', 'Gujarat', '395009', 360, 'pay_KoWMwNWFqhXna6', '2022-12-06 11:42:15'),
+(39, 26, 'Deep Dalal', 'deepdalal20@gmail.com', 'picnic park society, rander road', 'SURAT', 'Gujarat', '395009', 36, 'pay_KoYQc5uc6vkx72', '2022-12-06 13:43:08'),
+(40, 26, 'Deep Dalal', 'deepdalal20@gmail.com', 'picnic park society, rander road', 'SURAT', 'Gujarat', '395009', 450, 'pay_KoYSZc8yl8hVCv', '2022-12-06 13:44:58');
 
 -- --------------------------------------------------------
 
@@ -231,7 +235,7 @@ CREATE TABLE `tblstock` (
 --
 
 INSERT INTO `tblstock` (`st_id`, `p_id`, `avl_stock`, `date`) VALUES
-(1, 1, 1, '2022-11-26 17:59:04'),
+(1, 1, 0, '2022-11-26 17:59:04'),
 (2, 2, 0, '2022-12-06 11:41:38'),
 (3, 3, 30, '2022-12-03 16:22:04'),
 (4, 4, 10, '2022-11-08 16:14:56'),
@@ -239,7 +243,7 @@ INSERT INTO `tblstock` (`st_id`, `p_id`, `avl_stock`, `date`) VALUES
 (6, 6, 2, '2022-11-26 17:07:42'),
 (7, 9, 3, '2022-11-08 13:56:34'),
 (8, 8, 5, '2022-12-03 16:21:59'),
-(9, 7, 3, '2022-11-08 13:34:13'),
+(9, 7, 2, '2022-11-08 13:34:13'),
 (10, 15, 0, '2022-12-04 20:19:12');
 
 -- --------------------------------------------------------
@@ -362,7 +366,7 @@ ALTER TABLE `tblwishlist`
 -- AUTO_INCREMENT for table `tblcart`
 --
 ALTER TABLE `tblcart`
-  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT for table `tblcategory`
@@ -374,13 +378,13 @@ ALTER TABLE `tblcategory`
 -- AUTO_INCREMENT for table `tblord`
 --
 ALTER TABLE `tblord`
-  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT for table `tblorderdetail`
 --
 ALTER TABLE `tblorderdetail`
-  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `tblproduct`

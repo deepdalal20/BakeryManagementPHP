@@ -6,7 +6,7 @@
     }
     $u_id = $_SESSION['logaid'];
 
-    $insert_product = "INSERT INTO tblord SELECT * FROM tblcart";
+    $insert_product = "INSERT INTO tblord SELECT * FROM tblcart where u_id ='$u_id'";
     $icart = mysqli_query($conn, $insert_product);
 
     if($icart)

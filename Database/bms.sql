@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 06, 2022 at 09:17 AM
+-- Generation Time: Dec 06, 2022 at 04:44 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -135,14 +135,9 @@ CREATE TABLE `tblorderdetail` (
 --
 
 INSERT INTO `tblorderdetail` (`od_id`, `u_id`, `od_name`, `od_email`, `od_address`, `od_city`, `od_state`, `od_pin`, `od_total`, `od_pay`, `od_date`) VALUES
-(4, 0, 'Deep', 'deep@gmail.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 308, '', '2022-10-19 10:21:56'),
-(5, 0, 'Preet', 'preet@yahoo.com', 'Adajan', 'SURAT', 'Gujarat', '395009', 1108, '', '2022-10-19 13:40:53'),
-(6, 0, 'Deep', 'deep20@gmail.com', 'rander road', 'SURAT', 'Gujarat', '395009', 36, '', '2022-10-27 21:23:39'),
 (7, 0, 'Deep', 'deep@gm.com', 'rander road', 'SURAT', 'Gujarat', '395009', 666, '', '2022-10-30 13:13:00'),
-(17, 0, 'Deep Dalal', 'deep@admin.com', ' rander road', 'SURAT', 'Gujarat', '395009', 36, '', '2022-11-12 11:37:29'),
 (19, 0, 'Deep', 'deep@gmail.com', 'rander road', 'SURAT', 'Gujarat', '395009', 36, '', '2022-11-30 18:35:39'),
 (20, 0, 'Deep', 'deep@cust.com', 'rander road', 'SURAT', 'Gujarat', '395009', 36, '', '2022-12-01 21:43:56'),
-(21, 0, '', '', '', '', '', '', 216, '', '2022-12-02 16:56:53'),
 (22, 0, 'Deep Check', 'deep@pay.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 300, 'order_Kn1gykT3oqMVTF', '2022-12-02 17:03:02'),
 (23, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 900, 'order_Kn2UNfCqU7trQM', '2022-12-02 17:49:36'),
 (24, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 50, 'order_Kn2WvW0NRGrepe', '2022-12-02 17:52:26'),
@@ -155,7 +150,6 @@ INSERT INTO `tblorderdetail` (`od_id`, `u_id`, `od_name`, `od_email`, `od_addres
 (31, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 216, 'pay_KnV7avEmscJ0BU', '2022-12-03 21:50:02'),
 (32, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 250, 'pay_KnkHGsqdgvS3cU', '2022-12-04 12:39:36'),
 (34, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 1250, 'pay_Kns0BnIA2KqYxJ', '2022-12-04 20:12:58'),
-(35, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 108, 'pay_Knsduab5rp7TfW', '2022-12-04 20:50:36'),
 (36, 26, 'Deep', 'deep@cust.com', 'Rander', 'SURAT', 'Gujarat', '395009', 1000, 'pay_KoFnFyfxKN2PCw', '2022-12-05 19:29:23'),
 (37, 26, 'Deep', 'deepdalal20@gmail.com', 'picnic park society, rander road', 'SURAT', 'Gujarat', '395009', 36, 'pay_KoWIc7uG6m80P7', '2022-12-06 11:38:10'),
 (38, 26, 'Deep Dalal', 'deepdalal20@gmail.com', 'picnic park society, rander road', 'SURAT', 'Gujarat', '395009', 360, 'pay_KoWMwNWFqhXna6', '2022-12-06 11:42:15'),

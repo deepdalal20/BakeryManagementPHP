@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 05, 2022 at 05:01 PM
+-- Generation Time: Dec 06, 2022 at 07:54 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -104,7 +104,9 @@ INSERT INTO `tblord` (`ord_id`, `p_id`, `u_id`, `ord_name`, `ord_price`, `ord_qt
 (76, 15, 26, 'Toast Biscuits', 50, 25, 'bakery2.jpg'),
 (77, 2, 26, 'Dabeli Bread', 36, 3, 'dabeli-pav.jpg'),
 (78, 15, 26, 'Toast Biscuits', 50, 10, 'bakery2.jpg'),
-(79, 5, 26, 'Amul Chocolate', 50, 10, 'amuldc.jpeg');
+(79, 5, 26, 'Amul Chocolate', 50, 10, 'amuldc.jpeg'),
+(80, 2, 26, 'Dabeli Bread', 36, 1, 'dabeli-pav.jpg'),
+(81, 2, 26, 'Dabeli Bread', 36, 10, 'dabeli-pav.jpg');
 
 -- --------------------------------------------------------
 
@@ -152,7 +154,9 @@ INSERT INTO `tblorderdetail` (`od_id`, `u_id`, `od_name`, `od_email`, `od_addres
 (32, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 250, 'pay_KnkHGsqdgvS3cU', '2022-12-04 12:39:36'),
 (34, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 1250, 'pay_Kns0BnIA2KqYxJ', '2022-12-04 20:12:58'),
 (35, 0, 'Deep', 'deep@cust.com', 'Rander road', 'SURAT', 'Gujarat', '395009', 108, 'pay_Knsduab5rp7TfW', '2022-12-04 20:50:36'),
-(36, 26, 'Deep', 'deep@cust.com', 'Rander', 'SURAT', 'Gujarat', '395009', 1000, 'pay_KoFnFyfxKN2PCw', '2022-12-05 19:29:23');
+(36, 26, 'Deep', 'deep@cust.com', 'Rander', 'SURAT', 'Gujarat', '395009', 1000, 'pay_KoFnFyfxKN2PCw', '2022-12-05 19:29:23'),
+(37, 26, 'Deep', 'deepdalal20@gmail.com', 'picnic park society, rander road', 'SURAT', 'Gujarat', '395009', 36, 'pay_KoWIc7uG6m80P7', '2022-12-06 11:38:10'),
+(38, 26, 'Deep Dalal', 'deepdalal20@gmail.com', 'picnic park society, rander road', 'SURAT', 'Gujarat', '395009', 360, 'pay_KoWMwNWFqhXna6', '2022-12-06 11:42:15');
 
 -- --------------------------------------------------------
 
@@ -184,7 +188,8 @@ INSERT INTO `tblproduct` (`p_id`, `p_name`, `category`, `p_image`, `p_price`, `p
 (7, 'Royal Chocolate', 'Cakes', 'royalch.jpeg', 450, 'instock', '2022-09-16 00:00:00'),
 (8, '24K Gold Cake', 'Cakes', 'gold.jpeg', 300, 'instock', '2022-09-23 09:47:05'),
 (9, 'Red Velvet Cake', 'Cakes', 'rvcake.jpeg', 360, 'instock', '2022-11-26 17:32:05'),
-(15, 'Toast Biscuits', 'Biscuits', 'bakery2.jpg', 50, 'instock', '2022-12-03 16:21:40');
+(15, 'Toast Biscuits', 'Biscuits', 'bakery2.jpg', 50, 'instock', '2022-12-03 16:21:40'),
+(16, 'Kitkat', 'Chocolates', 'kitkat.jpeg', 40, 'instock', '2022-12-06 11:45:35');
 
 -- --------------------------------------------------------
 
@@ -227,7 +232,7 @@ CREATE TABLE `tblstock` (
 
 INSERT INTO `tblstock` (`st_id`, `p_id`, `avl_stock`, `date`) VALUES
 (1, 1, 1, '2022-11-26 17:59:04'),
-(2, 2, 1, '2022-12-03 14:01:53'),
+(2, 2, 0, '2022-12-06 11:41:38'),
 (3, 3, 30, '2022-12-03 16:22:04'),
 (4, 4, 10, '2022-11-08 16:14:56'),
 (5, 5, 55, '2022-12-03 16:22:09'),
@@ -275,7 +280,7 @@ INSERT INTO `tbluser` (`id`, `name`, `email`, `password`, `contact`, `otp`, `dat
 (24, 'Preet', 'preet@yahoo.com', '$2y$10$Wn9Qfc9y.JnhC00KIFL3d.v2gLm95hCTvCPccIzkUEBtOl7lf8U0W', 9876536670, 0, '2022-09-24 10:49:08'),
 (25, 'preet p', 'preet@hotmail.com', '$2y$10$DdWzl5U9Td/bnPwgfnIkpuhPNO949rhZwtCjIC1sZFA/7KfV2/Tgy', 2873898787, 0, '2022-09-24 11:04:07'),
 (26, 'Deep', 'deep@cust.com', '$2y$10$fpvbLPgBHoxDgEDLkHL.UuDwJyATIKVPGsVbvUCyP/G19r.eX27h6', 9089089765, 0, '2022-12-01 21:40:40'),
-(35, 'Deep', 'deepdalal20@gmail.com', '$2y$10$e3.J6ZdK1qdOBV6BPM9A8O8hfErXUJ6DwXin4nkjqgSERcivYp4OK', 1234567890, 417069, '2022-12-05 21:28:26');
+(42, 'Deep', 'deepdalal20@gmail.com', '$2y$10$vy1oAle8EKDed3gYkxTSueJf/l7OWEb4Vqfe0jdBdMz.NplSe162y', 9033921032, 508369, '2022-12-06 12:21:27');
 
 -- --------------------------------------------------------
 
@@ -357,7 +362,7 @@ ALTER TABLE `tblwishlist`
 -- AUTO_INCREMENT for table `tblcart`
 --
 ALTER TABLE `tblcart`
-  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `crt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `tblcategory`
@@ -369,19 +374,19 @@ ALTER TABLE `tblcategory`
 -- AUTO_INCREMENT for table `tblord`
 --
 ALTER TABLE `tblord`
-  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `tblorderdetail`
 --
 ALTER TABLE `tblorderdetail`
-  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `od_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `tblproduct`
 --
 ALTER TABLE `tblproduct`
-  MODIFY `p_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `p_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tblstaff`
@@ -399,7 +404,7 @@ ALTER TABLE `tblstock`
 -- AUTO_INCREMENT for table `tbluser`
 --
 ALTER TABLE `tbluser`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `tblwishlist`

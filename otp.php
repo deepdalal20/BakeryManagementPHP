@@ -51,15 +51,15 @@
                     $mail->isSMTP();
                     $mail->Host       = 'smtp.gmail.com';
                     $mail->SMTPAuth   = true;
-                    $mail->Username   = 'pateldryfruit55@gmail.com';
-                    $mail->Password   = 'smdklbxjrbplrqtg';
+                    $mail->Username   = 'bakery1management@gmail.com';
+                    $mail->Password   = 'gfkiovvlfxqfnzzd';
                     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
                     $mail->Port       = 465;
 
 
 
                     //Recipients
-                    $mail->setFrom('20bmiit106@gmail.com', 'Seewans Bakery');
+                    $mail->setFrom('bakery1management@gmail.com', 'Seewans Bakery');
                     $mail->addAddress($email);     //Add a recipient
 
                     $mail->isHTML(true);

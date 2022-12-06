@@ -83,7 +83,7 @@
         <h1>Thank you for Shopping with us.</h1>
         <h2>You have succesfully placed your order.</h2> 
         <p>We received your order<br/> You'll receive your order very soon!</p>
-        <p> Your Payment id is: <?php echo $payment; unset($_SESSION['razorpay_payment_id']); ?>
+        <p> Your Payment id is: <?php echo $payment; unset($_SESSION['razorpay_payment_id']); ?></p>
       </div>
       <a href="product.php"><input type="submit" value="Return to shop"></a>
       <script src="https://kit.fontawesome.com/96531cd29f.js" crossorigin="anonymous"></script>

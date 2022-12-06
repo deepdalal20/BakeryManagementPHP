@@ -160,7 +160,7 @@
 </nav>
 <div class="card rounded-0 shadow">
     <div class="card-header d-flex justify-content-between">
-        <h3 class="card-title">Placed Orders for user id <?php echo $id; ?></h3>
+        <h3 class="card-title">Placed Orders by user <?php echo $id; ?></h3>
         <div class="card-tools align-middle">
             <a href="admin.php"><button class="btn btn-dark btn-sm py-1 rounded-0" type="button" id="create_new">Back to Dashboard</button></a>
         </div>

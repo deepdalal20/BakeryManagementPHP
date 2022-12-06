@@ -95,7 +95,7 @@
                     </div>
                     <div class="editprofile">
                         <div class="lastbtn">
-                          <a href="logout.php"><input type="submit" class="editbtn" value="Logout"></a>
+                          <a href="changepass.php"><input type="submit" class="editbtn" value="Change Password"></a>
                         </div>
                     </div>
 

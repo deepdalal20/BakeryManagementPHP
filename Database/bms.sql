@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 06, 2022 at 07:54 AM
+-- Generation Time: Dec 06, 2022 at 09:00 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -279,7 +279,7 @@ INSERT INTO `tbluser` (`id`, `name`, `email`, `password`, `contact`, `otp`, `dat
 (23, 'deep', 'deepdalal@gmail.com', '$2y$10$9iKKuDk1sVvv1B6OvH.pEuHETV0DdBWl55zvVpz8sZN.cgWLP/l2.', 9883738299, 0, '2022-09-24 10:21:22'),
 (24, 'Preet', 'preet@yahoo.com', '$2y$10$Wn9Qfc9y.JnhC00KIFL3d.v2gLm95hCTvCPccIzkUEBtOl7lf8U0W', 9876536670, 0, '2022-09-24 10:49:08'),
 (25, 'preet p', 'preet@hotmail.com', '$2y$10$DdWzl5U9Td/bnPwgfnIkpuhPNO949rhZwtCjIC1sZFA/7KfV2/Tgy', 2873898787, 0, '2022-09-24 11:04:07'),
-(26, 'Deep', 'deep@cust.com', '$2y$10$fpvbLPgBHoxDgEDLkHL.UuDwJyATIKVPGsVbvUCyP/G19r.eX27h6', 9089089765, 0, '2022-12-01 21:40:40'),
+(26, 'Deep', 'deep@cust.com', '$2y$10$d6w9gIMWY2qZhd7cQeywC.3RlVrVMami3bWP6odS0YVNsvw0R0KlK', 9089089765, 0, '2022-12-01 21:40:40'),
 (42, 'Deep', 'deepdalal20@gmail.com', '$2y$10$vy1oAle8EKDed3gYkxTSueJf/l7OWEb4Vqfe0jdBdMz.NplSe162y', 9033921032, 508369, '2022-12-06 12:21:27');
 
 -- --------------------------------------------------------

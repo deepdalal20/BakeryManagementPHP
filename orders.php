@@ -215,7 +215,7 @@
                     <td class="py-0 px-1">
                     <div class="btn-group" role="group">
                     <a href="orderby.php?id=<?php echo $row['u_id'];?>"><button  type="button" class="btn btn-primary btn-sm rounded-0 py-0">
-                            Action
+                            View
                             </button></a>
                     </div>
                     </td>

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="loginstyle.css">
-    <title> Forget Password</title>
+    <title> Forgot Password</title>
 </head>
 <body>
     <center>
@@ -20,7 +20,7 @@
     <div class="container">
         <div class="forms">
             <div class="form login">
-                <span class="title">Forget Password</span>
+                <span class="title">Forgot Password</span>
                 <form action="" method="post" enctype="multipart/form-data">
                 <div class="input-field">
                     <input type="email" placeholder="Enter your email" name="femail" required>

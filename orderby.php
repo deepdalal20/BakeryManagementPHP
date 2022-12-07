@@ -145,10 +145,10 @@
                 <a class="nav-link" href="category.php"> Category</a>
               </li>  
               <li class="nav-item">
-                <a class="nav-link" href="edproduct.php"> Update Products</a>
+                <a class="nav-link" href="edproduct.php"> Products</a>
               </li>  
               <li class="nav-item">
-                <a class="nav-link" href="stock.php"> Update Stock</a>
+                <a class="nav-link" href="stock.php"> Stock</a>
               </li> 
               <li class="nav-item">
                 <a class="nav-link" href="customer.php">Customer</a>

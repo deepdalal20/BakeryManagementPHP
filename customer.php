@@ -37,10 +37,10 @@
                 <a class="nav-link" href="category.php"> Category</a>
               </li>  
               <li class="nav-item">
-                <a class="nav-link" href="edproduct.php"> Products</a>
+                <a class="nav-link" href="edproduct.php"> Update Products</a>
               </li>  
               <li class="nav-item">
-                <a class="nav-link" href="stock.php"> Stock</a>
+                <a class="nav-link" href="stock.php"> Update Stock</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Customer</a>

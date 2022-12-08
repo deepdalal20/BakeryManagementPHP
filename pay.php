@@ -114,5 +114,17 @@ $json = json_encode($data);
                     <input type="hidden" name="shopping_order_id" value="3456">
                     </form>
                 </div>
+                <style>
+                    .razorpay-payment-button{
+                    background-color: #fa9200;
+                    border: none;
+                    color: white;
+                    padding: 10px 20px;
+                    text-decoration: none;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                    border-radius: 25px;
+                    }
+                </style>
     </body>
 </html>
